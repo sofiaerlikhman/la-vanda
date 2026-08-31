@@ -3,34 +3,37 @@
 /* ── Begum (display face) — self-hosted ────────────────────────────
    Shipped here as the supplied desktop .otf cuts. Before a real
    production deploy: convert these to .woff2 (smaller, faster) and
-   double-check the licence covers web embedding — see README. */
+   double-check the licence covers web embedding — see README.
+   NOTE: the /la-vanda prefix is the site's GitHub Pages basePath (see
+   next.config.mjs). CSS url() is not rewritten by basePath automatically,
+   so it is hardcoded here; keep it in sync if basePath ever changes. */
 @font-face {
   font-family: "Begum";
-  src: url("/fonts/Begum-Light.otf") format("opentype");
+  src: url("/la-vanda/fonts/Begum-Light.otf") format("opentype");
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "Begum";
-  src: url("/fonts/Begum-Regular.otf") format("opentype");
+  src: url("/la-vanda/fonts/Begum-Regular.otf") format("opentype");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Begum";
-  src: url("/fonts/Begum-Medium.otf") format("opentype");
+  src: url("/la-vanda/fonts/Begum-Medium.otf") format("opentype");
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "Begum";
-  src: url("/fonts/Begum-Semibold.otf") format("opentype");
+  src: url("/la-vanda/fonts/Begum-Semibold.otf") format("opentype");
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: "Begum";
-  src: url("/fonts/Begum-Bold.otf") format("opentype");
+  src: url("/la-vanda/fonts/Begum-Bold.otf") format("opentype");
   font-weight: 700;
   font-display: swap;
 }

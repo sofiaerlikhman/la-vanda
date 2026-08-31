@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CutoffBanner from "@/components/CutoffBanner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -25,7 +26,7 @@ export default function AgbPage() {
         <h2>2. Vertragspartner</h2>
         <p>
           Vertragspartner ist la Vanda [Rechtsform, z. B. Inhaberin/GmbH — wird ergänzt], Marktstraße 12, 65183
-          Wiesbaden. Kontaktdaten findest du im <a href="/impressum">Impressum</a>.
+          Wiesbaden. Kontaktdaten findest du im <Link href="/impressum">Impressum</Link>.
         </p>
 
         <h2>3. Vertragsschluss</h2>
@@ -82,14 +83,14 @@ export default function AgbPage() {
         <p>
           Auf Sträuße geben wir sieben Tage Frischegarantie. Meldet sich ein Strauß früher ab, ersetzen wir ihn.
           Reklamationen bitte mit Bestellnummer und, wenn möglich, einem Foto an uns richten — Kontaktdaten stehen im{" "}
-          <a href="/impressum">Impressum</a>.
+          <Link href="/impressum">Impressum</Link>.
         </p>
 
         <h2>10. Widerrufsrecht</h2>
         <p>
           Als Verbraucherin oder Verbraucher steht dir grundsätzlich ein Widerrufsrecht zu. Bei frisch gebundener Ware
           entfällt es ab Bindebeginn. Die Einzelheiten stehen in unserer{" "}
-          <a href="/widerruf">Widerrufsbelehrung</a>.
+          <Link href="/widerruf">Widerrufsbelehrung</Link>.
         </p>
 
         <h2>11. Haftung</h2>

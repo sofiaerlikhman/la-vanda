@@ -26,6 +26,11 @@ export async function generateMetadata({ params }: AnlassPageProps): Promise<Met
   };
 }
 
+/** Pre-render one static page per occasion (required by `output: 'export'`). */
+export function generateStaticParams() {
+  return Object.keys(OCCASION_DETAILS).map((slug) => ({ slug }));
+}
+
 /** Curated picks in the exact order given by `productSlugs`, pulled from the real catalog — no invented products. */
 async function getCuratedProducts(slugs: string[]): Promise<Product[]> {
   const [straeusse, pflanzen] = await Promise.all([getCatalog("straeusse"), getCatalog("pflanzen")]);

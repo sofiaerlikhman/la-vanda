@@ -9,7 +9,7 @@ import ProductGallery from "@/components/produkt/ProductGallery";
 import BuyBox from "@/components/produkt/BuyBox";
 import FaqAccordion from "@/components/produkt/FaqAccordion";
 import AccessoryGrid from "@/components/produkt/AccessoryGrid";
-import { getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
+import { getAllProductSlugs, getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
 import { getAccessories } from "@/data/accessories";
 import styles from "./page.module.css";
 
@@ -34,11 +34,15 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   };
 }
 
+/** Pre-render one static page per product (required by `output: 'export'`). */
+export function generateStaticParams() {
+  return getAllProductSlugs().map((slug) => ({ slug }));
+}
+
 /**
- * Dynamic per-product route. Rendered on request via `getProductBySlug`
- * rather than pre-built with `generateStaticParams` — fine for a catalog
- * this size; worth adding static generation (or ISR) once products come
- * from a real database and the catalog grows.
+ * Dynamic per-product route, statically generated at build time for every
+ * slug from `generateStaticParams`. Once products come from a real database,
+ * this can move to on-demand rendering / ISR on a server host.
  */
 export default async function ProductPage({ params }: ProductPageProps) {
   const product = await getProductBySlug(params.slug);

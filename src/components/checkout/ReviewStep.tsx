@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type ChangeEvent } from "react";
+import Link from "next/link";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
 import { getDeliveryDayOptions } from "@/data/delivery";
@@ -117,7 +118,7 @@ export default function ReviewStep({ order, onChange, onEditStep, onSubmit, onBa
             onChange={(e: ChangeEvent<HTMLInputElement>) => onChange({ agbAccepted: e.target.checked })}
           />
           <span>
-            Ich habe die <a href="/agb">AGB</a> und den <a href="/widerruf">Widerruf</a> gelesen. Bei frisch gebundener Ware
+            Ich habe die <Link href="/agb">AGB</Link> und den <Link href="/widerruf">Widerruf</Link> gelesen. Bei frisch gebundener Ware
             entfällt das Widerrufsrecht ab Bindebeginn.
           </span>
         </label>

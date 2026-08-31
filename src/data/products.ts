@@ -274,6 +274,11 @@ export async function getProductBySlug(slug: string): Promise<Product | undefine
   return CATALOG_PRODUCTS.find((p) => p.slug === slug);
 }
 
+/** Every product slug — used to pre-render all /produkt/[slug] pages for static export. */
+export function getAllProductSlugs(): string[] {
+  return CATALOG_PRODUCTS.map((p) => p.slug);
+}
+
 export async function getRelatedProducts(product: Product, limit = 4): Promise<Product[]> {
   return CATALOG_PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, limit);
 }

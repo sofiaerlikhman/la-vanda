@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CutoffBanner from "@/components/CutoffBanner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -20,7 +21,7 @@ export default function DatenschutzPage() {
         <p>
           Verantwortlich für die Datenverarbeitung auf dieser Website ist la Vanda [Rechtsform — wird ergänzt],
           Marktstraße 12, 65183 Wiesbaden, Telefon 0611 000 000, E-Mail [E-Mail-Adresse wird ergänzt]. Weitere Angaben
-          im <a href="/impressum">Impressum</a>.
+          im <Link href="/impressum">Impressum</Link>.
         </p>
 
         <h2>Daten aus deiner Bestellung</h2>
