@@ -1,0 +1,98 @@
+@import "../styles/tokens.css";
+
+/* ── Begum (display face) — self-hosted ────────────────────────────
+   Shipped here as the supplied desktop .otf cuts. Before a real
+   production deploy: convert these to .woff2 (smaller, faster) and
+   double-check the licence covers web embedding — see README. */
+@font-face {
+  font-family: "Begum";
+  src: url("/fonts/Begum-Light.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Begum";
+  src: url("/fonts/Begum-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Begum";
+  src: url("/fonts/Begum-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Begum";
+  src: url("/fonts/Begum-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Begum";
+  src: url("/fonts/Begum-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--lv-cream-50);
+  color: var(--lv-ink);
+  font-family: var(--lv-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Mobile breakpoint ────────────────────────────────
+   375px was the wireframe's design width (see "la Vanda Wireframes
+   Mobile" reference, sketched at 300px); 768px is the cutover already
+   anticipated by --lv-margin's comment in tokens.css. Below it: tighter
+   side margins, and room reserved at the bottom for the fixed tab bar
+   (src/components/mobile/MobileTabBar) that replaces the desktop
+   header's nav/account/cart icons on small screens. */
+@media (max-width: 768px) {
+  :root {
+    --lv-margin: 24px;
+  }
+
+  body {
+    padding-bottom: var(--lv-tabbar-h);
+  }
+}
+
+a {
+  color: var(--lv-lav-700);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--lv-ink);
+}
+
+button {
+  font-family: inherit;
+}
+
+*:focus-visible {
+  outline: var(--lv-focus-ring);
+  outline-offset: var(--lv-focus-offset);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

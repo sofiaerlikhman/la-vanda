@@ -1,0 +1,52 @@
+import type { Metadata } from "next";
+import CutoffBanner from "@/components/CutoffBanner";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import LegalPage from "@/components/textseite/LegalPage";
+
+export const metadata: Metadata = {
+  title: "Barrierefreiheit — la Vanda",
+  description: "Erklärung zur Barrierefreiheit des la Vanda Onlineshops.",
+};
+
+export default function BarrierefreiheitPage() {
+  return (
+    <div>
+      <CutoffBanner />
+      <SiteHeader />
+
+      <LegalPage
+        title="Erklärung zur Barrierefreiheit"
+        lead="Wir wollen, dass jede Person hier bestellen kann. Diese Seite sagt, wo wir stehen und was noch fehlt."
+      >
+        <h2>Stand der Umsetzung</h2>
+        <p>
+          Wir arbeiten daran, den Shop an die WCAG 2.2 auf Stufe AA anzunähern. Bedienelemente sollen mit der Tastatur
+          erreichbar sein, der Fokus sichtbar bleiben und Status nie ausschließlich über Farbe vermittelt werden. Eine
+          vollständige, geprüfte Konformitätserklärung liegt noch nicht vor.
+        </p>
+
+        <h2>Bekannte Einschränkungen</h2>
+        <ul>
+          <li>Nicht alle Bereiche wurden bereits mit einem Screenreader vollständig getestet.</li>
+          <li>Ältere Produktfotos haben teils knappe oder fehlende Alternativtexte.</li>
+          <li>Diese Erklärung selbst ist ein Platzhalter und noch nicht durch eine externe Prüfstelle bestätigt.</li>
+        </ul>
+
+        <h2>Barriere melden</h2>
+        <p>
+          Ist dir etwas aufgefallen, das dich behindert? Schreib an [E-Mail-Adresse wird ergänzt] oder ruf 0611 000
+          000 an. Wir melden uns zurück und sagen, wie es weitergeht.
+        </p>
+
+        <h2>Durchsetzungsverfahren</h2>
+        <p>
+          Bist du mit unserer Antwort nicht zufrieden, kannst du dich an die Durchsetzungs- und Überwachungsstelle des
+          Landes Hessen wenden, die für die Barrierefreiheit von Websites zuständig ist.
+        </p>
+      </LegalPage>
+
+      <SiteFooter />
+    </div>
+  );
+}

@@ -1,0 +1,40 @@
+.trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item a {
+  color: var(--lv-ink-subtle);
+}
+.item a:hover {
+  color: var(--lv-lav-700);
+}
+
+.current {
+  color: var(--lv-ink-muted);
+}
+
+.sep {
+  color: var(--lv-line-str);
+}
+
+@media (max-width: 768px) {
+  .trail {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}

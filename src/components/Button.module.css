@@ -1,0 +1,109 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--lv-radius-1);
+  font-family: var(--lv-font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--lv-dur-micro) var(--lv-ease), color var(--lv-dur-micro) var(--lv-ease),
+    border-color var(--lv-dur-micro) var(--lv-ease);
+  border: 1px solid transparent;
+}
+
+.size48 {
+  height: 48px;
+  padding: 0 24px;
+}
+.size40 {
+  height: 40px;
+  padding: 0 16px;
+}
+.size32 {
+  height: 32px;
+  padding: 0 12px;
+}
+
+/* Primary */
+.primary {
+  background: var(--lv-lav-500);
+  color: var(--lv-cream-50);
+}
+.primary:hover {
+  background: var(--lv-lav-700);
+}
+.primary:active {
+  background: var(--lv-lav-900);
+}
+.primary:disabled {
+  background: var(--lv-lav-300);
+  color: #f2eef6;
+  cursor: not-allowed;
+}
+
+/* Secondary */
+.secondary {
+  background: transparent;
+  border-color: var(--lv-ink);
+  color: var(--lv-ink);
+}
+.secondary:hover {
+  background: var(--lv-ink);
+  border-color: var(--lv-ink);
+  color: var(--lv-cream-50);
+}
+.secondary:active {
+  background: var(--lv-lav-900);
+  border-color: var(--lv-lav-900);
+}
+.secondary:disabled {
+  background: transparent;
+  border-color: var(--lv-line-str);
+  color: var(--lv-lav-300);
+  cursor: not-allowed;
+}
+
+/* onLavender — for use on lav-500/700/900 surfaces */
+.onLavender {
+  background: transparent;
+  border-color: var(--lv-cream-50);
+  color: var(--lv-cream-50);
+}
+.onLavender:hover {
+  background: var(--lv-cream-100);
+  color: var(--lv-lav-900);
+}
+.onLavender:active {
+  background: var(--lv-cream-200);
+}
+.onLavender:disabled {
+  border-color: rgba(254, 243, 234, 0.4);
+  color: rgba(254, 243, 234, 0.55);
+  cursor: not-allowed;
+}
+
+/* Ghost */
+.ghost {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lv-lav-200);
+  color: var(--lv-lav-700);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+}
+.ghost:hover {
+  color: var(--lv-ink);
+}
+.ghost:active {
+  color: var(--lv-lav-900);
+}
+.ghost:disabled {
+  color: var(--lv-lav-300);
+  cursor: not-allowed;
+}

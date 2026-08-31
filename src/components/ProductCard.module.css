@@ -1,0 +1,102 @@
+.card {
+  display: block;
+  background: var(--lv-cream-50);
+  color: inherit;
+}
+.card:hover {
+  color: inherit;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.image {
+  transition: transform var(--lv-dur-micro) var(--lv-ease);
+}
+
+.card:hover .image {
+  transform: scale(1.03);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--lv-ink);
+  color: var(--lv-cream-50);
+  font-family: var(--lv-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+}
+
+.soldOutOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(254, 243, 234, 0.72);
+}
+
+.soldOutBadge {
+  background: var(--lv-err);
+  color: var(--lv-cream-50);
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+}
+
+.body {
+  padding: 16px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h3);
+  line-height: 1.25;
+  color: var(--lv-ink);
+}
+
+.price {
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--lv-ink);
+}
+
+.delivery {
+  margin: 12px 0 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-lav-700);
+}
+
+.deliveryWarn {
+  composes: delivery;
+  color: var(--lv-warn-text);
+}
+
+@media (max-width: 768px) {
+  .body {
+    padding: var(--lv-space-3);
+  }
+
+  .name {
+    font-size: var(--lv-text-body-l);
+  }
+
+  .price {
+    font-size: var(--lv-text-body-s);
+  }
+}

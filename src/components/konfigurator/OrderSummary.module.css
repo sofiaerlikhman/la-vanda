@@ -1,0 +1,144 @@
+.aside {
+  position: sticky;
+  top: var(--lv-space-9);
+  background: var(--lv-cream-100);
+  border: 1px solid var(--lv-line);
+}
+
+.top {
+  padding: var(--lv-space-6) var(--lv-space-6) 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.total {
+  margin: var(--lv-space-3) 0 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-m);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.summaryLine {
+  margin: var(--lv-space-2) 0 0;
+  font-size: var(--lv-text-body-s);
+  line-height: 1.5;
+  color: var(--lv-ink-muted);
+}
+
+.previewWrap {
+  padding: var(--lv-space-5) var(--lv-space-6) 0;
+}
+
+.preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.lines {
+  padding: var(--lv-space-5) var(--lv-space-6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lv-space-3);
+}
+
+.empty {
+  margin: 0;
+  font-size: var(--lv-text-body-s);
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--lv-space-4);
+  font-size: var(--lv-text-body-s);
+  color: var(--lv-ink);
+}
+
+.lineLabel {
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.lineValue {
+  font-family: var(--lv-font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.sumRow {
+  margin: var(--lv-space-5) var(--lv-space-6) 0;
+  border-top: 1px solid var(--lv-line-str);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sumLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.sumValue {
+  font-family: var(--lv-font-display);
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.cta {
+  padding: var(--lv-space-5) var(--lv-space-6) var(--lv-space-6);
+}
+
+.ctaButton {
+  width: 100%;
+}
+
+.hint {
+  margin: 14px 0 0;
+  font-size: var(--lv-text-body-s);
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.trust {
+  margin-top: var(--lv-space-4);
+  padding-top: 16px;
+  border-top: 1px solid var(--lv-line-str);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--lv-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-lav-700);
+}
+
+/* Below the 960px breakpoint (BouquetConfigurator.module.css) the summary
+   sits in normal flow beneath the option sections, not beside them — a
+   sticky offset there has no sidebar to pin against and just risks
+   overlapping content, so it's dropped to a normal flow block. */
+@media (max-width: 768px) {
+  .aside {
+    position: static;
+    top: auto;
+  }
+}

@@ -1,0 +1,95 @@
+/* la Vanda — Design Tokens (Atelier direction)
+   Drop-in CSS custom properties. Import once at the app root. */
+
+:root {
+  /* ── Surface / Cream ───────────────────────────── */
+  --lv-cream-50:  #FEF3EA;  /* page background, primary surface */
+  --lv-cream-100: #F7E9DE;  /* alt section, table stripe */
+  --lv-cream-200: #EFE0D2;  /* image placeholder, inset panel */
+  --lv-line:      #E8DED4;  /* hairline divider on cream */
+  --lv-line-str:  #DED5CB;  /* container border, input rest */
+
+  /* ── Lavender (brand) ──────────────────────────── */
+  --lv-lav-100:   #E4DFEC;  /* tint fill, selection, chips */
+  --lv-lav-200:   #C9C1D8;  /* borders on lavender fields */
+  --lv-lav-300:   #A9A0BC;  /* disabled brand, decorative */
+  --lv-lav-500:   #7D7197;  /* PRIMARY — fields, CTA, links */
+  --lv-lav-700:   #5C5273;  /* hover on primary, meta text */
+  --lv-lav-900:   #423A54;  /* pressed, text on cream buttons */
+
+  /* ── Ink ───────────────────────────────────────── */
+  --lv-ink:       #221E29;  /* headlines, nav bar, footer */
+  --lv-ink-muted: #4A4552;  /* body copy */
+  --lv-ink-subtle:#7A7481;  /* captions, mono labels */
+
+  /* ── Signal ────────────────────────────────────── */
+  --lv-ok:        #4E6B52;  /* in stock, delivered */
+  --lv-warn:      #B4763A;  /* low stock, cut-off soon */
+  --lv-err:       #A6412F;  /* form error, sold out */
+  --lv-warn-text: #8A5522;  /* warn as TEXT below 19px — 4.9:1 on cream-50, 4.6:1 on cream-100 */
+
+  /* ── Type families ─────────────────────────────── */
+  --lv-font-display: 'Begum', Georgia, 'Times New Roman', serif;
+  --lv-font-body:    'Montserrat', system-ui, -apple-system, sans-serif;
+  --lv-font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* ── Type scale (px) ───────────────────────────── */
+  --lv-text-display-xl: 96px;  /* line-height .95 / ls -.03em */
+  --lv-text-display-l:  72px;  /* .96 / -.03em */
+  --lv-text-display-m:  56px;  /* .98 / -.03em */
+  --lv-text-display-s:  40px;  /* 1.02 / -.02em */
+  --lv-text-h1:         32px;  /* 1.1  / -.02em */
+  --lv-text-h2:         24px;  /* 1.15 / -.01em */
+  --lv-text-h3:         19px;  /* 1.25 / 0 */
+  --lv-text-body-l:     18px;  /* 1.65 */
+  --lv-text-body:       16px;  /* 1.6 */
+  --lv-text-body-s:     14px;  /* 1.55 */
+  --lv-text-caption:    12px;  /* 1.45 */
+  --lv-text-label:      11px;  /* 1 / ls .12em / uppercase */
+  --lv-text-mono:       10px;  /* ls .1em / uppercase */
+
+  /* ── Spacing (4px base) ────────────────────────── */
+  --lv-space-1: 4px;
+  --lv-space-2: 8px;
+  --lv-space-3: 12px;
+  --lv-space-4: 16px;
+  --lv-space-5: 24px;
+  --lv-space-6: 32px;
+  --lv-space-7: 48px;
+  --lv-space-8: 64px;
+  --lv-space-9: 96px;
+  --lv-space-10:128px;
+
+  /* ── Layout ────────────────────────────────────── */
+  --lv-container: 1280px;
+  --lv-gutter:    24px;
+  --lv-margin:    48px;      /* 24px below 768px — overridden in globals.css */
+  --lv-hairline:  1px;
+
+  /* ── Breakpoints (px) ──────────────────────────────
+     Referenced in comments only — CSS custom properties can't be used
+     inside @media conditions, so every media query below repeats this
+     number literally. Keep them in sync if this ever changes. */
+  --lv-bp-mobile: 768px;
+
+  /* ── Mobile chrome ─────────────────────────────────
+     Fixed bottom tab bar (Start/Blumen/Suche/Konto/Korb), see
+     src/components/mobile/MobileTabBar. Body reserves this much space
+     below 768px so content never sits underneath it. */
+  --lv-tabbar-h: 56px;
+
+  /* ── Radius — Atelier is square by default ─────── */
+  --lv-radius-0:  0px;       /* cards, images, sections, banners */
+  --lv-radius-1:  2px;       /* buttons, inputs, selects, chips */
+  --lv-radius-full: 999px;   /* status dots and avatars ONLY */
+
+  /* ── Motion ────────────────────────────────────── */
+  --lv-ease:      cubic-bezier(0.2, 0, 0, 1);
+  --lv-dur-micro: 120ms;     /* hover, focus */
+  --lv-dur-ui:    200ms;     /* drawer, accordion */
+  --lv-dur-page:  320ms;     /* route transition, overlay */
+
+  /* ── Focus ─────────────────────────────────────── */
+  --lv-focus-ring: 2px solid var(--lv-lav-900);
+  --lv-focus-offset: 2px;
+}

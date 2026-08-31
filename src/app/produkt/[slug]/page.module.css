@@ -1,0 +1,41 @@
+.page {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-6) var(--lv-margin) var(--lv-space-9);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--lv-space-8);
+  margin-top: var(--lv-space-5);
+}
+
+.section {
+  margin-top: var(--lv-space-9);
+  padding-top: var(--lv-space-6);
+  border-top: 1px solid var(--lv-line);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--lv-space-5);
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-s);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--lv-space-6);
+  }
+
+  /* Room for BuyBox's fixed bottom purchase bar (see BuyBox.module.css)
+     sitting just above the mobile tab bar. */
+  .page {
+    padding-bottom: calc(var(--lv-tabbar-h) + 100px);
+  }
+}

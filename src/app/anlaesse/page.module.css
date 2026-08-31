@@ -1,0 +1,138 @@
+.page {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-6) var(--lv-margin) var(--lv-space-9);
+}
+
+.head {
+  max-width: 680px;
+  margin: var(--lv-space-5) 0 var(--lv-space-8);
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-l);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-5) 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--lv-line);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--lv-cream-50);
+  color: inherit;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--lv-space-5);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.card:hover .name {
+  color: var(--lv-lav-700);
+}
+
+.blurb {
+  flex: 1;
+  margin: var(--lv-space-3) 0 0;
+  font-size: var(--lv-text-body-s);
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--lv-space-3);
+  margin-top: var(--lv-space-5);
+  padding-top: var(--lv-space-4);
+  border-top: 1px solid var(--lv-line);
+}
+
+.price {
+  font-size: var(--lv-text-body-s);
+  font-weight: 700;
+  color: var(--lv-ink);
+}
+
+.view {
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-lav-700);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: var(--lv-text-display-m);
+    line-height: 0.98;
+  }
+}

@@ -1,0 +1,198 @@
+.page {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-6) var(--lv-margin) var(--lv-space-9);
+}
+
+.meta {
+  margin: var(--lv-space-5) 0 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  max-width: 760px;
+  margin: var(--lv-space-3) 0 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-m);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  max-width: 720px;
+  margin: var(--lv-space-4) 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.notice {
+  max-width: 760px;
+  margin: var(--lv-space-6) 0 0;
+  padding: var(--lv-space-4) var(--lv-space-5);
+  background: var(--lv-lav-100);
+  border: 1px solid var(--lv-lav-200);
+  border-radius: var(--lv-radius-0);
+}
+
+.notice p {
+  margin: 0;
+  font-size: var(--lv-text-body-s);
+  line-height: 1.6;
+  color: var(--lv-ink-muted);
+}
+
+.notice strong {
+  color: var(--lv-ink);
+  font-weight: 600;
+}
+
+/* ── Prose content — headings/paragraphs/lists set by the page files ── */
+
+.content {
+  max-width: 760px;
+  margin: var(--lv-space-7) 0 0;
+}
+
+.content h2 {
+  margin: var(--lv-space-7) 0 var(--lv-space-3);
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content h3 {
+  margin: var(--lv-space-6) 0 var(--lv-space-2);
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h2);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--lv-ink);
+}
+
+.content p {
+  margin: var(--lv-space-3) 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  color: var(--lv-ink-muted);
+}
+
+.content h2 + p,
+.content h3 + p {
+  margin-top: var(--lv-space-2);
+}
+
+.content ul,
+.content ol {
+  margin: var(--lv-space-3) 0 0;
+  padding-left: 22px;
+}
+
+.content li {
+  font-size: var(--lv-text-body);
+  line-height: 1.7;
+  color: var(--lv-ink-muted);
+  margin: 0 0 var(--lv-space-2);
+}
+
+.content li:last-child {
+  margin-bottom: 0;
+}
+
+.content li > ul,
+.content li > ol {
+  margin-top: var(--lv-space-2);
+}
+
+.content a {
+  color: var(--lv-lav-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content a:hover {
+  color: var(--lv-ink);
+}
+
+.content strong {
+  color: var(--lv-ink);
+  font-weight: 600;
+}
+
+.hr {
+  height: 1px;
+  border: 0;
+  max-width: 760px;
+  margin: var(--lv-space-8) 0;
+  background: var(--lv-line);
+}
+
+.table {
+  width: 100%;
+  margin: var(--lv-space-3) 0 0;
+  border-collapse: collapse;
+  font-size: var(--lv-text-body-s);
+  color: var(--lv-ink-muted);
+}
+
+.table th,
+.table td {
+  padding: var(--lv-space-2) var(--lv-space-3) var(--lv-space-2) 0;
+  text-align: left;
+  border-bottom: 1px solid var(--lv-line);
+  vertical-align: top;
+}
+
+.table th {
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+  font-weight: 400;
+}
+
+/* ── Mobile (≤768px) ──────────────────────────────────
+   Legal pages are text-only prose; --lv-margin already shrinks to
+   24px site-wide, so most of this is just trimming the display
+   heading and giving any table (e.g. an Impressum registry table)
+   its own horizontal scroll instead of forcing the page wide. */
+
+@media (max-width: 768px) {
+  .title {
+    /* display-m (56px) is set for a ~760px column; at 375–414px it
+       reads oversized even though it still wraps, so step down to
+       the next token — display-s, with the line-height/letter-spacing
+       already documented for it in tokens.css. */
+    font-size: var(--lv-text-display-s);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .notice {
+    padding: var(--lv-space-3) var(--lv-space-4);
+  }
+
+  .table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}

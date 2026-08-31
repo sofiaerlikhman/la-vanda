@@ -1,0 +1,113 @@
+.page {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-6) var(--lv-margin) var(--lv-space-9);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--lv-space-8);
+  align-items: start;
+  margin-top: var(--lv-space-5);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--lv-ink);
+  color: var(--lv-cream-50);
+  font-family: var(--lv-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  margin-bottom: var(--lv-space-5);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-l);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-5) 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+  max-width: 560px;
+}
+
+.heroImages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--lv-line);
+}
+
+.heroImage {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.infoStrip {
+  margin-top: var(--lv-space-9);
+  padding-top: var(--lv-space-6);
+  border-top: 1px solid var(--lv-line);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--lv-space-6);
+}
+
+.infoItem {
+  min-width: 0;
+}
+
+.infoLabel {
+  margin: 0 0 12px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.infoBody {
+  margin: 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.infoLink {
+  color: var(--lv-lav-700);
+  border-bottom: 1px solid var(--lv-lav-200);
+}
+.infoLink:hover {
+  color: var(--lv-ink);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .infoStrip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--lv-text-display-m);
+  }
+
+  .infoStrip {
+    gap: var(--lv-space-5);
+  }
+}

@@ -1,0 +1,96 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import CutoffBanner from "@/components/CutoffBanner";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import Breadcrumb from "@/components/Breadcrumb";
+import ProductGrid from "@/components/ProductGrid";
+import ProductGallery from "@/components/produkt/ProductGallery";
+import BuyBox from "@/components/produkt/BuyBox";
+import FaqAccordion from "@/components/produkt/FaqAccordion";
+import AccessoryGrid from "@/components/produkt/AccessoryGrid";
+import { getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
+import { getAccessories } from "@/data/accessories";
+import styles from "./page.module.css";
+
+const CATEGORY_LABELS: Record<Product["category"], string> = {
+  straeusse: "Sträuße",
+  pflanzen: "Pflanzen",
+  vasen: "Vasen & Zubehör",
+};
+
+type ProductPageProps = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const product = await getProductBySlug(params.slug);
+  if (!product) {
+    return { title: "Produkt nicht gefunden — la Vanda" };
+  }
+  return {
+    title: `${product.name} — la Vanda`,
+    description: product.description,
+  };
+}
+
+/**
+ * Dynamic per-product route. Rendered on request via `getProductBySlug`
+ * rather than pre-built with `generateStaticParams` — fine for a catalog
+ * this size; worth adding static generation (or ISR) once products come
+ * from a real database and the catalog grows.
+ */
+export default async function ProductPage({ params }: ProductPageProps) {
+  const product = await getProductBySlug(params.slug);
+  if (!product) {
+    notFound();
+  }
+
+  const [related, accessories] = await Promise.all([getRelatedProducts(product, 4), getAccessories()]);
+  const categoryLabel = CATEGORY_LABELS[product.category];
+
+  return (
+    <div>
+      <CutoffBanner />
+      <SiteHeader />
+
+      <div className={styles.page}>
+        <Breadcrumb
+          items={[
+            { label: "Start", href: "/" },
+            { label: categoryLabel, href: "/sortiment" },
+            { label: product.name },
+          ]}
+        />
+
+        <div className={styles.layout}>
+          <ProductGallery images={product.gallery ?? [product.image]} />
+          <BuyBox product={product} />
+        </div>
+
+        {product.faq && (
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Häufige Fragen</h2>
+            <FaqAccordion entries={product.faq} />
+          </div>
+        )}
+
+        {accessories.length > 0 && (
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Passt dazu</h2>
+            <AccessoryGrid accessories={accessories} />
+          </div>
+        )}
+
+        {related.length > 0 && (
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Ähnliche {categoryLabel}</h2>
+            <ProductGrid products={related} />
+          </div>
+        )}
+      </div>
+
+      <SiteFooter />
+    </div>
+  );
+}

@@ -1,0 +1,64 @@
+.tabbar {
+  display: none;
+}
+
+/* 768px: keep in sync with --lv-bp-mobile (see tokens.css comment). */
+@media (max-width: 768px) {
+  .tabbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    height: var(--lv-tabbar-h);
+    display: flex;
+    background: var(--lv-cream-50);
+    border-top: 1px solid var(--lv-line);
+  }
+}
+
+.tab {
+  flex: 1;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 4px 0 6px;
+  color: var(--lv-ink-subtle);
+  font-family: var(--lv-font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.active {
+  color: var(--lv-lav-700);
+}
+
+.iconWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  background: var(--lv-lav-500);
+  color: var(--lv-cream-50);
+  border-radius: var(--lv-radius-full);
+  font-family: var(--lv-font-mono);
+  font-size: 8px;
+  line-height: 1;
+}

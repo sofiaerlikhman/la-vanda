@@ -1,0 +1,33 @@
+.banner {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--lv-cream-100);
+  border-bottom: 1px solid var(--lv-line);
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-warn-text);
+}
+
+.dot {
+  color: var(--lv-line-str);
+}
+
+.area {
+  color: var(--lv-ink-subtle);
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: auto;
+    min-height: 36px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    padding: var(--lv-space-2) var(--lv-space-4);
+    text-align: center;
+  }
+}

@@ -1,0 +1,143 @@
+.list {
+  border-top: 1px solid var(--lv-line-str);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto auto;
+  gap: var(--lv-space-5);
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--lv-line-str);
+}
+
+.date {
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  font-family: var(--lv-font-display);
+  font-size: var(--lv-text-h2);
+  line-height: 1.15;
+  color: var(--lv-ink);
+}
+
+.seatsOk,
+.seatsWarn,
+.seatsFull {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.seatsOk {
+  color: var(--lv-ok);
+}
+.seatsOk .dot {
+  background: var(--lv-ok);
+}
+
+.seatsWarn {
+  color: var(--lv-warn-text);
+}
+.seatsWarn .dot {
+  background: var(--lv-warn);
+}
+
+.seatsFull {
+  color: var(--lv-err);
+}
+.seatsFull .dot {
+  background: var(--lv-err);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--lv-radius-full);
+}
+
+.bookButton {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  background: var(--lv-lav-500);
+  color: var(--lv-cream-50);
+  border: none;
+  border-radius: var(--lv-radius-1);
+  font-family: var(--lv-font-body);
+  font-size: var(--lv-text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--lv-dur-micro) var(--lv-ease);
+}
+.bookButton:hover {
+  background: var(--lv-lav-700);
+}
+
+.waitlistButton {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--lv-line-str);
+  border-radius: var(--lv-radius-1);
+  background: none;
+  font-family: var(--lv-font-body);
+  font-size: var(--lv-text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lv-lav-300);
+  white-space: nowrap;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "date seats"
+      "title title"
+      "button button";
+    row-gap: var(--lv-space-3);
+    padding: var(--lv-space-5) 0;
+  }
+
+  .date {
+    grid-area: date;
+  }
+
+  .seatsOk,
+  .seatsWarn,
+  .seatsFull {
+    grid-area: seats;
+    justify-self: end;
+  }
+
+  .title {
+    grid-area: title;
+    font-size: var(--lv-text-h3);
+  }
+
+  .bookButton,
+  .waitlistButton {
+    grid-area: button;
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+  }
+}
