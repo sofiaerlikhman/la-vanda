@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { formatPriceEUR } from "@/data/products";
 import styles from "./WorkshopList.module.css";
 
@@ -35,6 +36,7 @@ const WORKSHOPS: Workshop[] = [
  */
 export default function WorkshopList() {
   const { addItem } = useCart();
+  const t = useT();
   const [addedId, setAddedId] = useState<string | null>(null);
 
   function handleBook(workshop: Workshop) {
@@ -57,23 +59,25 @@ export default function WorkshopList() {
     <div className={styles.list}>
       {WORKSHOPS.map((workshop) => (
         <div key={workshop.id} className={styles.row}>
-          <span className={styles.date}>{workshop.date}</span>
-          <span className={styles.title}>{workshop.title}</span>
+          <span className={styles.date}>{t(workshop.date)}</span>
+          <span className={styles.title}>{t(workshop.title)}</span>
           <span
             className={
               workshop.status === "ok" ? styles.seatsOk : workshop.status === "warn" ? styles.seatsWarn : styles.seatsFull
             }
           >
             <span className={styles.dot} />
-            {workshop.seatsLabel}
+            {t(workshop.seatsLabel)}
           </span>
           {workshop.priceCents ? (
             <button type="button" className={styles.bookButton} onClick={() => handleBook(workshop)}>
-              {addedId === workshop.id ? "Hinzugefügt ✓" : `${formatPriceEUR(workshop.priceCents)} buchen`}
+              {addedId === workshop.id
+                ? t("Hinzugefügt ✓")
+                : t("{p} buchen").replace("{p}", formatPriceEUR(workshop.priceCents))}
             </button>
           ) : (
             <button type="button" className={styles.waitlistButton} disabled>
-              Warteliste
+              {t("Warteliste")}
             </button>
           )}
         </div>

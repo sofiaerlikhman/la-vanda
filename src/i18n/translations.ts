@@ -461,4 +461,111 @@ export const uk: Record<string, string> = {
   "Inhalt": "Вміст",
   "Ohne Konto? Bestellnummer und Postleitzahl genügen, um diesen Status wieder aufzurufen.":
     "Без акаунта? Досить номера замовлення й поштового індексу, щоб знову відкрити цей статус.",
+
+  // ════════════════════════════════════════════════════════════════════
+  //  SERVICE PAGES (atelier, abo, lieferung, gutschein, anfrage, …)
+  // ════════════════════════════════════════════════════════════════════
+  // Atelier page
+  "Atelier & Kontakt": "Ательє та контакти",
+  "Ein Laden mit Werkstatt dahinter. Vorne kannst du kaufen, hinten binden wir. Beides gehört zusammen.":
+    "Магазин із майстернею позаду. Спереду можна купувати, позаду ми збираємо букети. Одне без одного не існує.",
+  "Öffnungszeiten": "Години роботи",
+  "& Anfahrt": "та як дістатися",
+  "Montag bis Freitag": "Понеділок – п'ятниця",
+  "9–18:30 Uhr": "9–18:30",
+  "9–14 Uhr": "9–14",
+  "geschlossen": "зачинено",
+  "Zwei Minuten von der Haltestelle Luisenplatz. Parkhaus Marktstraße direkt gegenüber, erste halbe Stunde frei.":
+    "Дві хвилини від зупинки Luisenplatz. Паркінг Marktstraße прямо навпроти, перші півгодини безкоштовно.",
+  "Abholung reservieren": "Зарезервувати самовивіз",
+  "Nachricht schreiben": "Написати повідомлення",
+  "Wer bindet": "Хто збирає букети",
+  "Inhaberin, Floristmeisterin": "Власниця, майстриня-флористка",
+  "Floristik, Einkauf": "Флористика, закупівля",
+  "Installationen, Events": "Інсталяції, події",
+  "Porträt, Hochformat": "Портрет, вертикально",
+  "Ladenlokal Marktstraße von außen, Querformat": "Магазин на Marktstraße знадвору, горизонтально",
+  "Karte, Marktstraße 12": "Карта, Marktstraße 12",
+  "Workshops": "Майстер-класи",
+  "Zwei Stunden": "Дві години",
+  "an der Werkbank": "за робочим столом",
+  "Maximal acht Plätze. Material, Werkzeug und ein Glas Wein sind dabei, das Gebundene nimmst du mit.":
+    "Максимум вісім місць. Матеріали, інструменти та келих вина включені, зібране забираєте із собою.",
+  "Für Gruppen ab sechs Personen machen wir eigene Termine — auch außerhalb der Öffnungszeiten.":
+    "Для груп від шести осіб проводимо окремі заняття — навіть поза робочими годинами.",
+  "Nachricht": "Повідомлення",
+  "schreiben": "написати",
+  "Für Bestellungen, Reklamationen und alles andere. Für Installationen und Hochzeiten nimm besser das":
+    "Для замовлень, рекламацій та всього іншого. Для інсталяцій і весіль краще скористайтеся",
+  "Anfrageformular": "формою запиту",
+  // Workshops
+  "Do, 4. Sep": "Чт, 4 вер",
+  "Sa, 13. Sep": "Сб, 13 вер",
+  "Do, 25. Sep": "Чт, 25 вер",
+  "Sa, 11. Okt": "Сб, 11 жов",
+  "Herbstkranz binden": "Осінній вінок",
+  "Strauß frei gebunden": "Букет вільної форми",
+  "Trockenblumen & Gräser": "Сухоцвіти та трави",
+  "Tischschmuck für Gäste": "Прикраса столу для гостей",
+  "3 Plätze": "3 місця",
+  "1 Platz": "1 місце",
+  "Ausgebucht": "Розпродано",
+  "8 Plätze": "8 місць",
+  "Warteliste": "Список очікування",
+  "{p} buchen": "Забронювати {p}",
+  // Contact form (Atelier) + shared form strings
+  "Bitte Name, E-Mail und Nachricht ausfüllen.": "Будь ласка, заповніть ім'я, ел. пошту та повідомлення.",
+  "Danke, deine Nachricht ist da.": "Дякуємо, ваше повідомлення отримано.",
+  "Wir antworten am nächsten Werktag.": "Відповімо наступного робочого дня.",
+  "Name": "Ім'я",
+  "Bestellnummer, wenn es um eine Lieferung geht": "Номер замовлення, якщо йдеться про доставку",
+  "Nachricht senden": "Надіслати повідомлення",
+
+  // ── Trauer (bereavement) page ───────────────────────────────────────
+  "Trauerfloristik": "Траурна флористика",
+  "Trauerstrauß klassisch": "Траурний букет класичний",
+  "Trauerstrauß weiß": "Траурний букет білий",
+  "Bindegebinde": "В'язана композиція",
+  "Kranz 50 cm": "Вінок 50 см",
+  "Kranz 70 cm": "Вінок 70 см",
+  "Sargschmuck": "Оздоблення труни",
+  "Urnengebinde": "Композиція для урни",
+  "Grabgesteck": "Композиція на могилу",
+  "Ein Werktag Vorlauf": "Один робочий день наперед",
+  "Wir liefern direkt zur Trauerhalle oder ans Grab, pünktlich zur Aussegnung. Sag uns Datum, Uhrzeit und Ort — den Rest übernehmen wir.":
+    "Доставляємо прямо до траурної зали або на могилу, точно до церемонії прощання. Повідомте дату, час і місце — решту беремо на себе.",
+  "Wenn es schnell gehen muss: 0611 000 000. Wir gehen auch außerhalb der Öffnungszeiten ans Telefon.":
+    "Якщо потрібно швидко: 0611 000 000. Відповідаємо на дзвінки й поза робочими годинами.",
+  "Kurzfristig": "Терміново",
+  "Bis 10 Uhr bestellt, am Folgetag an der Halle": "Замовлення до 10:00 — наступного дня біля зали",
+  "Kränze und Sargschmuck brauchen einen Werktag Vorlauf. Bindegebinde und Trauersträuße gehen am selben Tag.":
+    "Вінки та оздоблення труни потребують одного робочого дня наперед. В'язані композиції та траурні букети — того ж дня.",
+  "Lieferung zur": "Доставка до",
+  "Trauerhalle": "траурної зали",
+  "Wir kennen die Friedhöfe in Wiesbaden und fahren dreißig Minuten vor Beginn vor. Die Schleife beschriften wir von Hand.":
+    "Ми знаємо кладовища Вісбадена й приїжджаємо за тридцять хвилин до початку. Стрічку підписуємо від руки.",
+  "Ohne Aufpreis": "Без доплати",
+  "Angaben zur Trauerfeier": "Дані про церемонію прощання",
+  "Nenne uns Name, Datum, Uhrzeit und Ort der Trauerfeier sowie den gewünschten Schleifentext — wir melden uns mit einem Vorschlag und dem Preis.":
+    "Повідомте ім'я, дату, час і місце церемонії, а також бажаний текст на стрічці — ми зв'яжемося з пропозицією та ціною.",
+  "Name der Verstorbenen oder des Verstorbenen": "Ім'я померлої або померлого",
+  "Datum, Uhrzeit und Ort (Friedhof oder Halle)": "Дата, час і місце (кладовище або зала)",
+  "Schleifentext, wir schreiben von Hand": "Текст на стрічці, пишемо від руки",
+  "Angaben zur Trauerfeier senden": "Надіслати дані про церемонію",
+  "Wir rufen zur Bestätigung zurück, meist innerhalb einer Stunde.":
+    "Ми передзвонимо для підтвердження, зазвичай упродовж години.",
+  "Häufige": "Поширені",
+  "Fragen": "запитання",
+  "Was kostet ein Kranz?": "Скільки коштує вінок?",
+  "Ab 140 € für 50 cm Durchmesser. Größere Kränze und Sargschmuck rechnen wir nach Aufwand, wir nennen den Preis vorher.":
+    "Від 140 € за 50 см у діаметрі. Більші вінки й оздоблення труни рахуємо за обсягом робіт, ціну називаємо заздалегідь.",
+  "Wie lang darf der Schleifentext sein?": "Якою може бути довжина тексту на стрічці?",
+  "Zwei Zeilen mit je 30 Zeichen passen gut. Mehr geht auf breiterem Band, das bestellen wir am Vortag.":
+    "Два рядки по 30 символів вміщуються добре. Більше — на ширшій стрічці, її замовляємо напередодні.",
+  "Können wir die Blumen vorher sehen?": "Чи можемо ми побачити квіти заздалегідь?",
+  "Ja. Wir schicken ein Foto, sobald das Gebinde fertig ist — vor der Lieferung, per Nachricht.":
+    "Так. Надішлемо фото, щойно композиція буде готова — перед доставкою, повідомленням.",
+  "Rechnung an das Bestattungshaus?": "Рахунок на похоронне бюро?",
+  "Möglich. Nenne uns das Haus, wir klären die Abrechnung direkt dort.":
+    "Можливо. Назвіть бюро — ми залагодимо розрахунок безпосередньо там.",
 };

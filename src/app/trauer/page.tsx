@@ -8,6 +8,7 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import FaqAccordion from "@/components/produkt/FaqAccordion";
 import type { ProductFaqEntry } from "@/data/products";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -64,21 +65,25 @@ export default function TrauerPage() {
 
         <section className={styles.hero}>
           <div>
-            <h1 className={styles.title}>Trauerfloristik</h1>
+            <h1 className={styles.title}>
+              <T de="Trauerfloristik" />
+            </h1>
             <p className={styles.intro}>
-              Wir liefern direkt zur Trauerhalle oder ans Grab, pünktlich zur Aussegnung. Sag uns Datum, Uhrzeit und
-              Ort — den Rest übernehmen wir.
+              <T de="Wir liefern direkt zur Trauerhalle oder ans Grab, pünktlich zur Aussegnung. Sag uns Datum, Uhrzeit und Ort — den Rest übernehmen wir." />
             </p>
             <p className={styles.phone}>
-              Wenn es schnell gehen muss: 0611 000 000. Wir gehen auch außerhalb der Öffnungszeiten ans Telefon.
+              <T de="Wenn es schnell gehen muss: 0611 000 000. Wir gehen auch außerhalb der Öffnungszeiten ans Telefon." />
             </p>
           </div>
           <div className={styles.shortNoticeCard}>
-            <p className={styles.eyebrow}>Kurzfristig</p>
-            <p className={styles.shortNoticeTitle}>Bis 10 Uhr bestellt, am Folgetag an der Halle</p>
+            <p className={styles.eyebrow}>
+              <T de="Kurzfristig" />
+            </p>
+            <p className={styles.shortNoticeTitle}>
+              <T de="Bis 10 Uhr bestellt, am Folgetag an der Halle" />
+            </p>
             <p className={styles.shortNoticeBody}>
-              Kränze und Sargschmuck brauchen einen Werktag Vorlauf. Bindegebinde und Trauersträuße gehen am selben
-              Tag.
+              <T de="Kränze und Sargschmuck brauchen einen Werktag Vorlauf. Bindegebinde und Trauersträuße gehen am selben Tag." />
             </p>
           </div>
         </section>
@@ -91,9 +96,13 @@ export default function TrauerPage() {
                   <ImagePlaceholder label={`${item.name}, quadratisch`} className={styles.productImage} />
                 </div>
                 <div className={styles.productBody}>
-                  <h3 className={styles.productName}>{item.name}</h3>
+                  <h3 className={styles.productName}>
+                    <T de={item.name} />
+                  </h3>
                   <p className={styles.productPrice}>{item.price}</p>
-                  <p className={styles.productLead}>{item.lead}</p>
+                  <p className={styles.productLead}>
+                    <T de={item.lead} />
+                  </p>
                 </div>
               </article>
             ))}
@@ -104,34 +113,44 @@ export default function TrauerPage() {
           <div className={styles.deliveryGrid}>
             <div>
               <h2 className={styles.deliveryTitle}>
-                Lieferung zur
+                <T de="Lieferung zur" />
                 <br />
-                Trauerhalle
+                <T de="Trauerhalle" />
               </h2>
               <p className={styles.deliveryBody}>
-                Wir kennen die Friedhöfe in Wiesbaden und fahren dreißig Minuten vor Beginn vor. Die Schleife
-                beschriften wir von Hand.
+                <T de="Wir kennen die Friedhöfe in Wiesbaden und fahren dreißig Minuten vor Beginn vor. Die Schleife beschriften wir von Hand." />
               </p>
               <div className={styles.deliveryZones}>
-                <p className={styles.eyebrow}>Ohne Aufpreis</p>
+                <p className={styles.eyebrow}>
+                  <T de="Ohne Aufpreis" />
+                </p>
                 <p className={styles.deliveryZonesList}>{FRIEDHOEFE.join(" · ")}</p>
               </div>
             </div>
             <div className={styles.requestCard}>
-              <p className={styles.eyebrow}>Angaben zur Trauerfeier</p>
+              <p className={styles.eyebrow}>
+                <T de="Angaben zur Trauerfeier" />
+              </p>
               <p className={styles.requestLead}>
-                Nenne uns Name, Datum, Uhrzeit und Ort der Trauerfeier sowie den gewünschten Schleifentext — wir
-                melden uns mit einem Vorschlag und dem Preis.
+                <T de="Nenne uns Name, Datum, Uhrzeit und Ort der Trauerfeier sowie den gewünschten Schleifentext — wir melden uns mit einem Vorschlag und dem Preis." />
               </p>
               <ul className={styles.requestList}>
-                <li>Name der Verstorbenen oder des Verstorbenen</li>
-                <li>Datum, Uhrzeit und Ort (Friedhof oder Halle)</li>
-                <li>Schleifentext, wir schreiben von Hand</li>
+                <li>
+                  <T de="Name der Verstorbenen oder des Verstorbenen" />
+                </li>
+                <li>
+                  <T de="Datum, Uhrzeit und Ort (Friedhof oder Halle)" />
+                </li>
+                <li>
+                  <T de="Schleifentext, wir schreiben von Hand" />
+                </li>
               </ul>
               <Button href="/anfrage" variant="primary" size={48} className={styles.requestButton}>
-                Angaben zur Trauerfeier senden
+                <T de="Angaben zur Trauerfeier senden" />
               </Button>
-              <p className={styles.requestReassurance}>Wir rufen zur Bestätigung zurück, meist innerhalb einer Stunde.</p>
+              <p className={styles.requestReassurance}>
+                <T de="Wir rufen zur Bestätigung zurück, meist innerhalb einer Stunde." />
+              </p>
             </div>
           </div>
         </section>
@@ -139,9 +158,9 @@ export default function TrauerPage() {
         <section className={styles.faqSection}>
           <div className={styles.faqGrid}>
             <h2 className={styles.faqTitle}>
-              Häufige
+              <T de="Häufige" />
               <br />
-              Fragen
+              <T de="Fragen" />
             </h2>
             <FaqAccordion entries={TRAUER_FAQ} />
           </div>
@@ -149,7 +168,7 @@ export default function TrauerPage() {
 
         <section className={styles.moreSection}>
           <Link href="/anlaesse" className={styles.moreLink}>
-            Weitere Anlässe
+            <T de="Weitere Anlässe" />
           </Link>
         </section>
       </div>

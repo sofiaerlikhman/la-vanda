@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import WorkshopList from "@/components/atelier/WorkshopList";
 import AtelierContactForm from "@/components/atelier/AtelierContactForm";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -38,10 +39,12 @@ export default function AtelierPage() {
       <section className={styles.hero}>
         <ImagePlaceholder label="Ladenlokal Marktstraße von außen, Querformat" className={styles.heroImage} />
         <div className={styles.heroPanel}>
-          <p className={styles.eyebrow}>Atelier &amp; Kontakt</p>
+          <p className={styles.eyebrow}>
+            <T de="Atelier & Kontakt" />
+          </p>
           <h1 className={styles.heroTitle}>Marktstraße 12</h1>
           <p className={styles.heroLead}>
-            Ein Laden mit Werkstatt dahinter. Vorne kannst du kaufen, hinten binden wir. Beides gehört zusammen.
+            <T de="Ein Laden mit Werkstatt dahinter. Vorne kannst du kaufen, hinten binden wir. Beides gehört zusammen." />
           </p>
         </div>
       </section>
@@ -54,34 +57,45 @@ export default function AtelierPage() {
         <div className={styles.hoursGrid}>
           <div>
             <h2 className={styles.sectionTitleM}>
-              Öffnungszeiten
+              <T de="Öffnungszeiten" />
               <br />
-              &amp; Anfahrt
+              <T de="& Anfahrt" />
             </h2>
             <div className={styles.hoursTable}>
               <div className={styles.hoursRow}>
-                <span>Montag bis Freitag</span>
-                <span className={styles.hoursValue}>9–18:30 Uhr</span>
+                <span>
+                  <T de="Montag bis Freitag" />
+                </span>
+                <span className={styles.hoursValue}>
+                  <T de="9–18:30 Uhr" />
+                </span>
               </div>
               <div className={styles.hoursRow}>
-                <span>Samstag</span>
-                <span className={styles.hoursValue}>9–14 Uhr</span>
+                <span>
+                  <T de="Samstag" />
+                </span>
+                <span className={styles.hoursValue}>
+                  <T de="9–14 Uhr" />
+                </span>
               </div>
               <div className={styles.hoursRow}>
-                <span>Sonntag</span>
-                <span className={styles.hoursValue}>geschlossen</span>
+                <span>
+                  <T de="Sonntag" />
+                </span>
+                <span className={styles.hoursValue}>
+                  <T de="geschlossen" />
+                </span>
               </div>
             </div>
             <p className={styles.hoursNote}>
-              Zwei Minuten von der Haltestelle Luisenplatz. Parkhaus Marktstraße direkt gegenüber, erste halbe Stunde
-              frei.
+              <T de="Zwei Minuten von der Haltestelle Luisenplatz. Parkhaus Marktstraße direkt gegenüber, erste halbe Stunde frei." />
             </p>
             <div className={styles.hoursActions}>
               <Button href="/checkout" variant="primary" size={48}>
-                Abholung reservieren
+                <T de="Abholung reservieren" />
               </Button>
               <Button href="#kontakt" variant="secondary" size={48}>
-                Nachricht schreiben
+                <T de="Nachricht schreiben" />
               </Button>
             </div>
           </div>
@@ -92,7 +106,9 @@ export default function AtelierPage() {
       </section>
 
       <section className={styles.teamSection}>
-        <h2 className={styles.sectionTitleL}>Wer bindet</h2>
+        <h2 className={styles.sectionTitleL}>
+          <T de="Wer bindet" />
+        </h2>
         <div className={styles.teamGrid}>
           {TEAM.map((member) => (
             <article key={member.name} className={styles.teamCard}>
@@ -101,7 +117,9 @@ export default function AtelierPage() {
               </div>
               <div className={styles.teamBody}>
                 <h3 className={styles.teamName}>{member.name}</h3>
-                <p className={styles.teamRole}>{member.role}</p>
+                <p className={styles.teamRole}>
+                  <T de={member.role} />
+                </p>
               </div>
             </article>
           ))}
@@ -111,17 +129,19 @@ export default function AtelierPage() {
       <section id="workshops" className={styles.workshopSection}>
         <div className={styles.workshopWrap}>
           <div>
-            <p className={styles.eyebrow}>Workshops</p>
+            <p className={styles.eyebrow}>
+              <T de="Workshops" />
+            </p>
             <h2 className={styles.sectionTitleL}>
-              Zwei Stunden
+              <T de="Zwei Stunden" />
               <br />
-              an der Werkbank
+              <T de="an der Werkbank" />
             </h2>
             <p className={styles.workshopLead}>
-              Maximal acht Plätze. Material, Werkzeug und ein Glas Wein sind dabei, das Gebundene nimmst du mit.
+              <T de="Maximal acht Plätze. Material, Werkzeug und ein Glas Wein sind dabei, das Gebundene nimmst du mit." />
             </p>
             <p className={styles.workshopNote}>
-              Für Gruppen ab sechs Personen machen wir eigene Termine — auch außerhalb der Öffnungszeiten.
+              <T de="Für Gruppen ab sechs Personen machen wir eigene Termine — auch außerhalb der Öffnungszeiten." />
             </p>
           </div>
           <WorkshopList />
@@ -132,13 +152,16 @@ export default function AtelierPage() {
         <div className={styles.contactGrid}>
           <div>
             <h2 className={styles.sectionTitleM}>
-              Nachricht
+              <T de="Nachricht" />
               <br />
-              schreiben
+              <T de="schreiben" />
             </h2>
             <p className={styles.contactLead}>
-              Für Bestellungen, Reklamationen und alles andere. Für Installationen und Hochzeiten nimm besser das{" "}
-              <Link href="/anfrage">Anfrageformular</Link>.
+              <T de="Für Bestellungen, Reklamationen und alles andere. Für Installationen und Hochzeiten nimm besser das" />{" "}
+              <Link href="/anfrage">
+                <T de="Anfrageformular" />
+              </Link>
+              .
             </p>
             <div className={styles.contactInfo}>
               <p>

@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./AtelierContactForm.module.css";
 
 type FormValues = {
@@ -24,6 +25,7 @@ const EMPTY_FORM: FormValues = { name: "", email: "", orderNumber: "", message: 
  * once a backend exists — nothing here is actually sent anywhere.
  */
 export default function AtelierContactForm() {
+  const t = useT();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +37,7 @@ export default function AtelierContactForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!values.name.trim() || !values.email.trim() || !values.message.trim()) {
-      setError("Bitte Name, E-Mail und Nachricht ausfüllen.");
+      setError(t("Bitte Name, E-Mail und Nachricht ausfüllen."));
       return;
     }
     setError(null);
@@ -45,8 +47,8 @@ export default function AtelierContactForm() {
   if (submitted) {
     return (
       <div className={styles.confirmation} role="status">
-        <p className={styles.confirmationTitle}>Danke, deine Nachricht ist da.</p>
-        <p className={styles.confirmationBody}>Wir antworten am nächsten Werktag.</p>
+        <p className={styles.confirmationTitle}>{t("Danke, deine Nachricht ist da.")}</p>
+        <p className={styles.confirmationBody}>{t("Wir antworten am nächsten Werktag.")}</p>
       </div>
     );
   }
@@ -54,7 +56,7 @@ export default function AtelierContactForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <label className={styles.field}>
-        <span>Name</span>
+        <span>{t("Name")}</span>
         <input
           type="text"
           className={styles.input}
@@ -63,7 +65,7 @@ export default function AtelierContactForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>E-Mail</span>
+        <span>{t("E-Mail")}</span>
         <input
           type="email"
           className={styles.input}
@@ -72,7 +74,7 @@ export default function AtelierContactForm() {
         />
       </label>
       <label className={`${styles.field} ${styles.fieldWide}`}>
-        <span>Bestellnummer, wenn es um eine Lieferung geht</span>
+        <span>{t("Bestellnummer, wenn es um eine Lieferung geht")}</span>
         <input
           type="text"
           placeholder="LV-26-0000"
@@ -82,7 +84,7 @@ export default function AtelierContactForm() {
         />
       </label>
       <label className={`${styles.field} ${styles.fieldWide}`}>
-        <span>Nachricht</span>
+        <span>{t("Nachricht")}</span>
         <textarea
           rows={5}
           className={styles.textarea}
@@ -97,9 +99,9 @@ export default function AtelierContactForm() {
       )}
       <div className={styles.actions}>
         <Button type="submit" variant="primary" size={48}>
-          Nachricht senden
+          {t("Nachricht senden")}
         </Button>
-        <span className={styles.note}>Wir antworten am nächsten Werktag.</span>
+        <span className={styles.note}>{t("Wir antworten am nächsten Werktag.")}</span>
       </div>
     </form>
   );
