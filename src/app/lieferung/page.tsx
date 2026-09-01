@@ -8,6 +8,7 @@ import FaqAccordion from "@/components/produkt/FaqAccordion";
 import DeliveryZoneCheck from "@/components/lieferung/DeliveryZoneCheck";
 import LiveDeliveryWindows from "@/components/lieferung/LiveDeliveryWindows";
 import type { ProductFaqEntry } from "@/data/products";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -85,15 +86,16 @@ export default function LieferungPage() {
 
         <div className={styles.hero}>
           <div>
-            <p className={styles.eyebrow}>Lieferung &amp; Service</p>
+            <p className={styles.eyebrow}>
+              <T de="Lieferung & Service" />
+            </p>
             <h1 className={styles.title}>
-              Eigene Fahrer,
+              <T de="Eigene Fahrer," />
               <br />
-              zwei Fenster
+              <T de="zwei Fenster" />
             </h1>
             <p className={styles.lead}>
-              Kein Paketdienst. Der Strauß verlässt das Atelier am Bestelltag und kommt im Wasser transportiert bei
-              dir an.
+              <T de="Kein Paketdienst. Der Strauß verlässt das Atelier am Bestelltag und kommt im Wasser transportiert bei dir an." />
             </p>
           </div>
           <DeliveryZoneCheck />
@@ -102,23 +104,33 @@ export default function LieferungPage() {
         <div className={styles.windowGrid}>
           {WINDOWS.map((w) => (
             <div key={w.eyebrow} className={styles.windowCard}>
-              <p className={styles.windowEyebrow}>{w.eyebrow}</p>
-              <p className={styles.windowTitle}>{w.title}</p>
-              <p className={styles.windowNote}>{w.note}</p>
+              <p className={styles.windowEyebrow}>
+                <T de={w.eyebrow} />
+              </p>
+              <p className={styles.windowTitle}>
+                <T de={w.title} />
+              </p>
+              <p className={styles.windowNote}>
+                <T de={w.note} />
+              </p>
             </div>
           ))}
         </div>
 
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Nächste Liefertermine</h2>
+          <h2 className={styles.sectionTitle}>
+            <T de="Nächste Liefertermine" />
+          </h2>
           <p className={styles.sectionLead}>
-            Live berechnet aus dem Bestellschluss von oben — schau nach 9 Uhr oder nach 14 Uhr noch einmal vorbei.
+            <T de="Live berechnet aus dem Bestellschluss von oben — schau nach 9 Uhr oder nach 14 Uhr noch einmal vorbei." />
           </p>
           <LiveDeliveryWindows />
         </div>
 
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Liefergebiet</h2>
+          <h2 className={styles.sectionTitle}>
+            <T de="Liefergebiet" />
+          </h2>
           <div className={styles.zoneLayout}>
             <div className={styles.mapWrap}>
               <ImagePlaceholder label="Karte Wiesbaden mit Liefergebiet" />
@@ -127,13 +139,17 @@ export default function LieferungPage() {
               <div className={styles.zoneList}>
                 {ZONES.map((z) => (
                   <div key={z.area} className={styles.zoneRow}>
-                    <span>{z.area}</span>
-                    <span className={z.free ? styles.zoneFeeFree : styles.zoneFee}>{z.fee}</span>
+                    <span>
+                      <T de={z.area} />
+                    </span>
+                    <span className={z.free ? styles.zoneFeeFree : styles.zoneFee}>
+                      <T de={z.fee} />
+                    </span>
                   </div>
                 ))}
               </div>
               <p className={styles.zoneNote}>
-                Außerhalb dieser Orte fahren wir auf Absprache. Ruf an, wir sagen dir sofort, ob es passt.
+                <T de="Außerhalb dieser Orte fahren wir auf Absprache. Ruf an, wir sagen dir sofort, ob es passt." />
               </p>
             </div>
           </div>
@@ -144,8 +160,12 @@ export default function LieferungPage() {
         <div className={styles.stripInner}>
           {SERVICE_ITEMS.map((item) => (
             <div key={item.title}>
-              <h3 className={styles.stripTitle}>{item.title}</h3>
-              <p className={styles.stripBody}>{item.body}</p>
+              <h3 className={styles.stripTitle}>
+                <T de={item.title} />
+              </h3>
+              <p className={styles.stripBody}>
+                <T de={item.body} />
+              </p>
             </div>
           ))}
         </div>
@@ -155,11 +175,13 @@ export default function LieferungPage() {
         <div className={styles.faqLayout}>
           <div>
             <h2 className={styles.faqTitle}>
-              Fragen &amp;
+              <T de="Fragen &" />
               <br />
-              Antworten
+              <T de="Antworten" />
             </h2>
-            <p className={styles.faqNote}>Nichts gefunden? 0611 000 000, Mo–Fr 9–18:30 Uhr.</p>
+            <p className={styles.faqNote}>
+              <T de="Nichts gefunden? 0611 000 000, Mo–Fr 9–18:30 Uhr." />
+            </p>
           </div>
           <FaqAccordion entries={FAQ} />
         </div>

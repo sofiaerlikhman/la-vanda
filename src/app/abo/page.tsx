@@ -8,6 +8,7 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 import FaqAccordion from "@/components/produkt/FaqAccordion";
 import type { ProductFaqEntry } from "@/data/products";
 import AboConfigurator from "@/components/abo/AboConfigurator";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -78,15 +79,16 @@ export default function AboPage() {
             <ImagePlaceholder label="Abo-Strauß auf Werkbank, Hochformat 3:4" />
           </div>
           <div>
-            <p className={styles.eyebrow}>Blumenabo</p>
+            <p className={styles.eyebrow}>
+              <T de="Blumenabo" />
+            </p>
             <h1 className={styles.title}>
-              Jede Woche
+              <T de="Jede Woche" />
               <br />
-              frisch gebunden
+              <T de="frisch gebunden" />
             </h1>
             <p className={styles.lead}>
-              Du wählst Rhythmus, Größe und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis
-              18 Uhr am Vortag, kündigen jederzeit.
+              <T de="Du wählst Rhythmus, Größe und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis 18 Uhr am Vortag, kündigen jederzeit." />
             </p>
 
             <AboConfigurator />
@@ -96,13 +98,19 @@ export default function AboPage() {
 
       <section className={styles.stepsBand}>
         <div className={styles.stepsInner}>
-          <h2 className={styles.stepsTitle}>So läuft das Abo</h2>
+          <h2 className={styles.stepsTitle}>
+            <T de="So läuft das Abo" />
+          </h2>
           <div className={styles.stepsGrid}>
             {STEPS.map((step) => (
               <div key={step.index} className={styles.step}>
                 <p className={styles.stepIndex}>{step.index}</p>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepBody}>{step.body}</p>
+                <h3 className={styles.stepTitle}>
+                  <T de={step.title} />
+                </h3>
+                <p className={styles.stepBody}>
+                  <T de={step.body} />
+                </p>
               </div>
             ))}
           </div>
@@ -112,18 +120,19 @@ export default function AboPage() {
       <div className={styles.officeWrap}>
         <section className={styles.officeSection}>
           <div>
-            <p className={styles.eyebrow}>Büro-Abo</p>
+            <p className={styles.eyebrow}>
+              <T de="Büro-Abo" />
+            </p>
             <h2 className={styles.officeTitle}>
-              Für Empfang
+              <T de="Für Empfang" />
               <br />
-              und Besprechung
+              <T de="und Besprechung" />
             </h2>
             <p className={styles.officeBody}>
-              Ab drei Vasen im Haus rechnen wir monatlich auf Rechnung ab. Vasen stellen wir, Wasserwechsel machen
-              wir mit.
+              <T de="Ab drei Vasen im Haus rechnen wir monatlich auf Rechnung ab. Vasen stellen wir, Wasserwechsel machen wir mit." />
             </p>
             <Button variant="secondary" href="/firmenkunden" className={styles.officeCta}>
-              Firmenkunden ansehen
+              <T de="Firmenkunden ansehen" />
             </Button>
           </div>
           <div>

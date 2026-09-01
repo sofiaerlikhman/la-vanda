@@ -568,4 +568,108 @@ export const uk: Record<string, string> = {
   "Rechnung an das Bestattungshaus?": "Рахунок на похоронне бюро?",
   "Möglich. Nenne uns das Haus, wir klären die Abrechnung direkt dort.":
     "Можливо. Назвіть бюро — ми залагодимо розрахунок безпосередньо там.",
+
+  // ── Abo (subscription) page + configurator ──────────────────────────
+  "Wir kaufen ein": "Ми закуповуємо",
+  "Dreimal pro Woche am Großmarkt. Was gut ist, kommt ins Abo.":
+    "Тричі на тиждень на оптовому ринку. Що добре — потрапляє в підписку.",
+  "Am Morgen gebunden": "Зібрано вранці",
+  "Kein Lagerstrauß. Jede Woche eine andere Handschrift.": "Жодних складських букетів. Щотижня інший почерк.",
+  "Abends geliefert": "Доставлено ввечері",
+  "Eigene Fahrer, dein Fenster. SMS zwanzig Minuten vorher.": "Власні водії, ваше вікно. SMS за двадцять хвилин.",
+  "Du steuerst": "Ви керуєте",
+  "Pausieren, verschieben, kündigen — im Konto, ohne Anruf.": "Призупинити, перенести, скасувати — в акаунті, без дзвінка.",
+  "Blumenabo": "Підписка на квіти",
+  "Jede Woche": "Щотижня",
+  "frisch gebunden": "свіжо зібрані",
+  "Du wählst Rhythmus, Größe und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis 18 Uhr am Vortag, kündigen jederzeit.":
+    "Ви обираєте ритм, розмір і день тижня. Ми збираємо вранці й доставляємо ввечері. Призупинити можна до 18:00 напередодні, скасувати будь-коли.",
+  "So läuft das Abo": "Як працює підписка",
+  "Büro-Abo": "Офісна підписка",
+  "Für Empfang": "Для рецепції",
+  "und Besprechung": "та переговорної",
+  "Ab drei Vasen im Haus rechnen wir monatlich auf Rechnung ab. Vasen stellen wir, Wasserwechsel machen wir mit.":
+    "Від трьох ваз у приміщенні рахуємо щомісяця за рахунком. Вази надаємо, воду міняємо самі.",
+  "Firmenkunden ansehen": "Переглянути для компаній",
+  "Abo-Strauß auf Werkbank, Hochformat 3:4": "Букет за підпискою на робочому столі, вертикально 3:4",
+  "Was, wenn ich verreise?": "А якщо я поїду?",
+  "Pausieren bis 18 Uhr am Vortag im Konto. Die Lieferung fällt aus, berechnet wird nichts.":
+    "Призупиніть до 18:00 напередодні в акаунті. Доставка скасовується, нічого не стягуємо.",
+  "Kann ich Blumen ausschließen?": "Чи можу я виключити певні квіти?",
+  "Ja. Notiere Allergien oder Abneigungen im Konto, wir hinterlegen sie am Bindeplatz.":
+    "Так. Зазначте алергії чи небажані квіти в акаунті — ми врахуємо їх на робочому місці.",
+  "Wie lange läuft das Abo?": "Скільки триває підписка?",
+  "Unbefristet, kündbar bis 18 Uhr am Vortag der nächsten Lieferung.":
+    "Безстроково, можна скасувати до 18:00 напередодні наступної доставки.",
+  "Abo als Geschenk?": "Підписка в подарунок?",
+  "Wähle im Checkout drei, sechs oder zwölf Lieferungen. Danach endet es von selbst.":
+    "Оберіть під час оформлення три, шість або дванадцять доставок. Після цього підписка завершиться сама.",
+  // Configurator
+  "je Woche": "на тиждень",
+  "alle zwei Wochen": "кожні два тижні",
+  "je Monat": "на місяць",
+  "Alle 2 Wochen": "Кожні 2 тижні",
+  "Einmal im Monat": "Раз на місяць",
+  "Zehn bis zwölf Stiele, für die Küche": "Десять–дванадцять стебел, для кухні",
+  "Achtzehn Stiele, unsere häufigste Größe": "Вісімнадцять стебел, наш найпопулярніший розмір",
+  "Dreißig Stiele, für Tresen und Empfang": "Тридцять стебел, для стійки та рецепції",
+  "1 · Rhythmus": "1 · Ритм",
+  "2 · Größe": "2 · Розмір",
+  "3 · Wochentag & Fenster": "3 · День тижня та вікно",
+  "Wochentag": "День тижня",
+  "Abo abschließen": "Оформити підписку",
+  "Lieferung inklusive": "доставка включена",
+  "Erste Lieferung {d}, {w}. Danach automatisch, bis du pausierst.":
+    "Перша доставка {d}, {w}. Далі автоматично, доки не призупините.",
+
+  // ── Lieferung (delivery) page + components ──────────────────────────
+  "Lieferung & Service": "Доставка та сервіс",
+  "Eigene Fahrer,": "Власні водії,",
+  "zwei Fenster": "два вікна",
+  "Kein Paketdienst. Der Strauß verlässt das Atelier am Bestelltag und kommt im Wasser transportiert bei dir an.":
+    "Жодних поштових служб. Букет залишає ательє в день замовлення й прибуває до вас у воді.",
+  "Fenster A": "Вікно A",
+  "Fenster B": "Вікно B",
+  "Ab 2 Std.": "Від 2 год",
+  "Bestellschluss 9 Uhr am selben Tag": "Прийом до 9:00 того ж дня",
+  "Bestellschluss 14 Uhr am selben Tag": "Прийом до 14:00 того ж дня",
+  "Bestellschluss Freitag 17 Uhr": "Прийом до п'ятниці 17:00",
+  "Marktstraße 12, ohne Aufpreis": "Marktstraße 12, без доплати",
+  "Nächste Liefertermine": "Найближчі дати доставки",
+  "Live berechnet aus dem Bestellschluss von oben — schau nach 9 Uhr oder nach 14 Uhr noch einmal vorbei.":
+    "Розраховано наживо за прийомом замовлень вище — зазирніть ще раз після 9:00 або після 14:00.",
+  "Liefergebiet": "Зона доставки",
+  "Karte Wiesbaden mit Liefergebiet": "Карта Вісбадена із зоною доставки",
+  "Ab 90 € Warenwert": "Від вартості товару 90 €",
+  "ohne Kosten": "безкоштовно",
+  "Außerhalb dieser Orte fahren wir auf Absprache. Ruf an, wir sagen dir sofort, ob es passt.":
+    "Поза цими районами їздимо за домовленістю. Зателефонуйте — одразу скажемо, чи можливо.",
+  "Wenn niemand da ist": "Якщо нікого немає вдома",
+  "Du legst im Checkout fest, was dann passiert: Nachbarn, vor der Tür oder zurück ins Atelier. Wir schreiben dir in jedem Fall eine SMS.":
+    "Ви вказуєте під час оформлення, що робити далі: сусіди, під дверима чи назад в ательє. У будь-якому разі надішлемо SMS.",
+  "Auf Wunsch bleiben Karte und Lieferschein ohne Absender. Die Option steht in Schritt 2 des Checkouts.":
+    "За бажанням листівка й накладна лишаються без відправника. Опція є на кроці 2 оформлення.",
+  "Sieben Tage Haltbarkeit. Hält der Strauß nicht, binden wir neu oder erstatten — ohne Rücksendung, ein Foto genügt.":
+    "Сім днів свіжості. Якщо букет не витримає, зберемо новий або повернемо кошти — без повернення товару, досить фото.",
+  "Fragen &": "Питання та",
+  "Antworten": "відповіді",
+  "Nichts gefunden? 0611 000 000, Mo–Fr 9–18:30 Uhr.": "Не знайшли? 0611 000 000, Пн–Пт 9–18:30.",
+  "Wie transportiert ihr die Blumen?": "Як ви перевозите квіти?",
+  "In Wassergel und Papierhülle, aufrecht in Transportkisten. Im Sommer fahren wir mit Kühlung.":
+    "У водному гелі та паперовій обгортці, вертикально в транспортних ящиках. Улітку їздимо з охолодженням.",
+  "Kann ich ein genaueres Zeitfenster bekommen?": "Чи можу я отримати точніше часове вікно?",
+  "Am Liefertag bekommst du zwanzig Minuten vor Ankunft eine SMS mit Namen des Fahrers.":
+    "У день доставки за двадцять хвилин до прибуття ви отримаєте SMS з іменем водія.",
+  "Liefert ihr an Sonntagen?": "Чи доставляєте ви в неділю?",
+  "Nein. Für Trauerfälle und Hochzeiten machen wir Ausnahmen — ruf an, dann finden wir eine Lösung.":
+    "Ні. Для траурних випадків і весіль робимо винятки — зателефонуйте, і ми знайдемо рішення.",
+  "Wie pflege ich den Strauß?": "Як доглядати за букетом?",
+  "Stiele schräg anschneiden, Wasser alle zwei Tage wechseln, nicht neben Obst oder Heizung stellen.":
+    "Підрізайте стебла навскіс, міняйте воду кожні два дні, не ставте біля фруктів чи опалення.",
+  "Wo finde ich meine Bestellung ohne Konto?": "Де знайти моє замовлення без акаунта?",
+  "Mit Bestellnummer und Postleitzahl auf der Bestellstatus-Seite — die eigenständige Such-Seite dafür ist noch nicht angebunden [wird ergänzt]. Ruf in der Zwischenzeit gern an.":
+    "За номером замовлення й поштовим індексом на сторінці статусу — окрема сторінка пошуку ще не підключена [буде додано]. Тим часом радо приймемо дзвінок.",
+  "Termine werden geladen …": "Завантаження дат …",
+  "Verfügbare Liefertermine": "Доступні дати доставки",
+  "Kein Liefertag": "Не день доставки",
 };

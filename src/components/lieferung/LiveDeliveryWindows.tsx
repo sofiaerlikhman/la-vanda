@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getDeliveryDayOptions, type DeliveryDayOption } from "@/data/delivery";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./LiveDeliveryWindows.module.css";
 
 const DAYS_SHOWN = 5;
@@ -17,6 +18,7 @@ const DAYS_SHOWN = 5;
  * takes over (same pattern as OrderCountdown).
  */
 export default function LiveDeliveryWindows() {
+  const t = useT();
   const [days, setDays] = useState<DeliveryDayOption[] | null>(null);
 
   useEffect(() => {
@@ -28,25 +30,25 @@ export default function LiveDeliveryWindows() {
   }, []);
 
   if (days === null) {
-    return <p className={styles.loading}>Termine werden geladen …</p>;
+    return <p className={styles.loading}>{t("Termine werden geladen …")}</p>;
   }
 
   return (
-    <div className={styles.board} role="table" aria-label="Verfügbare Liefertermine">
+    <div className={styles.board} role="table" aria-label={t("Verfügbare Liefertermine")}>
       {days.map((day) => (
         <div key={day.offsetDays} className={styles.row} role="row">
           <div className={styles.dayCell} role="rowheader">
-            <p className={styles.dayLabel}>{day.dayLabel}</p>
+            <p className={styles.dayLabel}>{t(day.dayLabel)}</p>
             <p className={styles.dateLabel}>{day.dateLabel}</p>
           </div>
           <div className={styles.windows} role="cell">
-            {day.windows.length === 0 && <span className={styles.closed}>Kein Liefertag</span>}
+            {day.windows.length === 0 && <span className={styles.closed}>{t("Kein Liefertag")}</span>}
             {day.windows.map((w) => (
               <div key={w.id} className={styles.windowChip}>
                 <span className={w.available ? styles.dotOk : styles.dotClosed} aria-hidden="true" />
-                <span className={styles.windowLabel}>{w.label}</span>
+                <span className={styles.windowLabel}>{t(w.label)}</span>
                 {w.statusLabel && (
-                  <span className={w.available ? styles.statusOpen : styles.statusClosed}>{w.statusLabel}</span>
+                  <span className={w.available ? styles.statusOpen : styles.statusClosed}>{t(w.statusLabel)}</span>
                 )}
               </div>
             ))}

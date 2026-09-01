@@ -3,6 +3,7 @@
 import { useMemo, useState, type ChangeEvent } from "react";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { formatPriceEUR } from "@/data/products";
 import styles from "./AboConfigurator.module.css";
 
@@ -84,6 +85,7 @@ function formatDeliveryDate(date: Date): string {
  */
 export default function AboConfigurator() {
   const { addItem } = useCart();
+  const t = useT();
   const [rhythm, setRhythm] = useState<RhythmId>("weekly");
   const [size, setSize] = useState<SizeId>("m");
   const [weekday, setWeekday] = useState<Weekday>("Dienstag");
@@ -116,10 +118,10 @@ export default function AboConfigurator() {
       {
         id: `product:abo:${rhythm}-${size}`,
         kind: "product",
-        name: `Blumenabo, Größe ${selectedSize.label.toLowerCase()}`,
+        name: `${t("Blumenabo")}, ${t("Größe")} ${t(selectedSize.label).toLowerCase()}`,
         priceCents: selectedSize.priceCents,
         image: `Abo-Strauß, Größe ${selectedSize.label.toLowerCase()}, quadratisch`,
-        meta: `${selectedRhythm.cartLabel}, Größe ${selectedSize.label.toLowerCase()}`,
+        meta: `${t(selectedRhythm.cartLabel)}, ${t("Größe")} ${t(selectedSize.label).toLowerCase()}`,
       },
       1
     );
@@ -129,8 +131,8 @@ export default function AboConfigurator() {
 
   return (
     <div>
-      <p className={`${styles.stepLabel} ${styles.stepLabelFirst}`}>1 · Rhythmus</p>
-      <div className={styles.rhythmRow} role="group" aria-label="Rhythmus">
+      <p className={`${styles.stepLabel} ${styles.stepLabelFirst}`}>{t("1 · Rhythmus")}</p>
+      <div className={styles.rhythmRow} role="group" aria-label={t("Rhythmus")}>
         {RHYTHMS.map((r) => (
           <button
             key={r.id}
@@ -139,13 +141,13 @@ export default function AboConfigurator() {
             aria-pressed={r.id === rhythm}
             onClick={() => handleRhythmChange(r.id)}
           >
-            {r.label}
+            {t(r.label)}
           </button>
         ))}
       </div>
 
-      <p className={styles.stepLabel}>2 · Größe</p>
-      <div className={styles.sizeList} role="group" aria-label="Größe">
+      <p className={styles.stepLabel}>{t("2 · Größe")}</p>
+      <div className={styles.sizeList} role="group" aria-label={t("Größe")}>
         {SIZES.map((s) => (
           <button
             key={s.id}
@@ -155,27 +157,27 @@ export default function AboConfigurator() {
             onClick={() => handleSizeChange(s.id)}
           >
             <span className={styles.sizeText}>
-              <span className={styles.sizeName}>{s.label}</span>
-              <span className={styles.sizeDescription}>{s.description}</span>
+              <span className={styles.sizeName}>{t(s.label)}</span>
+              <span className={styles.sizeDescription}>{t(s.description)}</span>
             </span>
             <span className={styles.sizePrice}>{formatPriceEUR(s.priceCents)}</span>
           </button>
         ))}
       </div>
 
-      <p className={styles.stepLabel}>3 · Wochentag &amp; Fenster</p>
+      <p className={styles.stepLabel}>{t("3 · Wochentag & Fenster")}</p>
       <div className={styles.selectRow}>
-        <select className={styles.select} value={weekday} onChange={handleWeekdayChange} aria-label="Wochentag">
+        <select className={styles.select} value={weekday} onChange={handleWeekdayChange} aria-label={t("Wochentag")}>
           {WEEKDAYS.map((day) => (
             <option key={day} value={day}>
-              {day}
+              {t(day)}
             </option>
           ))}
         </select>
-        <select className={styles.select} value={deliveryWindow} onChange={handleWindowChange} aria-label="Zeitfenster">
+        <select className={styles.select} value={deliveryWindow} onChange={handleWindowChange} aria-label={t("Zeitfenster")}>
           {DELIVERY_WINDOWS.map((w) => (
             <option key={w} value={w}>
-              {w}
+              {t(w)}
             </option>
           ))}
         </select>
@@ -183,14 +185,16 @@ export default function AboConfigurator() {
 
       <div className={styles.ctaRow}>
         <Button variant="primary" className={styles.ctaButton} onClick={handleSubmit}>
-          {added ? "Hinzugefügt ✓" : "Abo abschließen"}
+          {added ? t("Hinzugefügt ✓") : t("Abo abschließen")}
         </Button>
         <span className={styles.summary}>
-          {formatPriceEUR(selectedSize.priceCents)} {selectedRhythm.perUnit}, Lieferung inklusive
+          {formatPriceEUR(selectedSize.priceCents)} {t(selectedRhythm.perUnit)}, {t("Lieferung inklusive")}
         </span>
       </div>
       <p className={styles.firstDelivery}>
-        Erste Lieferung {firstDeliveryDate}, {deliveryWindow}. Danach automatisch, bis du pausierst.
+        {t("Erste Lieferung {d}, {w}. Danach automatisch, bis du pausierst.")
+          .replace("{d}", firstDeliveryDate)
+          .replace("{w}", t(deliveryWindow))}
       </p>
     </div>
   );

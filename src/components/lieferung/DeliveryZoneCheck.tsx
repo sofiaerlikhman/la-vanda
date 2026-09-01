@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { checkDeliveryZone, type DeliveryCheckResult } from "@/data/delivery";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./DeliveryZoneCheck.module.css";
 
 /**
@@ -12,6 +13,7 @@ import styles from "./DeliveryZoneCheck.module.css";
  * doc comment for the placeholder-zone caveat.
  */
 export default function DeliveryZoneCheck() {
+  const t = useT();
   const [plz, setPlz] = useState("");
   const [result, setResult] = useState<DeliveryCheckResult | null>(null);
   const [checking, setChecking] = useState(false);
@@ -26,25 +28,25 @@ export default function DeliveryZoneCheck() {
 
   return (
     <div className={styles.panel}>
-      <p className={styles.label}>Liefern wir zu dir?</p>
+      <p className={styles.label}>{t("Liefern wir zu dir?")}</p>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"
           inputMode="numeric"
-          placeholder="Postleitzahl"
+          placeholder={t("Postleitzahl")}
           value={plz}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setPlz(event.target.value)}
           className={styles.input}
-          aria-label="Postleitzahl"
+          aria-label={t("Postleitzahl")}
         />
         <button type="submit" className={styles.button} disabled={checking}>
-          Prüfen
+          {t("Prüfen")}
         </button>
       </form>
       {result && (
         <div className={styles.resultRow} role="status">
           <span className={result.deliverable ? styles.dotOk : styles.dotWarn} aria-hidden="true" />
-          <span className={result.deliverable ? styles.resultOk : styles.resultWarn}>{result.message}</span>
+          <span className={result.deliverable ? styles.resultOk : styles.resultWarn}>{t(result.message)}</span>
         </div>
       )}
     </div>
