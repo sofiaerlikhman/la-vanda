@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Button from "@/components/Button";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import FirmenkontoForm from "@/components/firmenkunden/FirmenkontoForm";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -62,22 +63,23 @@ export default function FirmenkundenPage() {
         <section className={styles.heroSection}>
           <div className={styles.heroGrid}>
             <div>
-              <p className={styles.eyebrow}>Firmenkunden</p>
+              <p className={styles.eyebrow}>
+                <T de="Firmenkunden" />
+              </p>
               <h1 className={styles.heroTitle}>
-                Blumen
+                <T de="Blumen" />
                 <br />
-                auf Rechnung
+                <T de="auf Rechnung" />
               </h1>
               <p className={styles.heroLead}>
-                Ein Ansprechpartner, monatliche Sammelrechnung, feste Preise. Für Empfang, Geburtstage im Team und
-                Kundengeschenke.
+                <T de="Ein Ansprechpartner, monatliche Sammelrechnung, feste Preise. Für Empfang, Geburtstage im Team und Kundengeschenke." />
               </p>
               <div className={styles.heroActions}>
                 <Button href="#konto" variant="primary" size={48}>
-                  Firmenkonto anlegen
+                  <T de="Firmenkonto anlegen" />
                 </Button>
                 <Button href="/anfrage" variant="secondary" size={48}>
-                  Installation anfragen
+                  <T de="Installation anfragen" />
                 </Button>
               </div>
             </div>
@@ -91,10 +93,18 @@ export default function FirmenkundenPage() {
           <div className={styles.pricingGrid}>
             {PRICING.map((item) => (
               <div key={item.title} className={styles.pricingCard}>
-                <p className={styles.eyebrow}>{item.eyebrow}</p>
-                <h2 className={styles.pricingTitle}>{item.title}</h2>
-                <p className={styles.pricingLead}>{item.lead}</p>
-                <p className={styles.pricingPrice}>{item.price}</p>
+                <p className={styles.eyebrow}>
+                  <T de={item.eyebrow} />
+                </p>
+                <h2 className={styles.pricingTitle}>
+                  <T de={item.title} />
+                </h2>
+                <p className={styles.pricingLead}>
+                  <T de={item.lead} />
+                </p>
+                <p className={styles.pricingPrice}>
+                  <T de={item.price} />
+                </p>
               </div>
             ))}
           </div>
@@ -104,17 +114,23 @@ export default function FirmenkundenPage() {
           <div className={styles.capabilitiesGrid}>
             <div>
               <h2 className={styles.sectionTitleS}>
-                Was ein
+                <T de="Was ein" />
                 <br />
-                Firmenkonto kann
+                <T de="Firmenkonto kann" />
               </h2>
-              <p className={styles.capabilitiesNote}>Freigeschaltet innerhalb eines Werktags, nach kurzer Bonitätsprüfung.</p>
+              <p className={styles.capabilitiesNote}>
+                <T de="Freigeschaltet innerhalb eines Werktags, nach kurzer Bonitätsprüfung." />
+              </p>
             </div>
             <div className={styles.capabilitiesTable}>
               {CAPABILITIES.map((item) => (
                 <div key={item.label} className={styles.capabilityRow}>
-                  <span className={styles.capabilityLabel}>{item.label}</span>
-                  <span className={styles.capabilityValue}>{item.value}</span>
+                  <span className={styles.capabilityLabel}>
+                    <T de={item.label} />
+                  </span>
+                  <span className={styles.capabilityValue}>
+                    <T de={item.value} />
+                  </span>
                 </div>
               ))}
             </div>
@@ -126,12 +142,12 @@ export default function FirmenkundenPage() {
         <div className={styles.formWrap}>
           <div>
             <h2 className={styles.sectionTitleL}>
-              Firmenkonto
+              <T de="Firmenkonto" />
               <br />
-              anlegen
+              <T de="anlegen" />
             </h2>
             <p className={styles.formLead}>
-              Wir melden uns mit den Zahlungsbedingungen und einem Vorschlag für den Wochenplan.
+              <T de="Wir melden uns mit den Zahlungsbedingungen und einem Vorschlag für den Wochenplan." />
             </p>
           </div>
           <FirmenkontoForm />

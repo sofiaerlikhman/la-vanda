@@ -779,4 +779,111 @@ export const uk: Record<string, string> = {
   "Ich bin mit der Verarbeitung meiner Angaben zur Bearbeitung dieser Anfrage einverstanden.":
     "Я погоджуюся з обробкою моїх даних для опрацювання цього запиту.",
   "Anfrage senden": "Надіслати запит",
+
+  // ── Firmenkunden (business customers) page + form ───────────────────
+  // ("Blumen" and "auf Rechnung" are already defined above — reused here.)
+  "Firmenkunden": "Для компаній",
+  "Ein Ansprechpartner, monatliche Sammelrechnung, feste Preise. Für Empfang, Geburtstage im Team und Kundengeschenke.":
+    "Один контакт, щомісячний зведений рахунок, фіксовані ціни. Для рецепції, днів народження в команді та подарунків клієнтам.",
+  "Firmenkonto anlegen": "Створити корпоративний акаунт",
+  "Installation anfragen": "Замовити інсталяцію",
+  "Einzeln": "Окремо",
+  "Saisonal": "Сезонно",
+  "Sammelbestellung": "Групове замовлення",
+  "Deko & Event": "Декор та події",
+  "Frische Vasen im Haus, Wasserwechsel inklusive. Ab drei Standorten mit Wochenplan.":
+    "Свіжі вази в приміщенні, зміна води включена. Від трьох локацій із тижневим планом.",
+  "ab 44,00 € je Vase und Woche": "від 44,00 € за вазу на тиждень",
+  "Bis zu fünfzig Adressen in einem Vorgang, jede mit eigener Karte. CSV-Import möglich.":
+    "До п'ятдесяти адрес за один раз, кожна з власною листівкою. Можливий імпорт CSV.",
+  "ab 28,00 € je Adresse": "від 28,00 € за адресу",
+  "Schaufenster, Weihnachten, Sommerfest. Aufbau und Abbau durch uns.":
+    "Вітрини, Різдво, літнє свято. Монтаж і демонтаж — за нами.",
+  "Angebot nach Termin": "Пропозиція після зустрічі",
+  "Was ein": "Що вміє",
+  "Firmenkonto kann": "корпоративний акаунт",
+  "Freigeschaltet innerhalb eines Werktags, nach kurzer Bonitätsprüfung.":
+    "Активація впродовж одного робочого дня, після короткої перевірки платоспроможності.",
+  "Adressen": "Адреси",
+  "Sammelrechnung zum Monatsende, 14 Tage netto, auf Wunsch mit Kostenstelle":
+    "Зведений рахунок наприкінці місяця, 14 днів нетто, за бажанням із центром витрат",
+  "Adressbuch für Standorte und Mitarbeitende, Import per CSV":
+    "Адресна книга для локацій і працівників, імпорт через CSV",
+  "Nutzer": "Користувачі",
+  "Mehrere Bestellberechtigte, ein Budget, Freigabe durch die Verwaltung":
+    "Кілька осіб із правом замовлення, один бюджет, погодження керівництвом",
+  "Wiederholung": "Повторення",
+  "Geburtstagsliste einmal hinterlegen, wir erinnern und liefern":
+    "Один раз внесіть список днів народжень — ми нагадаємо й доставимо",
+  "Eine Durchwahl, ein Name — kein Ticketsystem": "Один номер, одне ім'я — без тікет-системи",
+  "Firmenkonto": "Корпоративний акаунт",
+  "anlegen": "створити",
+  "Wir melden uns mit den Zahlungsbedingungen und einem Vorschlag für den Wochenplan.":
+    "Ми зв'яжемося з умовами оплати та пропозицією тижневого плану.",
+  // Form
+  "Bitte Firma, Ansprechpartner, Telefon und E-Mail ausfüllen.":
+    "Будь ласка, заповніть компанію, контактну особу, телефон та ел. пошту.",
+  "Wir melden uns innerhalb eines Werktags mit den Zahlungsbedingungen und einem Vorschlag für den Wochenplan.":
+    "Ми зв'яжемося впродовж одного робочого дня з умовами оплати та пропозицією тижневого плану.",
+  "Firma": "Компанія",
+  "USt-IdNr., wenn vorhanden": "ПДВ-номер, якщо є",
+  "Ansprechpartner": "Контактна особа",
+  "E-Mail für Rechnungen": "Ел. пошта для рахунків",
+  "Interesse": "Інтерес",
+  "Mehreres": "Кілька",
+  "Standorte in Wiesbaden": "Локації у Вісбадені",
+  "Einer": "Один",
+  "Zwei bis drei": "Два–три",
+  "Mehr als drei": "Більше трьох",
+  "Anmerkungen": "Примітки",
+  "Konto beantragen": "Подати заявку",
+  "Freischaltung innerhalb eines Werktags.": "Активація впродовж одного робочого дня.",
+
+  // ── Konto (account) page ────────────────────────────────────────────
+  "Anmelden": "Увійти",
+  "Vorschau: Kontobereich": "Попередній перегляд: акаунт",
+  "Mit Konto: Bestellungen im Blick, Abo verwalten, Adressen hinterlegen. Registrieren dauert eine Minute.":
+    "З акаунтом: замовлення на видноті, керування підпискою, збереження адрес. Реєстрація займає хвилину.",
+  "So ist der Kontobereich aufgebaut, sobald echte Konten angebunden sind — ohne echte Daten.":
+    "Так виглядатиме розділ акаунта, щойно підключать справжні акаунти — без реальних даних.",
+  "Registrieren": "Зареєструватися",
+  "Passwort": "Пароль",
+  "Passwort bestätigen": "Підтвердьте пароль",
+  "Konto erstellen": "Створити акаунт",
+  "Bitte E-Mail-Adresse angeben.": "Будь ласка, вкажіть адресу ел. пошти.",
+  "Das sieht nicht nach einer gültigen E-Mail aus.": "Це не схоже на дійсну ел. пошту.",
+  "Bitte Passwort angeben.": "Будь ласка, введіть пароль.",
+  "Bitte Vorname angeben.": "Будь ласка, вкажіть ім'я.",
+  "Bitte Nachname angeben.": "Будь ласка, вкажіть прізвище.",
+  "Mindestens 8 Zeichen.": "Щонайменше 8 символів.",
+  "Die Passwörter stimmen nicht überein.": "Паролі не збігаються.",
+  "Konten sind in dieser Version noch nicht angebunden — hier entsteht später die echte Anmeldung.":
+    "Акаунти в цій версії ще не підключені — тут згодом з'явиться справжній вхід.",
+  "Bestellungen": "Замовлення",
+  "Abo verwalten": "Керування підпискою",
+  "Daten & Zahlung": "Дані та оплата",
+  "Vorschau — noch nicht mit echten Konten verbunden. Alles hier ist ein leerer Beispielzustand, keine echten Daten.":
+    "Попередній перегляд — ще не з'єднано зі справжніми акаунтами. Усе тут — порожній приклад, без реальних даних.",
+  "Zurück zur Anmeldung": "Назад до входу",
+  "← Übersicht": "← Огляд",
+  "Noch keine Bestellungen.": "Ще немає замовлень.",
+  "Sobald du bestellst, erscheinen Status und Verlauf hier.":
+    "Щойно ви зробите замовлення, тут з'являться статус і історія.",
+  "Sträuße entdecken": "Відкрити букети",
+  "Noch kein Abo aktiv.": "Ще немає активної підписки.",
+  "Rhythmus, Größe und Lieferfenster lassen sich hier verwalten, sobald der Abo-Konfigurator angebunden ist. [wird ergänzt]":
+    "Ритм, розмір і вікно доставки можна буде керувати тут, щойно підключать конфігуратор підписки. [буде додано]",
+  "Adresse hinzufügen": "Додати адресу",
+  "Adressverwaltung ist in dieser Vorschau noch nicht angebunden.":
+    "Керування адресами в цьому попередньому перегляді ще не підключено.",
+  "Noch keine gespeicherte Adresse.": "Ще немає збереженої адреси.",
+  "Hinterlegte Lieferadressen erscheinen hier.": "Збережені адреси доставки з'являться тут.",
+  "Mobil, für die SMS vor der Lieferung": "Мобільний, для SMS перед доставкою",
+  "Änderungen speichern": "Зберегти зміни",
+  "Zahlungsart": "Спосіб оплати",
+  "Noch keine Zahlungsart hinterlegt.": "Ще не додано спосіб оплати.",
+  "Newsletter": "Розсилка",
+  "Einmal im Monat, was in der Werkstatt steht": "Раз на місяць — що є в майстерні",
+  "Nur als Vorschau lokal ausgewählt — ohne Konto wird das nicht gespeichert.":
+    "Обрано лише локально для перегляду — без акаунта це не збережеться.",
 };

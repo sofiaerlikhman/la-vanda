@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./KontoView.module.css";
 
 /**
@@ -69,6 +70,7 @@ const NOT_CONNECTED_NOTICE =
   "Konten sind in dieser Version noch nicht angebunden — hier entsteht später die echte Anmeldung.";
 
 export default function KontoView() {
+  const t = useT();
   const [view, setView] = useState<ViewMode>("auth");
   const [authMode, setAuthMode] = useState<AuthMode>("login");
 
@@ -141,12 +143,14 @@ export default function KontoView() {
   return (
     <div>
       <div className={styles.head}>
-        <p className={styles.eyebrow}>Konto</p>
-        <h1 className={styles.title}>{view === "auth" ? "Anmelden" : "Vorschau: Kontobereich"}</h1>
+        <p className={styles.eyebrow}>{t("Konto")}</p>
+        <h1 className={styles.title}>{t(view === "auth" ? "Anmelden" : "Vorschau: Kontobereich")}</h1>
         <p className={styles.lead}>
-          {view === "auth"
-            ? "Mit Konto: Bestellungen im Blick, Abo verwalten, Adressen hinterlegen. Registrieren dauert eine Minute."
-            : "So ist der Kontobereich aufgebaut, sobald echte Konten angebunden sind — ohne echte Daten."}
+          {t(
+            view === "auth"
+              ? "Mit Konto: Bestellungen im Blick, Abo verwalten, Adressen hinterlegen. Registrieren dauert eine Minute."
+              : "So ist der Kontobereich aufgebaut, sobald echte Konten angebunden sind — ohne echte Daten.",
+          )}
         </p>
       </div>
 
@@ -156,14 +160,14 @@ export default function KontoView() {
           className={view === "auth" ? `${styles.modePill} ${styles.modePillActive}` : styles.modePill}
           onClick={() => setView("auth")}
         >
-          Anmelden
+          {t("Anmelden")}
         </button>
         <button
           type="button"
           className={view === "preview" ? `${styles.modePill} ${styles.modePillActive}` : styles.modePill}
           onClick={() => setView("preview")}
         >
-          Vorschau: Kontobereich
+          {t("Vorschau: Kontobereich")}
         </button>
       </div>
 
@@ -175,21 +179,21 @@ export default function KontoView() {
               className={authMode === "login" ? `${styles.authTab} ${styles.authTabActive}` : styles.authTab}
               onClick={() => switchAuthMode("login")}
             >
-              Anmelden
+              {t("Anmelden")}
             </button>
             <button
               type="button"
               className={authMode === "register" ? `${styles.authTab} ${styles.authTabActive}` : styles.authTab}
               onClick={() => switchAuthMode("register")}
             >
-              Registrieren
+              {t("Registrieren")}
             </button>
           </div>
 
           {authMode === "login" ? (
             <form className={styles.form} onSubmit={handleLoginSubmit} noValidate>
               <label className={styles.field}>
-                <span>E-Mail</span>
+                <span>{t("E-Mail")}</span>
                 <input
                   type="email"
                   value={loginFields.email}
@@ -197,10 +201,10 @@ export default function KontoView() {
                   className={styles.input}
                   aria-invalid={Boolean(loginErrors.email)}
                 />
-                {loginErrors.email && <span className={styles.errorText}>{loginErrors.email}</span>}
+                {loginErrors.email && <span className={styles.errorText}>{t(loginErrors.email)}</span>}
               </label>
               <label className={styles.field}>
-                <span>Passwort</span>
+                <span>{t("Passwort")}</span>
                 <input
                   type="password"
                   value={loginFields.password}
@@ -208,18 +212,18 @@ export default function KontoView() {
                   className={styles.input}
                   aria-invalid={Boolean(loginErrors.password)}
                 />
-                {loginErrors.password && <span className={styles.errorText}>{loginErrors.password}</span>}
+                {loginErrors.password && <span className={styles.errorText}>{t(loginErrors.password)}</span>}
               </label>
               <Button type="submit" size={48} className={styles.submitButton}>
-                Anmelden
+                {t("Anmelden")}
               </Button>
-              {loginSubmitted && <p className={styles.notice}>{NOT_CONNECTED_NOTICE}</p>}
+              {loginSubmitted && <p className={styles.notice}>{t(NOT_CONNECTED_NOTICE)}</p>}
             </form>
           ) : (
             <form className={styles.form} onSubmit={handleRegisterSubmit} noValidate>
               <div className={styles.formGrid}>
                 <label className={styles.field}>
-                  <span>Vorname</span>
+                  <span>{t("Vorname")}</span>
                   <input
                     type="text"
                     value={registerFields.firstName}
@@ -227,10 +231,10 @@ export default function KontoView() {
                     className={styles.input}
                     aria-invalid={Boolean(registerErrors.firstName)}
                   />
-                  {registerErrors.firstName && <span className={styles.errorText}>{registerErrors.firstName}</span>}
+                  {registerErrors.firstName && <span className={styles.errorText}>{t(registerErrors.firstName)}</span>}
                 </label>
                 <label className={styles.field}>
-                  <span>Nachname</span>
+                  <span>{t("Nachname")}</span>
                   <input
                     type="text"
                     value={registerFields.lastName}
@@ -238,11 +242,11 @@ export default function KontoView() {
                     className={styles.input}
                     aria-invalid={Boolean(registerErrors.lastName)}
                   />
-                  {registerErrors.lastName && <span className={styles.errorText}>{registerErrors.lastName}</span>}
+                  {registerErrors.lastName && <span className={styles.errorText}>{t(registerErrors.lastName)}</span>}
                 </label>
               </div>
               <label className={styles.field}>
-                <span>E-Mail</span>
+                <span>{t("E-Mail")}</span>
                 <input
                   type="email"
                   value={registerFields.email}
@@ -250,11 +254,11 @@ export default function KontoView() {
                   className={styles.input}
                   aria-invalid={Boolean(registerErrors.email)}
                 />
-                {registerErrors.email && <span className={styles.errorText}>{registerErrors.email}</span>}
+                {registerErrors.email && <span className={styles.errorText}>{t(registerErrors.email)}</span>}
               </label>
               <div className={styles.formGrid}>
                 <label className={styles.field}>
-                  <span>Passwort</span>
+                  <span>{t("Passwort")}</span>
                   <input
                     type="password"
                     value={registerFields.password}
@@ -262,10 +266,10 @@ export default function KontoView() {
                     className={styles.input}
                     aria-invalid={Boolean(registerErrors.password)}
                   />
-                  {registerErrors.password && <span className={styles.errorText}>{registerErrors.password}</span>}
+                  {registerErrors.password && <span className={styles.errorText}>{t(registerErrors.password)}</span>}
                 </label>
                 <label className={styles.field}>
-                  <span>Passwort bestätigen</span>
+                  <span>{t("Passwort bestätigen")}</span>
                   <input
                     type="password"
                     value={registerFields.passwordConfirm}
@@ -274,24 +278,23 @@ export default function KontoView() {
                     aria-invalid={Boolean(registerErrors.passwordConfirm)}
                   />
                   {registerErrors.passwordConfirm && (
-                    <span className={styles.errorText}>{registerErrors.passwordConfirm}</span>
+                    <span className={styles.errorText}>{t(registerErrors.passwordConfirm)}</span>
                   )}
                 </label>
               </div>
               <Button type="submit" size={48} className={styles.submitButton}>
-                Konto erstellen
+                {t("Konto erstellen")}
               </Button>
-              {registerSubmitted && <p className={styles.notice}>{NOT_CONNECTED_NOTICE}</p>}
+              {registerSubmitted && <p className={styles.notice}>{t(NOT_CONNECTED_NOTICE)}</p>}
             </form>
           )}
         </div>
       ) : (
         <div>
           <p className={styles.previewBanner}>
-            Vorschau — noch nicht mit echten Konten verbunden. Alles hier ist ein leerer Beispielzustand, keine echten
-            Daten.{" "}
+            {t("Vorschau — noch nicht mit echten Konten verbunden. Alles hier ist ein leerer Beispielzustand, keine echten Daten.")}{" "}
             <button type="button" className={styles.previewBackLink} onClick={() => setView("auth")}>
-              Zurück zur Anmeldung
+              {t("Zurück zur Anmeldung")}
             </button>
           </p>
 
@@ -307,7 +310,7 @@ export default function KontoView() {
                     setMobileShowList(false);
                   }}
                 >
-                  {tab.label}
+                  {t(tab.label)}
                 </button>
               ))}
             </nav>
@@ -318,17 +321,17 @@ export default function KontoView() {
                 className={styles.mobileBack}
                 onClick={() => setMobileShowList(true)}
               >
-                ← Übersicht
+                {t("← Übersicht")}
               </button>
 
               {activeTab === "bestellungen" && (
                 <div>
-                  <h2 className={styles.panelTitle}>Bestellungen</h2>
+                  <h2 className={styles.panelTitle}>{t("Bestellungen")}</h2>
                   <div className={styles.emptyState}>
-                    <p className={styles.emptyTitle}>Noch keine Bestellungen.</p>
-                    <p className={styles.emptyBody}>Sobald du bestellst, erscheinen Status und Verlauf hier.</p>
+                    <p className={styles.emptyTitle}>{t("Noch keine Bestellungen.")}</p>
+                    <p className={styles.emptyBody}>{t("Sobald du bestellst, erscheinen Status und Verlauf hier.")}</p>
                     <Button href="/sortiment" variant="secondary" size={40} className={styles.emptyCta}>
-                      Sträuße entdecken
+                      {t("Sträuße entdecken")}
                     </Button>
                   </div>
                 </div>
@@ -336,12 +339,11 @@ export default function KontoView() {
 
               {activeTab === "abo" && (
                 <div>
-                  <h2 className={styles.panelTitle}>Abo verwalten</h2>
+                  <h2 className={styles.panelTitle}>{t("Abo verwalten")}</h2>
                   <div className={styles.emptyState}>
-                    <p className={styles.emptyTitle}>Noch kein Abo aktiv.</p>
+                    <p className={styles.emptyTitle}>{t("Noch kein Abo aktiv.")}</p>
                     <p className={styles.emptyBody}>
-                      Rhythmus, Größe und Lieferfenster lassen sich hier verwalten, sobald der Abo-Konfigurator
-                      angebunden ist. [wird ergänzt]
+                      {t("Rhythmus, Größe und Lieferfenster lassen sich hier verwalten, sobald der Abo-Konfigurator angebunden ist. [wird ergänzt]")}
                     </p>
                   </div>
                 </div>
@@ -350,60 +352,60 @@ export default function KontoView() {
               {activeTab === "adressen" && (
                 <div>
                   <div className={styles.panelHead}>
-                    <h2 className={styles.panelTitle}>Adressen</h2>
+                    <h2 className={styles.panelTitle}>{t("Adressen")}</h2>
                     <Button
                       type="button"
                       variant="secondary"
                       size={40}
                       onClick={() => setAddressNoteOpen((open) => !open)}
                     >
-                      Adresse hinzufügen
+                      {t("Adresse hinzufügen")}
                     </Button>
                   </div>
                   {addressNoteOpen && (
-                    <p className={styles.notice}>Adressverwaltung ist in dieser Vorschau noch nicht angebunden.</p>
+                    <p className={styles.notice}>{t("Adressverwaltung ist in dieser Vorschau noch nicht angebunden.")}</p>
                   )}
                   <div className={styles.emptyState}>
-                    <p className={styles.emptyTitle}>Noch keine gespeicherte Adresse.</p>
-                    <p className={styles.emptyBody}>Hinterlegte Lieferadressen erscheinen hier.</p>
+                    <p className={styles.emptyTitle}>{t("Noch keine gespeicherte Adresse.")}</p>
+                    <p className={styles.emptyBody}>{t("Hinterlegte Lieferadressen erscheinen hier.")}</p>
                   </div>
                 </div>
               )}
 
               {activeTab === "daten" && (
                 <div>
-                  <h2 className={styles.panelTitle}>Daten &amp; Zahlung</h2>
+                  <h2 className={styles.panelTitle}>{t("Daten & Zahlung")}</h2>
                   <form className={styles.form} onSubmit={handleDatenSubmit}>
                     <div className={styles.formGrid}>
                       <label className={styles.field}>
-                        <span>Vorname</span>
+                        <span>{t("Vorname")}</span>
                         <input type="text" className={styles.input} />
                       </label>
                       <label className={styles.field}>
-                        <span>Nachname</span>
+                        <span>{t("Nachname")}</span>
                         <input type="text" className={styles.input} />
                       </label>
                     </div>
                     <label className={styles.field}>
-                      <span>E-Mail</span>
+                      <span>{t("E-Mail")}</span>
                       <input type="email" className={styles.input} />
                     </label>
                     <label className={styles.field}>
-                      <span>Mobil, für die SMS vor der Lieferung</span>
+                      <span>{t("Mobil, für die SMS vor der Lieferung")}</span>
                       <input type="tel" className={styles.input} />
                     </label>
                     <Button type="submit" size={48} className={styles.submitButton}>
-                      Änderungen speichern
+                      {t("Änderungen speichern")}
                     </Button>
-                    {datenSubmitted && <p className={styles.notice}>{NOT_CONNECTED_NOTICE}</p>}
+                    {datenSubmitted && <p className={styles.notice}>{t(NOT_CONNECTED_NOTICE)}</p>}
                   </form>
 
-                  <p className={styles.subLabel}>Zahlungsart</p>
+                  <p className={styles.subLabel}>{t("Zahlungsart")}</p>
                   <div className={styles.emptyState}>
-                    <p className={styles.emptyTitle}>Noch keine Zahlungsart hinterlegt.</p>
+                    <p className={styles.emptyTitle}>{t("Noch keine Zahlungsart hinterlegt.")}</p>
                   </div>
 
-                  <p className={styles.subLabel}>Newsletter</p>
+                  <p className={styles.subLabel}>{t("Newsletter")}</p>
                   <label className={styles.checkboxRow}>
                     <input
                       type="checkbox"
@@ -411,11 +413,11 @@ export default function KontoView() {
                       onChange={(event: ChangeEvent<HTMLInputElement>) => setNewsletter(event.target.checked)}
                       className={styles.checkbox}
                     />
-                    <span>Einmal im Monat, was in der Werkstatt steht</span>
+                    <span>{t("Einmal im Monat, was in der Werkstatt steht")}</span>
                   </label>
                   {newsletter && (
                     <p className={styles.previewFootnote}>
-                      Nur als Vorschau lokal ausgewählt — ohne Konto wird das nicht gespeichert.
+                      {t("Nur als Vorschau lokal ausgewählt — ohne Konto wird das nicht gespeichert.")}
                     </p>
                   )}
                 </div>
