@@ -49,6 +49,14 @@
   gap: var(--lv-space-5);
 }
 
+/* Language toggle sits on the dark header, so it must render in cream —
+   without this it inherits the default ink colour and vanishes. */
+.langToggle {
+  display: flex;
+  align-items: center;
+  color: var(--lv-cream-50);
+}
+
 .iconButton {
   display: flex;
   align-items: center;

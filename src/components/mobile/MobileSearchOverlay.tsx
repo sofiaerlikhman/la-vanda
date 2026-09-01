@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useMobileChrome } from "@/context/MobileChromeContext";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./MobileSearchOverlay.module.css";
 
 /**
@@ -17,6 +18,7 @@ import styles from "./MobileSearchOverlay.module.css";
 export default function MobileSearchOverlay() {
   const { searchOpen, closeSearch } = useMobileChrome();
   const router = useRouter();
+  const t = useT();
   const [value, setValue] = useState("");
 
   if (!searchOpen) return null;
@@ -30,23 +32,23 @@ export default function MobileSearchOverlay() {
   }
 
   return (
-    <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Suche">
+    <div className={styles.overlay} role="dialog" aria-modal="true" aria-label={t("Suche")}>
       <form className={styles.head} onSubmit={handleSubmit}>
         <input
           type="search"
           autoFocus
           value={value}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
-          placeholder="Sträuße, Pflanzen, Anlässe …"
+          placeholder={t("Sträuße, Pflanzen, Anlässe …")}
           className={styles.input}
-          aria-label="Suchbegriff"
+          aria-label={t("Suchbegriff")}
         />
-        <button type="button" className={styles.closeButton} onClick={closeSearch} aria-label="Suche schließen">
+        <button type="button" className={styles.closeButton} onClick={closeSearch} aria-label={t("Suche schließen")}>
           ✕
         </button>
       </form>
       <div className={styles.body}>
-        <p className={styles.hint}>Suchbegriff eingeben und Enter drücken — Ergebnisse erscheinen im Sortiment.</p>
+        <p className={styles.hint}>{t("Suchbegriff eingeben und Enter drücken — Ergebnisse erscheinen im Sortiment.")}</p>
       </div>
     </div>
   );

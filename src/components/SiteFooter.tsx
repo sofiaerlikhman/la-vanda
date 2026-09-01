@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./SiteFooter.module.css";
 
 const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] = [
@@ -36,6 +39,8 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
 ];
 
 export default function SiteFooter() {
+  const t = useT();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.grid}>
@@ -49,18 +54,18 @@ export default function SiteFooter() {
             0611 000 000
           </p>
           <p className={styles.address}>
-            Mo–Fr 9–18:30 Uhr
+            {t("Mo–Fr 9–18:30 Uhr")}
             <br />
-            Sa 9–14 Uhr
+            {t("Sa 9–14 Uhr")}
           </p>
         </div>
         {COLUMNS.map((col) => (
           <div key={col.heading}>
-            <p className={styles.heading}>{col.heading}</p>
+            <p className={styles.heading}>{t(col.heading)}</p>
             <div className={styles.linkList}>
               {col.links.map((link, i) => (
                 <Link key={`${link.href}-${i}`} href={link.href}>
-                  {link.label}
+                  {t(link.label)}
                 </Link>
               ))}
             </div>
@@ -70,7 +75,7 @@ export default function SiteFooter() {
       <div className={styles.bottomBarWrap}>
         <div className={styles.bottomBar}>
           <span>© {new Date().getFullYear()} la Vanda</span>
-          <span>Bestellschluss 14 Uhr · Lieferung 17–20 Uhr</span>
+          <span>{t("Bestellschluss 14 Uhr · Lieferung 17–20 Uhr")}</span>
         </div>
       </div>
     </footer>

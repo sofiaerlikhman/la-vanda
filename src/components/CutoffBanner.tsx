@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./CutoffBanner.module.css";
 
 const BERLIN_TZ = "Europe/Berlin";
@@ -25,13 +26,14 @@ function getCutoffCopy(now: Date) {
 }
 
 export default function CutoffBanner() {
+  const t = useT();
   const text = getCutoffCopy(new Date());
 
   return (
     <div className={styles.banner}>
-      <span>{text}</span>
+      <span>{t(text)}</span>
       <span className={styles.dot}>·</span>
-      <span className={styles.area}>Wiesbaden und Umgebung</span>
+      <span className={styles.area}>{t("Wiesbaden und Umgebung")}</span>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { CartProvider } from "@/context/CartContext";
 import { MobileChromeProvider } from "@/context/MobileChromeContext";
 import MobileTabBar from "@/components/mobile/MobileTabBar";
@@ -17,19 +18,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <body>
-        <CartProvider>
-          <MobileChromeProvider>
-            {children}
-            {/* Mobile-only global chrome (hidden ≥768px via CSS) — mounted once
-                here so every page gets the bottom tab bar and full-screen
-                menu/search overlays without per-page wiring. */}
-            <MobileTabBar />
-            <MobileMenuOverlay />
-            <MobileSearchOverlay />
-            {/* Wires up scroll-reveal animations for the whole tree. */}
-            <ScrollReveal />
-          </MobileChromeProvider>
-        </CartProvider>
+        <LanguageProvider>
+          <CartProvider>
+            <MobileChromeProvider>
+              {children}
+              {/* Mobile-only global chrome (hidden ≥768px via CSS) — mounted once
+                  here so every page gets the bottom tab bar and full-screen
+                  menu/search overlays without per-page wiring. */}
+              <MobileTabBar />
+              <MobileMenuOverlay />
+              <MobileSearchOverlay />
+              {/* Wires up scroll-reveal animations for the whole tree. */}
+              <ScrollReveal />
+            </MobileChromeProvider>
+          </CartProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

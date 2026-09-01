@@ -2,9 +2,11 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { checkDeliveryZone, type DeliveryCheckResult } from "@/data/delivery";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./LieferungSection.module.css";
 
 export default function LieferungSection() {
+  const t = useT();
   const [plz, setPlz] = useState("");
   const [result, setResult] = useState<DeliveryCheckResult | null>(null);
   const [checking, setChecking] = useState(false);
@@ -21,27 +23,27 @@ export default function LieferungSection() {
     <section className={styles.section}>
       <div className={styles.grid} data-reveal>
         <div>
-          <h2 className={styles.title}>Liefern wir zu dir?</h2>
-          <p className={styles.lead}>Eigene Fahrer, kein Paketdienst. Zwei Zeitfenster am Tag, samstags eines.</p>
+          <h2 className={styles.title}>{t("Liefern wir zu dir?")}</h2>
+          <p className={styles.lead}>{t("Eigene Fahrer, kein Paketdienst. Zwei Zeitfenster am Tag, samstags eines.")}</p>
         </div>
         <div>
           <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="text"
               inputMode="numeric"
-              placeholder="Postleitzahl"
+              placeholder={t("Postleitzahl")}
               value={plz}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setPlz(e.target.value)}
               className={styles.input}
-              aria-label="Postleitzahl"
+              aria-label={t("Postleitzahl")}
             />
             <button type="submit" className={styles.button} disabled={checking}>
-              Prüfen
+              {t("Prüfen")}
             </button>
           </form>
           {result && (
             <p className={result.deliverable ? styles.resultOk : styles.resultWarn} role="status">
-              {result.message}
+              {t(result.message)}
             </p>
           )}
         </div>
