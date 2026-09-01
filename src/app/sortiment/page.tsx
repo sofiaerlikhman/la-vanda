@@ -7,6 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import OrderCountdown from "@/components/sortiment/OrderCountdown";
 import SortimentBrowser from "@/components/sortiment/SortimentBrowser";
+import { T } from "@/i18n/T";
 import { getCatalog } from "@/data/products";
 import styles from "./page.module.css";
 
@@ -43,12 +44,14 @@ export default async function SortimentPage() {
 
         <div className={styles.head}>
           <div>
-            <h1 className={styles.title}>Sträuße</h1>
+            <h1 className={styles.title}>
+              <T de="Sträuße" />
+            </h1>
             <p className={styles.lead}>
-              Am Bestelltag gebunden. Was du hier siehst, steht heute in der Werkstatt — Restmenge inklusive.
+              <T de="Am Bestelltag gebunden. Was du hier siehst, steht heute in der Werkstatt — Restmenge inklusive." />
             </p>
             <Link href="/konfigurator" className={styles.configuratorLink}>
-              Lieber selbst zusammenstellen? Strauß-Konfigurator
+              <T de="Lieber selbst zusammenstellen? Strauß-Konfigurator" />
             </Link>
           </div>
           <OrderCountdown />
@@ -64,8 +67,12 @@ export default async function SortimentPage() {
         <div className={styles.serviceStrip}>
           {SERVICE_ITEMS.map((item) => (
             <div key={item.title} className={styles.serviceItem}>
-              <p className={styles.serviceTitle}>{item.title}</p>
-              <p className={styles.serviceBody}>{item.body}</p>
+              <p className={styles.serviceTitle}>
+                <T de={item.title} />
+              </p>
+              <p className={styles.serviceBody}>
+                <T de={item.body} />
+              </p>
             </div>
           ))}
         </div>

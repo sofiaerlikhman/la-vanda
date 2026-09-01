@@ -11,6 +11,7 @@ import FaqAccordion from "@/components/produkt/FaqAccordion";
 import AccessoryGrid from "@/components/produkt/AccessoryGrid";
 import { getAllProductSlugs, getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
 import { getAccessories } from "@/data/accessories";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 const CATEGORY_LABELS: Record<Product["category"], string> = {
@@ -74,21 +75,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {product.faq && (
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Häufige Fragen</h2>
+            <h2 className={styles.sectionTitle}>
+              <T de="Häufige Fragen" />
+            </h2>
             <FaqAccordion entries={product.faq} />
           </div>
         )}
 
         {accessories.length > 0 && (
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Passt dazu</h2>
+            <h2 className={styles.sectionTitle}>
+              <T de="Passt dazu" />
+            </h2>
             <AccessoryGrid accessories={accessories} />
           </div>
         )}
 
         {related.length > 0 && (
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Ähnliche {categoryLabel}</h2>
+            <h2 className={styles.sectionTitle}>
+              <T de="Ähnliche" /> <T de={categoryLabel} />
+            </h2>
             <ProductGrid products={related} />
           </div>
         )}

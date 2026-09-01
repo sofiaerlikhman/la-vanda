@@ -2,6 +2,7 @@
 
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import type { Accessory } from "@/data/accessories";
 import { formatPriceEUR } from "@/data/products";
 import styles from "./AccessoryGrid.module.css";
@@ -13,15 +14,16 @@ import styles from "./AccessoryGrid.module.css";
  */
 export default function AccessoryGrid({ accessories }: { accessories: Accessory[] }) {
   const { addItem } = useCart();
+  const t = useT();
 
   return (
     <div className={styles.grid}>
       {accessories.map((accessory) => (
         <div key={accessory.id} className={styles.card}>
           <div className={styles.imageWrap}>
-            <ImagePlaceholder label={accessory.image} className={styles.image} />
+            <ImagePlaceholder label={t(accessory.image)} className={styles.image} />
           </div>
-          <p className={styles.name}>{accessory.name}</p>
+          <p className={styles.name}>{t(accessory.name)}</p>
           <div className={styles.row}>
             <p className={styles.price}>{formatPriceEUR(accessory.priceCents)}</p>
             <button
@@ -37,7 +39,7 @@ export default function AccessoryGrid({ accessories }: { accessories: Accessory[
                 })
               }
             >
-              + Korb
+              {t("+ Korb")}
             </button>
           </div>
         </div>

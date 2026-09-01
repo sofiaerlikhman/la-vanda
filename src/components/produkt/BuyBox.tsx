@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { formatPriceEUR, type Product } from "@/data/products";
 import styles from "./BuyBox.module.css";
 
@@ -15,6 +16,7 @@ import styles from "./BuyBox.module.css";
  */
 export default function BuyBox({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const t = useT();
   const [sizeIndex, setSizeIndex] = useState(() => {
     if (!product.sizes) return -1;
     const preselected = product.sizes.findIndex((s) => s.priceCents === product.priceCents);
@@ -36,7 +38,7 @@ export default function BuyBox({ product }: { product: Product }) {
         name: product.name,
         priceCents: selectedPriceCents,
         image: product.image,
-        meta: size ? `Größe ${size.label.toLowerCase()}` : undefined,
+        meta: size ? `${t("Größe")} ${t(size.label).toLowerCase()}` : undefined,
       },
       quantity
     );
@@ -48,19 +50,19 @@ export default function BuyBox({ product }: { product: Product }) {
     <div>
       <div className={styles.statusRow}>
         {product.soldOut ? (
-          <span className={styles.soldOutBadge}>Heute ausverkauft</span>
+          <span className={styles.soldOutBadge}>{t("Heute ausverkauft")}</span>
         ) : (
-          <span className={styles.availableBadge}>{product.deliveryUrgent ? "Morgen lieferbar" : "Heute lieferbar"}</span>
+          <span className={styles.availableBadge}>{t(product.deliveryUrgent ? "Morgen lieferbar" : "Heute lieferbar")}</span>
         )}
-        <span className={styles.cutoff}>Bestellschluss 14 Uhr</span>
+        <span className={styles.cutoff}>{t("Bestellschluss 14 Uhr")}</span>
       </div>
 
-      <h1 className={styles.name}>{product.name}</h1>
+      <h1 className={styles.name}>{t(product.name)}</h1>
       <p className={styles.price}>{formatPriceEUR(selectedPriceCents)}</p>
-      <p className={styles.description}>{product.description}</p>
+      <p className={styles.description}>{t(product.description)}</p>
 
       {product.sizes && (
-        <div className={styles.sizeRow} role="group" aria-label="Größe">
+        <div className={styles.sizeRow} role="group" aria-label={t("Größe")}>
           {product.sizes.map((size, i) => (
             <button
               key={size.label}
@@ -69,7 +71,7 @@ export default function BuyBox({ product }: { product: Product }) {
               onClick={() => setSizeIndex(i)}
               aria-pressed={i === sizeIndex}
             >
-              {size.label}
+              {t(size.label)}
               <span className={styles.sizePrice}>{formatPriceEUR(size.priceCents)}</span>
             </button>
           ))}
@@ -77,12 +79,12 @@ export default function BuyBox({ product }: { product: Product }) {
       )}
 
       <div className={styles.purchaseRow}>
-        <div className={styles.stepper} role="group" aria-label="Menge">
+        <div className={styles.stepper} role="group" aria-label={t("Menge")}>
           <button
             type="button"
             className={styles.stepButton}
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            aria-label="Menge verringern"
+            aria-label={t("Menge verringern")}
           >
             −
           </button>
@@ -91,7 +93,7 @@ export default function BuyBox({ product }: { product: Product }) {
             type="button"
             className={styles.stepButton}
             onClick={() => setQuantity((q) => Math.min(9, q + 1))}
-            aria-label="Menge erhöhen"
+            aria-label={t("Menge erhöhen")}
           >
             +
           </button>
@@ -102,12 +104,14 @@ export default function BuyBox({ product }: { product: Product }) {
           disabled={product.soldOut}
           onClick={handleAddToCart}
         >
-          {product.soldOut ? "Ausverkauft" : added ? "Hinzugefügt ✓" : "In den Korb"}
+          {product.soldOut ? t("Ausverkauft") : added ? t("Hinzugefügt ✓") : t("In den Korb")}
         </Button>
       </div>
 
       <p className={styles.reassurance}>
-        Eigene Fahrer, kein Paketdienst. Sieben Tage Frischegarantie — meldet sich der Strauß früher ab, ersetzen wir ihn.
+        {t(
+          "Eigene Fahrer, kein Paketdienst. Sieben Tage Frischegarantie — meldet sich der Strauß früher ab, ersetzen wir ihn.",
+        )}
       </p>
     </div>
   );

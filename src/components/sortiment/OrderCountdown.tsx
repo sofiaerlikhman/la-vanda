@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { formatDuration, secondsUntilBerlinCutoff } from "@/data/delivery";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./OrderCountdown.module.css";
 
 const CUTOFF_HOUR = 14;
@@ -13,6 +14,7 @@ const CUTOFF_HOUR = 14;
  * src/data/delivery.ts, shared with the Checkout delivery-window logic.
  */
 export default function OrderCountdown() {
+  const t = useT();
   const [seconds, setSeconds] = useState<number | null>(null);
 
   useEffect(() => {
@@ -25,9 +27,9 @@ export default function OrderCountdown() {
 
   return (
     <div className={styles.box}>
-      <p className={styles.label}>Bestellschluss</p>
-      <p className={styles.time}>{seconds === null ? "…" : `in ${formatDuration(seconds)}`}</p>
-      <p className={styles.note}>Danach nächstes Fenster: morgen 11–14 Uhr.</p>
+      <p className={styles.label}>{t("Bestellschluss")}</p>
+      <p className={styles.time}>{seconds === null ? "…" : t("in {d}").replace("{d}", formatDuration(seconds))}</p>
+      <p className={styles.note}>{t("Danach nächstes Fenster: morgen 11–14 Uhr.")}</p>
     </div>
   );
 }

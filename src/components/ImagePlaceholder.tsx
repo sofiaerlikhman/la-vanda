@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./ImagePlaceholder.module.css";
 
 type ImagePlaceholderProps = {
@@ -17,9 +20,10 @@ type ImagePlaceholderProps = {
  * cover would.
  */
 export default function ImagePlaceholder({ label, className }: ImagePlaceholderProps) {
+  const translated = useT()(label);
   return (
-    <div className={[styles.placeholder, className].filter(Boolean).join(" ")} role="img" aria-label={label}>
-      <span className={styles.caption}>{label}</span>
+    <div className={[styles.placeholder, className].filter(Boolean).join(" ")} role="img" aria-label={translated}>
+      <span className={styles.caption}>{translated}</span>
     </div>
   );
 }

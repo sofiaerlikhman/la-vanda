@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, type ChangeEvent, type MouseEvent } from 
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 import Button from "@/components/Button";
+import { useT } from "@/i18n/LanguageProvider";
 import type { Product } from "@/data/products";
 import styles from "./SortimentBrowser.module.css";
 
@@ -33,6 +34,7 @@ const PRICE_LABELS: { value: PriceCap; label: string }[] = [
  * to reflect live stock across many categories.
  */
 export default function SortimentBrowser({ products }: { products: Product[] }) {
+  const t = useT();
   const searchParams = useSearchParams();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [sortBy, setSortBy] = useState<SortKey>("empfehlung");
@@ -87,29 +89,32 @@ export default function SortimentBrowser({ products }: { products: Product[] }) 
 
   const activeChips: { key: string; label: string; onRemove: () => void }[] = [];
   if (query.trim()) activeChips.push({ key: "query", label: `„${query.trim()}"`, onRemove: () => setQuery("") });
-  if (deliveryToday) activeChips.push({ key: "today", label: "Heute lieferbar", onRemove: () => setDeliveryToday(false) });
-  if (deliveryTomorrow) activeChips.push({ key: "tomorrow", label: "Morgen lieferbar", onRemove: () => setDeliveryTomorrow(false) });
+  if (deliveryToday) activeChips.push({ key: "today", label: t("Heute lieferbar"), onRemove: () => setDeliveryToday(false) });
+  if (deliveryTomorrow)
+    activeChips.push({ key: "tomorrow", label: t("Morgen lieferbar"), onRemove: () => setDeliveryTomorrow(false) });
   if (priceCap !== null) {
     const label = PRICE_LABELS.find((p) => p.value === priceCap)?.label ?? "";
-    activeChips.push({ key: "price", label, onRemove: () => setPriceCap(null) });
+    activeChips.push({ key: "price", label: t(label), onRemove: () => setPriceCap(null) });
   }
+
+  // Count noun uses German singular/plural; the {n} template lets Ukrainian
+  // control word order and its own plural form.
+  const countLabel = (n: number) => t(n === 1 ? "{n} Strauß" : "{n} Sträuße").replace("{n}", String(n));
 
   return (
     <div>
       <div className={styles.filterBar}>
         <button type="button" className={styles.filterButton} onClick={() => setDrawerOpen(true)}>
-          Filter
+          {t("Filter")}
         </button>
         {activeChips.map((chip) => (
           <button key={chip.key} type="button" className={styles.chip} onClick={chip.onRemove}>
             {chip.label} <span aria-hidden="true">✕</span>
           </button>
         ))}
-        <span className={styles.count}>
-          {filtered.length} {filtered.length === 1 ? "Strauß" : "Sträuße"}
-        </span>
+        <span className={styles.count}>{countLabel(filtered.length)}</span>
         <button type="button" className={styles.sortButton} onClick={() => setDrawerOpen(true)}>
-          Sortierung: {SORT_LABELS[sortBy]}
+          {t("Sortierung")}: {t(SORT_LABELS[sortBy])}
         </button>
       </div>
 
@@ -118,8 +123,11 @@ export default function SortimentBrowser({ products }: { products: Product[] }) 
       ) : (
         <p className={styles.empty}>
           {query.trim()
-            ? `Nichts gefunden für „${query.trim()}". Filter zurücksetzen und noch einmal versuchen.`
-            : "Keine Sträuße für diese Filter. Filter zurücksetzen und noch einmal versuchen."}
+            ? t("Nichts gefunden für {q}. Filter zurücksetzen und noch einmal versuchen.").replace(
+                "{q}",
+                `„${query.trim()}"`,
+              )
+            : t("Keine Sträuße für diese Filter. Filter zurücksetzen und noch einmal versuchen.")}
         </p>
       )}
 
@@ -129,7 +137,7 @@ export default function SortimentBrowser({ products }: { products: Product[] }) 
             variant="secondary"
             onClick={() => setVisibleCount((v) => Math.min(v + PAGE_SIZE, filtered.length))}
           >
-            Weitere {Math.min(remaining, PAGE_SIZE)} laden
+            {t("Weitere {n} laden").replace("{n}", String(Math.min(remaining, PAGE_SIZE)))}
           </Button>
         </div>
       )}
@@ -139,49 +147,49 @@ export default function SortimentBrowser({ products }: { products: Product[] }) 
           <aside
             className={styles.drawer}
             role="dialog"
-            aria-label="Filter & Sortierung"
+            aria-label={t("Filter & Sortierung")}
             onClick={(e: MouseEvent) => e.stopPropagation()}
           >
             <div className={styles.drawerHead}>
-              <p className={styles.drawerTitle}>Filter & Sortierung</p>
-              <button type="button" className={styles.closeButton} onClick={() => setDrawerOpen(false)} aria-label="Schließen">
+              <p className={styles.drawerTitle}>{t("Filter & Sortierung")}</p>
+              <button type="button" className={styles.closeButton} onClick={() => setDrawerOpen(false)} aria-label={t("Schließen")}>
                 ✕
               </button>
             </div>
 
             <div className={styles.drawerSection}>
-              <p className={styles.sectionLabel}>Sortierung</p>
+              <p className={styles.sectionLabel}>{t("Sortierung")}</p>
               {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
                 <label key={key} className={styles.radioRow}>
                   <input type="radio" name="sort" checked={sortBy === key} onChange={() => setSortBy(key)} />
-                  {SORT_LABELS[key]}
+                  {t(SORT_LABELS[key])}
                 </label>
               ))}
             </div>
 
             <div className={styles.drawerSection}>
-              <p className={styles.sectionLabel}>Preis</p>
+              <p className={styles.sectionLabel}>{t("Preis")}</p>
               <label className={styles.radioRow}>
                 <input type="radio" name="price" checked={priceCap === null} onChange={() => setPriceCap(null)} />
-                Alle Preise
+                {t("Alle Preise")}
               </label>
               {PRICE_LABELS.map((p) => (
                 <label key={p.label} className={styles.radioRow}>
                   <input type="radio" name="price" checked={priceCap === p.value} onChange={() => setPriceCap(p.value)} />
-                  {p.label}
+                  {t(p.label)}
                 </label>
               ))}
             </div>
 
             <div className={styles.drawerSection}>
-              <p className={styles.sectionLabel}>Lieferung</p>
+              <p className={styles.sectionLabel}>{t("Lieferung")}</p>
               <label className={styles.checkRow}>
                 <input
                   type="checkbox"
                   checked={deliveryToday}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => setDeliveryToday(e.target.checked)}
                 />
-                Heute lieferbar
+                {t("Heute lieferbar")}
               </label>
               <label className={styles.checkRow}>
                 <input
@@ -189,16 +197,19 @@ export default function SortimentBrowser({ products }: { products: Product[] }) 
                   checked={deliveryTomorrow}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => setDeliveryTomorrow(e.target.checked)}
                 />
-                Morgen lieferbar
+                {t("Morgen lieferbar")}
               </label>
             </div>
 
             <div className={styles.drawerFooter}>
               <Button variant="primary" onClick={applyAndClose}>
-                {filtered.length} {filtered.length === 1 ? "Strauß" : "Sträuße"} zeigen
+                {t(filtered.length === 1 ? "{n} Strauß zeigen" : "{n} Sträuße zeigen").replace(
+                  "{n}",
+                  String(filtered.length),
+                )}
               </Button>
               <Button variant="ghost" onClick={resetFilters}>
-                Zurücksetzen
+                {t("Zurücksetzen")}
               </Button>
             </div>
           </aside>

@@ -12,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/produkt/${product.slug}`} className={styles.card}>
       <div className={styles.imageWrap}>
-        <ImagePlaceholder label={product.image} className={styles.image} />
+        <ImagePlaceholder label={t(product.image)} className={styles.image} />
         {product.badge && !product.soldOut && <span className={styles.badge}>{t(product.badge)}</span>}
         {product.soldOut && (
           <div className={styles.soldOutOverlay}>
@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
         )}
       </div>
       <div className={styles.body}>
-        <h3 className={styles.name}>{product.name}</h3>
+        <h3 className={styles.name}>{t(product.name)}</h3>
         <p className={styles.price}>{formatPriceEUR(product.priceCents)}</p>
         <p className={product.deliveryUrgent ? styles.deliveryWarn : styles.delivery}>{t(product.deliveryLabel)}</p>
       </div>

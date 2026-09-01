@@ -9,6 +9,7 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ProductGrid from "@/components/ProductGrid";
 import { OCCASION_DETAILS } from "@/data/occasions";
 import { getCatalog, type Product } from "@/data/products";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 type AnlassPageProps = {
@@ -64,29 +65,47 @@ export default async function AnlassPage({ params }: AnlassPageProps) {
         <section className={styles.hero}>
           <ImagePlaceholder label={`${detail.name}, Vollbild querformat`} className={styles.heroImage} />
           <div className={styles.heroPanel}>
-            <p className={styles.eyebrow}>Anlass</p>
-            <h1 className={styles.heroTitle}>{detail.heroTitle}</h1>
-            <p className={styles.heroIntro}>{detail.heroIntro}</p>
+            <p className={styles.eyebrow}>
+              <T de="Anlass" />
+            </p>
+            <h1 className={styles.heroTitle}>
+              <T de={detail.heroTitle} />
+            </h1>
+            <p className={styles.heroIntro}>
+              <T de={detail.heroIntro} />
+            </p>
           </div>
         </section>
 
         {detail.tiers && (
           <section className={styles.section}>
-            <p className={styles.eyebrow}>Unsere Empfehlung</p>
-            <h2 className={styles.sectionTitle}>Drei Größen, ein Zeitfenster</h2>
+            <p className={styles.eyebrow}>
+              <T de="Unsere Empfehlung" />
+            </p>
+            <h2 className={styles.sectionTitle}>
+              <T de="Drei Größen, ein Zeitfenster" />
+            </h2>
             <div className={styles.tierGrid}>
               {detail.tiers.map((tier) => (
                 <article key={tier.label} className={styles.tierCard}>
                   <div className={styles.tierImageWrap}>
                     <ImagePlaceholder label={`${tier.label}, 4:5`} className={styles.tierImage} />
-                    {tier.featured && <span className={styles.tierBadge}>Am häufigsten</span>}
+                    {tier.featured && (
+                      <span className={styles.tierBadge}>
+                        <T de="Am häufigsten" />
+                      </span>
+                    )}
                   </div>
                   <div className={styles.tierBody}>
-                    <h3 className={styles.tierLabel}>{tier.label}</h3>
+                    <h3 className={styles.tierLabel}>
+                      <T de={tier.label} />
+                    </h3>
                     <p className={styles.tierPrice}>{tier.price}</p>
-                    <p className={styles.tierDescription}>{tier.description}</p>
+                    <p className={styles.tierDescription}>
+                      <T de={tier.description} />
+                    </p>
                     <p className={tier.deliveryUrgent ? styles.tierDeliveryWarn : styles.tierDelivery}>
-                      {tier.deliveryLabel}
+                      <T de={tier.deliveryLabel} />
                     </p>
                   </div>
                 </article>
@@ -97,35 +116,45 @@ export default async function AnlassPage({ params }: AnlassPageProps) {
 
         {!detail.tiers && (
           <section className={styles.section}>
-            <p className={styles.eyebrow}>Preis</p>
-            <h2 className={styles.sectionTitle}>{detail.priceNote}</h2>
-            <p className={styles.priceNoteBody}>[Preisstufen folgen]</p>
+            <p className={styles.eyebrow}>
+              <T de="Preis" />
+            </p>
+            <h2 className={styles.sectionTitle}>
+              <T de={detail.priceNote} />
+            </h2>
+            <p className={styles.priceNoteBody}>
+              <T de="[Preisstufen folgen]" />
+            </p>
           </section>
         )}
 
         {products.length > 0 && (
           <section className={styles.section}>
             <div className={styles.productsHead}>
-              <span className={styles.eyebrow}>{detail.productsSectionTitle}</span>
+              <span className={styles.eyebrow}>
+                <T de={detail.productsSectionTitle} />
+              </span>
             </div>
             <ProductGrid products={products} />
           </section>
         )}
 
         <section className={styles.advice}>
-          <h2 className={styles.adviceTitle}>{detail.adviceTitle}</h2>
+          <h2 className={styles.adviceTitle}>
+            <T de={detail.adviceTitle} />
+          </h2>
           <div className={styles.adviceBody}>
             {detail.adviceParagraphs.map((paragraph, i) => (
               <p key={i} className={styles.adviceParagraph}>
-                {paragraph}
+                <T de={paragraph} />
               </p>
             ))}
             <div className={styles.adviceLinks}>
               <Link href="/anlaesse" className={styles.adviceLink}>
-                Weitere Anlässe
+                <T de="Weitere Anlässe" />
               </Link>
               <Link href="/lieferung" className={styles.adviceLink}>
-                Lieferung &amp; Zeitfenster
+                <T de="Lieferung & Zeitfenster" />
               </Link>
             </div>
           </div>
