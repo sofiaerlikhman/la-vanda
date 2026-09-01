@@ -2,12 +2,14 @@
 
 import Button from "@/components/Button";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import { useT } from "@/i18n/LanguageProvider";
 import type { ConfirmedOrder } from "./types";
 import styles from "./checkout.module.css";
 import confirmStyles from "./ConfirmationStep.module.css";
 
 export default function ConfirmationStep({ confirmed, onTrack }: { confirmed: ConfirmedOrder; onTrack: () => void }) {
   const { order } = confirmed;
+  const t = useT();
   const windowLabel = order.window === "11-14" ? "11–14 Uhr" : order.window === "17-20" ? "17–20 Uhr" : "";
 
   return (
@@ -15,52 +17,55 @@ export default function ConfirmationStep({ confirmed, onTrack }: { confirmed: Co
       <div>
         <p className={confirmStyles.eyebrow}>
           <span className={confirmStyles.dot} />
-          Bestellung angenommen
+          {t("Bestellung angenommen")}
         </p>
         <h1 className={confirmStyles.title}>
           {order.deliveryType === "lieferung" ? (
             <>
-              Unterwegs zu dir
+              {t("Unterwegs zu dir")}
               <br />
-              {windowLabel && `heute ${windowLabel}`}
+              {windowLabel && `${t("heute")} ${t(windowLabel)}`}
             </>
           ) : (
             <>
-              Bereit zur
+              {t("Bereit zur")}
               <br />
-              Abholung
+              {t("Abholung")}
             </>
           )}
         </h1>
         <p className={styles.lead} style={{ marginBottom: 0 }}>
           {order.deliveryType === "lieferung"
-            ? `Im Fenster ${windowLabel} sind wir an der ${order.address.street}. Zwanzig Minuten vorher bekommst du eine SMS.`
-            : "Sag im Laden einfach deine Bestellnummer — wir haben deinen Strauß fertig für dich."}
+            ? t("Im Fenster {w} sind wir an der {s}. Zwanzig Minuten vorher bekommst du eine SMS.")
+                .replace("{w}", t(windowLabel))
+                .replace("{s}", order.address.street)
+            : t("Sag im Laden einfach deine Bestellnummer — wir haben deinen Strauß fertig für dich.")}
         </p>
 
         <div className={confirmStyles.metaGrid}>
           <div>
-            <p className={confirmStyles.metaLabel}>Bestellnummer</p>
+            <p className={confirmStyles.metaLabel}>{t("Bestellnummer")}</p>
             <p className={confirmStyles.metaValue}>{confirmed.orderNumber}</p>
           </div>
           <div>
-            <p className={confirmStyles.metaLabel}>Bestätigung an</p>
+            <p className={confirmStyles.metaLabel}>{t("Bestätigung an")}</p>
             <p className={confirmStyles.metaValue}>{order.address.email}</p>
           </div>
         </div>
 
         <div className={confirmStyles.actionsRow}>
           <Button variant="primary" onClick={onTrack}>
-            Lieferung verfolgen
+            {t("Lieferung verfolgen")}
           </Button>
           <Button variant="secondary" href="/sortiment">
-            Weiter stöbern
+            {t("Weiter stöbern")}
           </Button>
         </div>
 
         <p className={confirmStyles.footnote}>
-          Etwas vergessen? Bis 14 Uhr kannst du unter 0611 000 000 nachlegen — wir packen es dazu, ohne zweite
-          Lieferpauschale.
+          {t(
+            "Etwas vergessen? Bis 14 Uhr kannst du unter 0611 000 000 nachlegen — wir packen es dazu, ohne zweite Lieferpauschale.",
+          )}
         </p>
       </div>
       <div className={confirmStyles.imageWrap}>

@@ -4,6 +4,7 @@ import { useMemo, useState, type ChangeEvent } from "react";
 import Link from "next/link";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { getDeliveryDayOptions } from "@/data/delivery";
 import { applyVoucher } from "@/data/vouchers";
 import { DELIVERY_FEE_CENTS, formatCents, PAYMENT_LABELS, type OrderState } from "./types";
@@ -27,6 +28,7 @@ type Props = {
 
 export default function ReviewStep({ order, onChange, onEditStep, onSubmit, onBack }: Props) {
   const { items, subtotalCents } = useCart();
+  const t = useT();
   const [submitting, setSubmitting] = useState(false);
   const dayOptions = useMemo(() => getDeliveryDayOptions(new Date()), []);
   const selectedDay = dayOptions.find((d) => d.offsetDays === order.dayOffset);
@@ -48,65 +50,71 @@ export default function ReviewStep({ order, onChange, onEditStep, onSubmit, onBa
     <div className={styles.layout}>
       <div>
         <h1 className={styles.title} style={{ marginBottom: 40 }}>
-          Bitte prüfen
+          {t("Bitte prüfen")}
         </h1>
 
         <div className={reviewStyles.rows}>
           <div className={reviewStyles.row}>
-            <p className={reviewStyles.rowLabel}>Lieferung</p>
+            <p className={reviewStyles.rowLabel}>{t("Lieferung")}</p>
             <div>
               <p className={reviewStyles.rowPrimary}>
-                {selectedDay?.dayLabel}, {selectedDay?.dateLabel}
-                {selectedWindow ? `, ${selectedWindow.label}` : ""}
+                {selectedDay?.dayLabel ? t(selectedDay.dayLabel) : ""}, {selectedDay?.dateLabel}
+                {selectedWindow ? `, ${t(selectedWindow.label)}` : ""}
               </p>
               <p className={reviewStyles.rowSecondary}>
                 {order.deliveryType === "lieferung"
                   ? `${order.address.firstName} ${order.address.lastName}, ${order.address.street}, ${order.address.postalCode} ${order.address.city}`
-                  : "Abholung im Laden, Marktstraße 12, 65183 Wiesbaden"}
+                  : t("Abholung im Laden, Marktstraße 12, 65183 Wiesbaden")}
               </p>
-              {order.deliveryType === "lieferung" && <p className={reviewStyles.rowMuted}>Wenn niemand öffnet: {order.address.ifNoAnswer}</p>}
+              {order.deliveryType === "lieferung" && (
+                <p className={reviewStyles.rowMuted}>
+                  {t("Wenn niemand öffnet")}: {t(order.address.ifNoAnswer)}
+                </p>
+              )}
             </div>
             <button type="button" className={reviewStyles.changeButton} onClick={() => onEditStep(1)}>
-              Ändern
+              {t("Ändern")}
             </button>
           </div>
 
           <div className={reviewStyles.row}>
-            <p className={reviewStyles.rowLabel}>Karte</p>
+            <p className={reviewStyles.rowLabel}>{t("Karte")}</p>
             <div>
-              <p className={reviewStyles.rowPrimary}>Motiv „{MOTIF_LABELS[order.card.motif] ?? "Ohne Motiv"}“{order.card.anonymous ? ", anonym" : ""}</p>
-              <p className={reviewStyles.rowSecondary}>{order.card.message ? `„${order.card.message}“` : "Ohne Grußtext"}</p>
+              <p className={reviewStyles.rowPrimary}>
+                {t("Motiv")} „{t(MOTIF_LABELS[order.card.motif] ?? "Ohne Motiv")}“{order.card.anonymous ? t(", anonym") : ""}
+              </p>
+              <p className={reviewStyles.rowSecondary}>{order.card.message ? `„${order.card.message}“` : t("Ohne Grußtext")}</p>
             </div>
             <button type="button" className={reviewStyles.changeButton} onClick={() => onEditStep(2)}>
-              Ändern
+              {t("Ändern")}
             </button>
           </div>
 
           <div className={reviewStyles.row}>
-            <p className={reviewStyles.rowLabel}>Zahlung</p>
+            <p className={reviewStyles.rowLabel}>{t("Zahlung")}</p>
             <div>
-              <p className={reviewStyles.rowPrimary}>{PAYMENT_LABELS[order.payment]}</p>
+              <p className={reviewStyles.rowPrimary}>{t(PAYMENT_LABELS[order.payment])}</p>
               <p className={reviewStyles.rowSecondary}>
-                {order.billingSameAsDelivery ? "Rechnungsadresse wie Lieferadresse" : "Abweichende Rechnungsadresse"}
+                {t(order.billingSameAsDelivery ? "Rechnungsadresse wie Lieferadresse" : "Abweichende Rechnungsadresse")}
               </p>
             </div>
             <button type="button" className={reviewStyles.changeButton} onClick={() => onEditStep(3)}>
-              Ändern
+              {t("Ändern")}
             </button>
           </div>
 
           <div className={reviewStyles.row}>
-            <p className={reviewStyles.rowLabel}>Artikel</p>
+            <p className={reviewStyles.rowLabel}>{t("Artikel")}</p>
             <div>
               {items.map((item) => (
                 <p key={item.id} className={reviewStyles.rowPrimary} style={{ marginTop: 0 }}>
-                  {item.quantity} × {item.name}
-                  {item.meta ? `, ${item.meta}` : ""} — {formatCents(item.priceCents * item.quantity)}
+                  {item.quantity} × {t(item.name)}
+                  {item.meta ? `, ${t(item.meta)}` : ""} — {formatCents(item.priceCents * item.quantity)}
                 </p>
               ))}
             </div>
             <button type="button" className={reviewStyles.changeButton} onClick={() => onEditStep(0)}>
-              Ändern
+              {t("Ändern")}
             </button>
           </div>
         </div>
@@ -118,37 +126,39 @@ export default function ReviewStep({ order, onChange, onEditStep, onSubmit, onBa
             onChange={(e: ChangeEvent<HTMLInputElement>) => onChange({ agbAccepted: e.target.checked })}
           />
           <span>
-            Ich habe die <Link href="/agb">AGB</Link> und den <Link href="/widerruf">Widerruf</Link> gelesen. Bei frisch gebundener Ware
-            entfällt das Widerrufsrecht ab Bindebeginn.
+            {t("Ich habe die")} <Link href="/agb">{t("AGB")}</Link> {t("und den")}{" "}
+            <Link href="/widerruf">{t("Widerruf")}</Link>
+            {t(" gelesen. Bei frisch gebundener Ware entfällt das Widerrufsrecht ab Bindebeginn.")}
           </span>
         </label>
 
         {!stillAvailable && (
           <p className={reviewStyles.warning}>
-            Das gewählte Zeitfenster ist inzwischen abgelaufen — bitte in Schritt 1 ein neues wählen.
+            {t("Das gewählte Zeitfenster ist inzwischen abgelaufen — bitte in Schritt 1 ein neues wählen.")}
           </p>
         )}
 
         <div className={styles.actions}>
           <Button variant="primary" onClick={handleSubmit} disabled={!order.agbAccepted || !stillAvailable || submitting}>
-            {submitting ? "Wird gesendet…" : "Kostenpflichtig bestellen"}
+            {submitting ? t("Wird gesendet…") : t("Kostenpflichtig bestellen")}
           </Button>
           <Button variant="ghost" onClick={onBack}>
-            Zurück
+            {t("Zurück")}
           </Button>
         </div>
       </div>
 
       <aside className={styles.aside}>
-        <p className={styles.asideEyebrow}>Summe</p>
+        <p className={styles.asideEyebrow}>{t("Summe")}</p>
         <p className={reviewStyles.bigTotal}>{formatCents(total)}</p>
         <p className={styles.asideNote}>
-          Enthält {order.deliveryType === "lieferung" ? formatCents(deliveryFee) : "keine"} Lieferung und 7 % USt. auf Blumen.
+          {t("Enthält")} {order.deliveryType === "lieferung" ? formatCents(deliveryFee) : t("keine")}{" "}
+          {t("Lieferung und 7 % USt. auf Blumen.")}
         </p>
         <div className={reviewStyles.statusRow}>
           <span className={stillAvailable ? reviewStyles.dotOk : reviewStyles.dotWarn} />
           <span className={stillAvailable ? reviewStyles.statusOk : reviewStyles.statusWarn}>
-            {stillAvailable ? "Fenster noch frei" : "Fenster abgelaufen"}
+            {t(stillAvailable ? "Fenster noch frei" : "Fenster abgelaufen")}
           </span>
         </div>
       </aside>

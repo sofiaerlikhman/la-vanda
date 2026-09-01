@@ -3,6 +3,7 @@
 import { useMemo, type ChangeEvent } from "react";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { getDeliveryDayOptions } from "@/data/delivery";
 import { DELIVERY_FEE_CENTS, formatCents, type AddressForm, type DeliveryType, type OrderState } from "./types";
 import styles from "./checkout.module.css";
@@ -27,6 +28,7 @@ const ADDRESS_FIELDS: { key: keyof AddressForm; label: string; span?: boolean; t
 
 export default function DeliveryStep({ order, onChange, onContinue, onBack }: Props) {
   const { items, subtotalCents } = useCart();
+  const t = useT();
   const dayOptions = useMemo(() => getDeliveryDayOptions(new Date()), []);
   const selectedDay = dayOptions.find((d) => d.offsetDays === order.dayOffset) ?? dayOptions[0];
 
@@ -53,28 +55,28 @@ export default function DeliveryStep({ order, onChange, onContinue, onBack }: Pr
   return (
     <div className={styles.layout}>
       <div>
-        <h1 className={styles.title}>Wann &amp; wohin</h1>
-        <p className={styles.lead}>Erst das Zeitfenster, dann die Adresse. So siehst du sofort, ob heute noch geht.</p>
+        <h1 className={styles.title}>{t("Wann & wohin")}</h1>
+        <p className={styles.lead}>{t("Erst das Zeitfenster, dann die Adresse. So siehst du sofort, ob heute noch geht.")}</p>
 
-        <p className={styles.sectionLabel}>Art der Zustellung</p>
+        <p className={styles.sectionLabel}>{t("Art der Zustellung")}</p>
         <div className={deliveryStyles.typeRow}>
           <button
             type="button"
             className={isLieferung ? `${deliveryStyles.typeChip} ${deliveryStyles.typeChipActive}` : deliveryStyles.typeChip}
             onClick={() => selectDeliveryType("lieferung")}
           >
-            Lieferung
+            {t("Lieferung")}
           </button>
           <button
             type="button"
             className={!isLieferung ? `${deliveryStyles.typeChip} ${deliveryStyles.typeChipActive}` : deliveryStyles.typeChip}
             onClick={() => selectDeliveryType("abholung")}
           >
-            Abholung im Laden
+            {t("Abholung im Laden")}
           </button>
         </div>
 
-        <p className={styles.sectionLabel}>Tag</p>
+        <p className={styles.sectionLabel}>{t("Tag")}</p>
         <div className={deliveryStyles.dayGrid}>
           {dayOptions.map((day) => (
             <button
@@ -85,16 +87,16 @@ export default function DeliveryStep({ order, onChange, onContinue, onBack }: Pr
               }
               onClick={() => onChange({ dayOffset: day.offsetDays, window: null })}
             >
-              <span className={deliveryStyles.dayLabel}>{day.dayLabel}</span>
+              <span className={deliveryStyles.dayLabel}>{t(day.dayLabel)}</span>
               <span className={deliveryStyles.dateLabel}>{day.dateLabel}</span>
             </button>
           ))}
         </div>
 
-        <p className={styles.sectionLabel}>Zeitfenster</p>
+        <p className={styles.sectionLabel}>{t("Zeitfenster")}</p>
         <div className={deliveryStyles.windowList}>
           {selectedDay.windows.length === 0 && (
-            <p className={deliveryStyles.windowClosed}>An diesem Tag liefern wir nicht — bitte einen anderen Tag wählen.</p>
+            <p className={deliveryStyles.windowClosed}>{t("An diesem Tag liefern wir nicht — bitte einen anderen Tag wählen.")}</p>
           )}
           {selectedDay.windows.map((win) => {
             const active = order.window === win.id;
@@ -107,28 +109,28 @@ export default function DeliveryStep({ order, onChange, onContinue, onBack }: Pr
                 disabled={!win.available}
               >
                 <span>
-                  <span className={deliveryStyles.windowLabel}>{win.label}</span>
+                  <span className={deliveryStyles.windowLabel}>{t(win.label)}</span>
                   {win.statusLabel && (
                     <span className={win.available ? deliveryStyles.windowStatus : deliveryStyles.windowStatusClosed}>
-                      {win.statusLabel}
+                      {t(win.statusLabel)}
                     </span>
                   )}
                 </span>
-                {active && <span className={deliveryStyles.chosen}>Gewählt</span>}
-                {!win.available && <span className={deliveryStyles.windowStatusClosed}>Nicht mehr heute</span>}
+                {active && <span className={deliveryStyles.chosen}>{t("Gewählt")}</span>}
+                {!win.available && <span className={deliveryStyles.windowStatusClosed}>{t("Nicht mehr heute")}</span>}
               </button>
             );
           })}
         </div>
 
-        <p className={styles.sectionLabel}>{isLieferung ? "Lieferadresse" : "Kontaktdaten"}</p>
+        <p className={styles.sectionLabel}>{t(isLieferung ? "Lieferadresse" : "Kontaktdaten")}</p>
         <div className={deliveryStyles.addressGrid}>
           {ADDRESS_FIELDS.filter((f) => isLieferung || !["street", "postalCode", "city"].includes(f.key)).map((field) => (
             <label
               key={field.key}
               className={field.span ? `${styles.field} ${deliveryStyles.fieldFull}` : styles.field}
             >
-              <span>{field.label}</span>
+              <span>{t(field.label)}</span>
               <input
                 type={field.type ?? "text"}
                 className={styles.input}
@@ -139,15 +141,15 @@ export default function DeliveryStep({ order, onChange, onContinue, onBack }: Pr
           ))}
           {isLieferung && (
             <label className={`${styles.field} ${deliveryStyles.fieldFull}`}>
-              <span>Wenn niemand öffnet</span>
+              <span>{t("Wenn niemand öffnet")}</span>
               <select
                 className={styles.select}
                 value={order.address.ifNoAnswer}
                 onChange={(e: ChangeEvent<HTMLSelectElement>) => updateAddress("ifNoAnswer", e.target.value)}
               >
-                <option>Bei Nachbarn abgeben</option>
-                <option>Vor der Tür abstellen</option>
-                <option>Zurück ins Atelier, wir rufen an</option>
+                <option value="Bei Nachbarn abgeben">{t("Bei Nachbarn abgeben")}</option>
+                <option value="Vor der Tür abstellen">{t("Vor der Tür abstellen")}</option>
+                <option value="Zurück ins Atelier, wir rufen an">{t("Zurück ins Atelier, wir rufen an")}</option>
               </select>
             </label>
           )}
@@ -155,32 +157,32 @@ export default function DeliveryStep({ order, onChange, onContinue, onBack }: Pr
 
         <div className={styles.actions}>
           <Button variant="primary" onClick={onContinue} disabled={!canContinue}>
-            Weiter zur Karte
+            {t("Weiter zur Karte")}
           </Button>
           <Button variant="ghost" onClick={onBack}>
-            Zurück zum Korb
+            {t("Zurück zum Korb")}
           </Button>
         </div>
       </div>
 
       <aside className={styles.aside}>
         <p className={styles.asideEyebrow}>
-          {items.length} {items.length === 1 ? "Artikel" : "Artikel"}
+          {items.length} {t("Artikel")}
         </p>
         <div className={styles.summaryLines}>
           {items.map((item) => (
             <div key={item.id} className={styles.summaryRow}>
-              <span>{item.name}</span>
+              <span>{t(item.name)}</span>
               <span className={styles.summaryRowValue}>{formatCents(item.priceCents * item.quantity)}</span>
             </div>
           ))}
           <div className={styles.summaryRow}>
-            <span>{isLieferung ? "Lieferung" : "Abholung"}</span>
-            <span className={styles.summaryRowValue}>{isLieferung ? formatCents(deliveryFee) : "Kostenlos"}</span>
+            <span>{t(isLieferung ? "Lieferung" : "Abholung")}</span>
+            <span className={styles.summaryRowValue}>{isLieferung ? formatCents(deliveryFee) : t("Kostenlos")}</span>
           </div>
         </div>
         <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>Summe</span>
+          <span className={styles.totalLabel}>{t("Summe")}</span>
           <span className={styles.totalValue}>{formatCents(total)}</span>
         </div>
       </aside>

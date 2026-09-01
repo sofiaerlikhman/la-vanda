@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent } from "react";
 import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { redeemVoucher, applyVoucher } from "@/data/vouchers";
 import { DELIVERY_FEE_CENTS, formatCents, PAYMENT_LABELS, type OrderState, type PaymentMethod } from "./types";
 import styles from "./checkout.module.css";
@@ -19,6 +20,7 @@ type Props = {
 
 export default function PaymentStep({ order, onChange, onContinue, onBack }: Props) {
   const { items, subtotalCents } = useCart();
+  const t = useT();
   const [checking, setChecking] = useState(false);
   const deliveryFee = order.deliveryType === "lieferung" ? DELIVERY_FEE_CENTS : 0;
   const discount = order.appliedVoucher ? applyVoucher(order.appliedVoucher, subtotalCents, deliveryFee) : 0;
@@ -29,14 +31,14 @@ export default function PaymentStep({ order, onChange, onContinue, onBack }: Pro
     setChecking(true);
     const voucher = await redeemVoucher(order.voucherCode);
     setChecking(false);
-    onChange({ appliedVoucher: voucher, voucherError: voucher ? null : "Code ungültig oder abgelaufen." });
+    onChange({ appliedVoucher: voucher, voucherError: voucher ? null : t("Code ungültig oder abgelaufen.") });
   }
 
   return (
     <div className={styles.layout}>
       <div>
-        <h1 className={styles.title}>Zahlung</h1>
-        <p className={styles.lead}>Abgebucht wird erst, wenn der Strauß gebunden ist.</p>
+        <h1 className={styles.title}>{t("Zahlung")}</h1>
+        <p className={styles.lead}>{t("Abgebucht wird erst, wenn der Strauß gebunden ist.")}</p>
 
         <div className={paymentStyles.methodList}>
           {METHODS.map((method) => (
@@ -45,14 +47,14 @@ export default function PaymentStep({ order, onChange, onContinue, onBack }: Pro
               className={order.payment === method ? `${paymentStyles.methodRow} ${paymentStyles.methodRowActive}` : paymentStyles.methodRow}
             >
               <input type="radio" name="pay" checked={order.payment === method} onChange={() => onChange({ payment: method })} />
-              <span className={paymentStyles.methodLabel}>{PAYMENT_LABELS[method]}</span>
-              {method === "rechnung" && <span className={paymentStyles.recommended}>Empfohlen</span>}
+              <span className={paymentStyles.methodLabel}>{t(PAYMENT_LABELS[method])}</span>
+              {method === "rechnung" && <span className={paymentStyles.recommended}>{t("Empfohlen")}</span>}
             </label>
           ))}
         </div>
 
         <p className={styles.sectionLabel} style={{ marginTop: 40 }}>
-          Rechnungsadresse
+          {t("Rechnungsadresse")}
         </p>
         <label className={paymentStyles.checkboxRow}>
           <input
@@ -60,65 +62,67 @@ export default function PaymentStep({ order, onChange, onContinue, onBack }: Pro
             checked={order.billingSameAsDelivery}
             onChange={(e: ChangeEvent<HTMLInputElement>) => onChange({ billingSameAsDelivery: e.target.checked })}
           />
-          Wie die Lieferadresse
+          {t("Wie die Lieferadresse")}
         </label>
 
         <label className={paymentStyles.voucherField}>
-          <span>Gutschein- oder Rabattcode</span>
+          <span>{t("Gutschein- oder Rabattcode")}</span>
           <span className={paymentStyles.voucherRow}>
             <input
               type="text"
-              placeholder="Code eingeben"
+              placeholder={t("Code eingeben")}
               className={styles.input}
               style={{ flex: 1 }}
               value={order.voucherCode}
               onChange={(e: ChangeEvent<HTMLInputElement>) => onChange({ voucherCode: e.target.value, voucherError: null })}
             />
             <Button variant="secondary" onClick={handleRedeem} disabled={checking}>
-              Einlösen
+              {t("Einlösen")}
             </Button>
           </span>
           {order.appliedVoucher && (
-            <span className={paymentStyles.voucherOk}>„{order.appliedVoucher.code}“ eingelöst — {order.appliedVoucher.description}.</span>
+            <span className={paymentStyles.voucherOk}>
+              „{order.appliedVoucher.code}“ {t("eingelöst")} — {t(order.appliedVoucher.description)}.
+            </span>
           )}
           {order.voucherError && <span className={paymentStyles.voucherError}>{order.voucherError}</span>}
         </label>
 
         <div className={styles.actions}>
           <Button variant="primary" onClick={onContinue}>
-            Bestellung prüfen
+            {t("Bestellung prüfen")}
           </Button>
           <Button variant="ghost" onClick={onBack}>
-            Zurück
+            {t("Zurück")}
           </Button>
         </div>
       </div>
 
       <aside className={styles.aside}>
-        <p className={styles.asideEyebrow}>Zusammenfassung</p>
+        <p className={styles.asideEyebrow}>{t("Zusammenfassung")}</p>
         <div className={styles.summaryLines}>
           {items.map((item) => (
             <div key={item.id} className={styles.summaryRow}>
-              <span>{item.name}</span>
+              <span>{t(item.name)}</span>
               <span className={styles.summaryRowValue}>{formatCents(item.priceCents * item.quantity)}</span>
             </div>
           ))}
           <div className={styles.summaryRow}>
-            <span>{order.deliveryType === "lieferung" ? "Lieferung" : "Abholung"}</span>
-            <span className={styles.summaryRowValue}>{order.deliveryType === "lieferung" ? formatCents(deliveryFee) : "Kostenlos"}</span>
+            <span>{t(order.deliveryType === "lieferung" ? "Lieferung" : "Abholung")}</span>
+            <span className={styles.summaryRowValue}>{order.deliveryType === "lieferung" ? formatCents(deliveryFee) : t("Kostenlos")}</span>
           </div>
           {discount > 0 && (
             <div className={styles.summaryRow}>
-              <span>Gutschein</span>
+              <span>{t("Gutschein")}</span>
               <span className={styles.summaryRowValue}>−{formatCents(discount)}</span>
             </div>
           )}
         </div>
         <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>Summe</span>
+          <span className={styles.totalLabel}>{t("Summe")}</span>
           <span className={styles.totalValue}>{formatCents(total)}</span>
         </div>
-        <p className={styles.asideNote}>Enthält 7 % USt. auf Blumen, 19 % auf Vasen und Zubehör.</p>
+        <p className={styles.asideNote}>{t("Enthält 7 % USt. auf Blumen, 19 % auf Vasen und Zubehör.")}</p>
       </aside>
     </div>
   );

@@ -3,6 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { useCart, type CartItem } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { ACCESSORIES } from "@/data/accessories";
 import { DELIVERY_FEE_CENTS, formatCents } from "./types";
 import styles from "./checkout.module.css";
@@ -10,6 +11,7 @@ import cartStyles from "./CartStep.module.css";
 
 export default function CartStep({ onContinue }: { onContinue: () => void }) {
   const { items, setQuantity, removeItem, addItem, subtotalCents } = useCart();
+  const t = useT();
 
   const crossSell = ACCESSORIES.filter((a) => !items.some((i) => i.id === `accessory:${a.id}`));
   const estimatedTotal = items.length > 0 ? subtotalCents + DELIVERY_FEE_CENTS : 0;
@@ -17,13 +19,13 @@ export default function CartStep({ onContinue }: { onContinue: () => void }) {
   return (
     <div className={styles.layout}>
       <div>
-        <h1 className={styles.title}>Dein Korb</h1>
+        <h1 className={styles.title}>{t("Dein Korb")}</h1>
 
         {items.length === 0 ? (
           <div className={styles.empty}>
-            <p>Dein Korb ist leer.</p>
+            <p>{t("Dein Korb ist leer.")}</p>
             <Button variant="secondary" href="/sortiment">
-              Sträuße ansehen
+              {t("Sträuße ansehen")}
             </Button>
           </div>
         ) : (
@@ -37,7 +39,7 @@ export default function CartStep({ onContinue }: { onContinue: () => void }) {
             {crossSell.length > 0 && (
               <>
                 <p className={styles.sectionLabel} style={{ marginTop: 32 }}>
-                  Passt dazu
+                  {t("Passt dazu")}
                 </p>
                 <div className={cartStyles.crossSellGrid}>
                   {crossSell.map((accessory) => (
@@ -59,7 +61,7 @@ export default function CartStep({ onContinue }: { onContinue: () => void }) {
                         <ImagePlaceholder label={accessory.image} className={cartStyles.crossSellImageInner} />
                       </div>
                       <span>
-                        <span className={cartStyles.crossSellName}>{accessory.name}</span>
+                        <span className={cartStyles.crossSellName}>{t(accessory.name)}</span>
                         <span className={cartStyles.crossSellPrice}>{formatCents(accessory.priceCents)}</span>
                       </span>
                     </button>
@@ -72,26 +74,26 @@ export default function CartStep({ onContinue }: { onContinue: () => void }) {
       </div>
 
       <aside className={styles.aside}>
-        <p className={styles.asideEyebrow}>Zusammenfassung</p>
+        <p className={styles.asideEyebrow}>{t("Zusammenfassung")}</p>
         <div className={styles.summaryLines}>
           <div className={styles.summaryRow}>
-            <span>Zwischensumme</span>
+            <span>{t("Zwischensumme")}</span>
             <span className={styles.summaryRowValue}>{formatCents(subtotalCents)}</span>
           </div>
           <div className={styles.summaryRow}>
-            <span>Lieferung Wiesbaden</span>
+            <span>{t("Lieferung Wiesbaden")}</span>
             <span className={styles.summaryRowValue}>{items.length > 0 ? formatCents(DELIVERY_FEE_CENTS) : "—"}</span>
           </div>
         </div>
         <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>Summe</span>
+          <span className={styles.totalLabel}>{t("Summe")}</span>
           <span className={styles.totalValue}>{formatCents(estimatedTotal)}</span>
         </div>
         <Button variant="primary" className={styles.asideCta} disabled={items.length === 0} onClick={onContinue}>
-          Zur Lieferung
+          {t("Zur Lieferung")}
         </Button>
         <p className={styles.asideNote}>
-          Zeitfenster wählst du im nächsten Schritt. Bis 14 Uhr bestellt, heute 17–20 Uhr geliefert.
+          {t("Zeitfenster wählst du im nächsten Schritt. Bis 14 Uhr bestellt, heute 17–20 Uhr geliefert.")}
         </p>
       </aside>
     </div>
@@ -107,19 +109,20 @@ function CartLineRow({
   onSetQuantity: (id: string, quantity: number) => void;
   onRemove: (id: string) => void;
 }) {
+  const t = useT();
   return (
     <div className={cartStyles.row}>
       <div className={cartStyles.imageWrap}>
         <ImagePlaceholder label={item.image} className={cartStyles.image} />
       </div>
       <div>
-        <h3 className={cartStyles.name}>{item.name}</h3>
-        {item.meta && <p className={cartStyles.meta}>{item.meta}</p>}
+        <h3 className={cartStyles.name}>{t(item.name)}</h3>
+        {item.meta && <p className={cartStyles.meta}>{t(item.meta)}</p>}
         <div className={cartStyles.controls}>
           <div className={cartStyles.stepper}>
             <button
               type="button"
-              aria-label="Menge verringern"
+              aria-label={t("Menge verringern")}
               className={cartStyles.stepButton}
               onClick={() => onSetQuantity(item.id, item.quantity - 1)}
             >
@@ -128,7 +131,7 @@ function CartLineRow({
             <span className={cartStyles.stepValue}>{item.quantity}</span>
             <button
               type="button"
-              aria-label="Menge erhöhen"
+              aria-label={t("Menge erhöhen")}
               className={cartStyles.stepButton}
               onClick={() => onSetQuantity(item.id, item.quantity + 1)}
             >
@@ -136,7 +139,7 @@ function CartLineRow({
             </button>
           </div>
           <button type="button" className={cartStyles.removeButton} onClick={() => onRemove(item.id)}>
-            Entfernen
+            {t("Entfernen")}
           </button>
         </div>
       </div>

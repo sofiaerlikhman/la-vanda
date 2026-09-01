@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./CheckoutStepper.module.css";
 
 const STEPS = ["Korb", "1 Wann & wohin", "2 Karte & Gruß", "3 Zahlung", "Prüfen", "Bestätigung", "Status"];
@@ -31,6 +32,7 @@ export default function CheckoutStepper({
   maxReachedStep: number;
 }) {
   const activePhase = PHASES.findIndex((p) => p.steps.includes(step));
+  const t = useT();
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function CheckoutStepper({
                 disabled={!reachable}
                 aria-current={i === step ? "step" : undefined}
               >
-                {label}
+                {t(label)}
               </button>
             </div>
           );
@@ -66,7 +68,7 @@ export default function CheckoutStepper({
                 onClick={() => reachable && onStepClick(phase.steps[0])}
                 disabled={!reachable}
               >
-                {i + 1} {phase.label}
+                {i + 1} {t(phase.label)}
               </button>
             </div>
           );

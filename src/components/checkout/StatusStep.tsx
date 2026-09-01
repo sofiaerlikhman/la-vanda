@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import { useT } from "@/i18n/LanguageProvider";
 import { formatCents, type ConfirmedOrder } from "./types";
 import styles from "./checkout.module.css";
 import statusStyles from "./StatusStep.module.css";
@@ -28,19 +29,20 @@ const UPCOMING_STEPS = [
  * the remaining steps up to real driver/workshop events once that exists.
  */
 export default function StatusStep({ confirmed, onBackToCart }: { confirmed: ConfirmedOrder; onBackToCart: () => void }) {
+  const t = useT();
   return (
     <div className={styles.layout}>
       <div>
         <p className={styles.asideEyebrow} style={{ margin: "0 0 16px" }}>
-          Bestellung {confirmed.orderNumber}
+          {t("Bestellung")} {confirmed.orderNumber}
         </p>
-        <h1 className={styles.title}>Bestellstatus</h1>
+        <h1 className={styles.title}>{t("Bestellstatus")}</h1>
 
         <div className={statusStyles.timeline}>
           <div className={statusStyles.step}>
             <span className={statusStyles.dotDone} />
             <div>
-              <p className={statusStyles.stepTitle}>Bestellung angenommen</p>
+              <p className={statusStyles.stepTitle}>{t("Bestellung angenommen")}</p>
               <p className={statusStyles.stepMeta}>{formatPlacedAt(confirmed.placedAt)}</p>
             </div>
           </div>
@@ -48,8 +50,10 @@ export default function StatusStep({ confirmed, onBackToCart }: { confirmed: Con
             <div key={step.title} className={statusStyles.step}>
               <span className={statusStyles.dotPending} />
               <div>
-                <p className={statusStyles.stepTitlePending}>{step.title}</p>
-                <p className={statusStyles.stepMeta}>{step.hint} — noch offen</p>
+                <p className={statusStyles.stepTitlePending}>{t(step.title)}</p>
+                <p className={statusStyles.stepMeta}>
+                  {t(step.hint)} — {t("noch offen")}
+                </p>
               </div>
             </div>
           ))}
@@ -57,34 +61,34 @@ export default function StatusStep({ confirmed, onBackToCart }: { confirmed: Con
 
         <div className={statusStyles.actionsRow}>
           <a href="tel:+496110000000" className={statusStyles.callLink}>
-            Fahrer anrufen
+            {t("Fahrer anrufen")}
           </a>
           <Button variant="ghost" onClick={onBackToCart}>
-            Zurück zum Korb
+            {t("Zurück zum Korb")}
           </Button>
         </div>
       </div>
 
       <aside className={styles.aside}>
-        <p className={styles.asideEyebrow}>Inhalt</p>
+        <p className={styles.asideEyebrow}>{t("Inhalt")}</p>
         <div className={styles.summaryLines}>
           {confirmed.items.map((item) => (
             <div key={item.id} className={styles.summaryRow}>
-              <span>{item.name}</span>
+              <span>{t(item.name)}</span>
               <span className={styles.summaryRowValue}>{formatCents(item.priceCents * item.quantity)}</span>
             </div>
           ))}
           <div className={styles.summaryRow}>
-            <span>Lieferung</span>
+            <span>{t("Lieferung")}</span>
             <span className={styles.summaryRowValue}>{formatCents(confirmed.deliveryFeeCents)}</span>
           </div>
         </div>
         <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>Summe</span>
+          <span className={styles.totalLabel}>{t("Summe")}</span>
           <span className={styles.totalValue}>{formatCents(confirmed.totalCents)}</span>
         </div>
         <p className={styles.asideNote}>
-          Ohne Konto? Bestellnummer und Postleitzahl genügen, um diesen Status wieder aufzurufen.
+          {t("Ohne Konto? Bestellnummer und Postleitzahl genügen, um diesen Status wieder aufzurufen.")}
         </p>
       </aside>
     </div>
