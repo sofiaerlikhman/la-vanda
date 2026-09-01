@@ -62,6 +62,7 @@
   letter-spacing: -0.02em;
   color: var(--lv-ink);
   flex: 1;
+  transition: color var(--lv-dur-micro) var(--lv-ease);
 }
 
 .price {
@@ -75,6 +76,12 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--lv-lav-700);
+  transition: transform var(--lv-dur-micro) var(--lv-ease);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .row:hover .view {
+    transform: translateX(4px);
+  }
 }
 
 @media (max-width: 768px) {

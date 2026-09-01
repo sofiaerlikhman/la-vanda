@@ -11,8 +11,8 @@ export default function ProductGallery({ images }: { images: string[] }) {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.main}>
-        <ImagePlaceholder label={active} className={styles.mainImage} />
+      <div className={`${styles.main} lv-zoom`}>
+        <ImagePlaceholder label={active} className={`${styles.mainImage} lv-zoom-target`} />
       </div>
       {shots.length > 1 && (
         <div className={styles.thumbs}>

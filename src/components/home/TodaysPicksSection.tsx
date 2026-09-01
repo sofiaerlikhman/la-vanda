@@ -6,7 +6,7 @@ import styles from "./TodaysPicksSection.module.css";
 export default function TodaysPicksSection({ products }: { products: Product[] }) {
   return (
     <section className={styles.section}>
-      <div className={styles.head}>
+      <div className={styles.head} data-reveal>
         <div>
           <p className={styles.eyebrow}>Heute gebunden</p>
           <h2 className={styles.title}>Was heute noch geht</h2>

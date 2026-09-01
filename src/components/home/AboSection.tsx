@@ -11,7 +11,7 @@ import styles from "./AboSection.module.css";
 export default function AboSection() {
   return (
     <section className={styles.section}>
-      <div className={styles.grid}>
+      <div className={styles.grid} data-reveal>
         <div className={styles.imageWrap}>
           <ImagePlaceholder label="Abo-Strauß, Hochformat 3:4" />
         </div>

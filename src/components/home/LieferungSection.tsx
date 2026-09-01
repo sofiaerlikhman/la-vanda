@@ -19,7 +19,7 @@ export default function LieferungSection() {
 
   return (
     <section className={styles.section}>
-      <div className={styles.grid}>
+      <div className={styles.grid} data-reveal>
         <div>
           <h2 className={styles.title}>Liefern wir zu dir?</h2>
           <p className={styles.lead}>Eigene Fahrer, kein Paketdienst. Zwei Zeitfenster am Tag, samstags eines.</p>

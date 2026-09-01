@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <ImagePlaceholder label="Werkstatt, Querformat — Hände beim Binden" className={styles.image} />
-      <div className={styles.panel}>
+      <div className={styles.panel} data-reveal>
         <p className={styles.eyebrow}>Blumenatelier · Wiesbaden</p>
         <h1 className={styles.headline}>
           Heute gebunden,

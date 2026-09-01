@@ -5,7 +5,7 @@ import styles from "./AtelierSection.module.css";
 export default function AtelierSection() {
   return (
     <section className={styles.section}>
-      <div className={styles.grid}>
+      <div className={styles.grid} data-reveal>
         <div className={styles.imageWrap}>
           <ImagePlaceholder label="Werkstatt, Hände, 4:3" />
         </div>

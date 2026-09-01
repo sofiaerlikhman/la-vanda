@@ -81,6 +81,7 @@ body {
 a {
   color: var(--lv-lav-700);
   text-decoration: none;
+  transition: color var(--lv-dur-micro) var(--lv-ease);
 }
 a:hover {
   color: var(--lv-ink);
@@ -98,4 +99,69 @@ button {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* ── Motion: scroll-reveal & shared hover effects ─────────────────────
+   Design intent: content settles in with a gentle fade + rise as it
+   scrolls into view, and pictures lift/zoom a touch on hover. Everything
+   here is decorative enhancement — the site is fully usable without it.
+
+   The reveal's hidden starting state is applied ONLY when BOTH:
+     • the user has not asked for reduced motion, and
+     • scripting is enabled (so JS can reveal it again).
+   If either is false the rule never applies and content is simply visible,
+   so JS failures or reduced-motion settings can never hide content.
+   `is-visible` is added by <ScrollReveal> once the element enters view. */
+@keyframes lv-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--lv-reveal-rise));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  /* Hidden until revealed. Only opacity is set up-front (no transform), so
+     nothing shifts the layout while waiting — the rise happens during the
+     animation. Reveal is driven by @keyframes, NOT transition, so each
+     element's `transition` property stays free for its own hover effects. */
+  [data-reveal],
+  [data-reveal-group] > * {
+    opacity: 0;
+  }
+
+  [data-reveal].is-visible,
+  [data-reveal-group].is-visible > * {
+    animation: lv-reveal var(--lv-dur-reveal) var(--lv-ease) both;
+  }
+
+  /* Grouped children (e.g. product cards) cascade in — the stagger is
+     capped so a large grid never feels slow. */
+  [data-reveal-group].is-visible > *:nth-child(2) { animation-delay: 70ms; }
+  [data-reveal-group].is-visible > *:nth-child(3) { animation-delay: 140ms; }
+  [data-reveal-group].is-visible > *:nth-child(4) { animation-delay: 210ms; }
+  [data-reveal-group].is-visible > *:nth-child(5) { animation-delay: 280ms; }
+  [data-reveal-group].is-visible > *:nth-child(n + 6) { animation-delay: 320ms; }
+}
+
+/* Reusable picture hover-zoom. Put `lv-zoom` on a clipping wrapper and
+   `lv-zoom-target` on the image/placeholder inside it; the target scales
+   up softly while the wrapper hides the overflow. Used for clickable
+   imagery (product gallery, linked tiles); cards do the same in their
+   own module so the whole card is the hover target. */
+.lv-zoom {
+  overflow: hidden;
+}
+.lv-zoom .lv-zoom-target {
+  transition: transform var(--lv-dur-hover) var(--lv-ease);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lv-zoom:hover .lv-zoom-target,
+  .lv-zoom:focus-visible .lv-zoom-target {
+    transform: scale(var(--lv-hover-zoom));
+  }
 }

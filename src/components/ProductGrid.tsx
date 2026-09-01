@@ -4,7 +4,7 @@ import styles from "./ProductGrid.module.css";
 
 export default function ProductGrid({ products }: { products: Product[] }) {
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} data-reveal-group>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

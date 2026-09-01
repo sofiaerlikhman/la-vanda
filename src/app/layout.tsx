@@ -4,6 +4,7 @@ import { MobileChromeProvider } from "@/context/MobileChromeContext";
 import MobileTabBar from "@/components/mobile/MobileTabBar";
 import MobileMenuOverlay from "@/components/mobile/MobileMenuOverlay";
 import MobileSearchOverlay from "@/components/mobile/MobileSearchOverlay";
+import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <MobileTabBar />
             <MobileMenuOverlay />
             <MobileSearchOverlay />
+            {/* Wires up scroll-reveal animations for the whole tree. */}
+            <ScrollReveal />
           </MobileChromeProvider>
         </CartProvider>
       </body>

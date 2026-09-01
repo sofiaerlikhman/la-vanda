@@ -7,7 +7,7 @@ export default function AnfrageBand() {
     <section className={styles.section}>
       <div className={styles.wrap}>
         <ImagePlaceholder label="Installation, Vollbreite" className={styles.image} />
-        <div className={styles.panel}>
+        <div className={styles.panel} data-reveal>
           <p className={styles.eyebrow}>Auf Anfrage</p>
           <h2 className={styles.title}>Floristik nach Maß</h2>
           <p className={styles.lead}>

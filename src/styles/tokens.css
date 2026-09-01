@@ -89,6 +89,15 @@
   --lv-dur-ui:    200ms;     /* drawer, accordion */
   --lv-dur-page:  320ms;     /* route transition, overlay */
 
+  /* Shared animation vocabulary — keep hover/reveal effects coherent
+     site-wide by pulling from these instead of hardcoding values.
+     All motion is gated behind prefers-reduced-motion in globals.css. */
+  --lv-dur-reveal:  600ms;   /* scroll-into-view fade + rise */
+  --lv-dur-hover:   240ms;   /* image zoom, card lift — slower than micro, reads as calm */
+  --lv-reveal-rise: 16px;    /* how far elements travel up as they appear */
+  --lv-hover-lift:  2px;     /* how far cards/buttons rise on hover */
+  --lv-hover-zoom:  1.04;    /* image zoom factor on hover */
+
   /* ── Focus ─────────────────────────────────────── */
   --lv-focus-ring: 2px solid var(--lv-lav-900);
   --lv-focus-offset: 2px;

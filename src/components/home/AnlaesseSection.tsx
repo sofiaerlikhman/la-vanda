@@ -6,7 +6,7 @@ export default function AnlaesseSection() {
   return (
     <section className={styles.section}>
       <div className={styles.grid}>
-        <div>
+        <div data-reveal>
           <p className={styles.eyebrow}>Anlässe</p>
           <h2 className={styles.title}>
             Wofür sind
@@ -15,7 +15,7 @@ export default function AnlaesseSection() {
           </h2>
           <p className={styles.lead}>Zu jedem Anlass eine kuratierte Auswahl, drei Preisstufen, dasselbe Zeitfenster.</p>
         </div>
-        <div className={styles.list}>
+        <div className={styles.list} data-reveal-group>
           {OCCASIONS.map((occasion) => (
             <Link key={occasion.href} href={occasion.href} className={styles.row}>
               <span className={styles.name}>{occasion.name}</span>

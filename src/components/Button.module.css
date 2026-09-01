@@ -12,8 +12,23 @@
   white-space: nowrap;
   cursor: pointer;
   transition: background-color var(--lv-dur-micro) var(--lv-ease), color var(--lv-dur-micro) var(--lv-ease),
-    border-color var(--lv-dur-micro) var(--lv-ease);
+    border-color var(--lv-dur-micro) var(--lv-ease), transform var(--lv-dur-micro) var(--lv-ease);
   border: 1px solid transparent;
+}
+
+/* Solid buttons rise a hair on hover and press back down on click. The ghost
+   (underline) variant is text, not a surface, so it keeps to colour only. */
+@media (prefers-reduced-motion: no-preference) {
+  .primary:hover:not(:disabled),
+  .secondary:hover:not(:disabled),
+  .onLavender:hover:not(:disabled) {
+    transform: translateY(calc(-1 * var(--lv-hover-lift)));
+  }
+  .primary:active:not(:disabled),
+  .secondary:active:not(:disabled),
+  .onLavender:active:not(:disabled) {
+    transform: translateY(0);
+  }
 }
 
 .size48 {
