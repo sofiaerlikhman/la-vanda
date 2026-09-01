@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import AnfrageForm from "@/components/anfrage/AnfrageForm";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -54,15 +55,16 @@ export default function AnfragePage() {
       <section className={styles.hero}>
         <ImagePlaceholder label="Installation im Restaurant, Querformat" className={styles.heroImage} />
         <div className={styles.heroPanel}>
-          <p className={styles.eyebrow}>Auf Anfrage</p>
+          <p className={styles.eyebrow}>
+            <T de="Auf Anfrage" />
+          </p>
           <h1 className={styles.heroTitle}>
-            Floristik
+            <T de="Floristik" />
             <br />
-            nach Maß
+            <T de="nach Maß" />
           </h1>
           <p className={styles.heroLead}>
-            Installationen für Laden, Restaurant und Hotel. Hochzeit und Event. Trauerbinderei. Wir antworten
-            innerhalb von zwei Werktagen mit Vorschlag und Preis.
+            <T de="Installationen für Laden, Restaurant und Hotel. Hochzeit und Event. Trauerbinderei. Wir antworten innerhalb von zwei Werktagen mit Vorschlag und Preis." />
           </p>
         </div>
       </section>
@@ -79,12 +81,18 @@ export default function AnfragePage() {
                 <ImagePlaceholder label={service.image} className={styles.serviceImage} />
               </div>
               <div className={styles.serviceBody}>
-                <h2 className={styles.serviceTitle}>{service.title}</h2>
-                <p className={styles.serviceLead}>{service.lead}</p>
-                <p className={styles.servicePrice}>{service.price}</p>
-                {service.linkHref && (
+                <h2 className={styles.serviceTitle}>
+                  <T de={service.title} />
+                </h2>
+                <p className={styles.serviceLead}>
+                  <T de={service.lead} />
+                </p>
+                <p className={styles.servicePrice}>
+                  <T de={service.price} />
+                </p>
+                {service.linkHref && service.linkLabel && (
                   <Link href={service.linkHref} className={styles.serviceLink}>
-                    {service.linkLabel}
+                    <T de={service.linkLabel} />
                   </Link>
                 )}
               </div>
@@ -96,14 +104,16 @@ export default function AnfragePage() {
       <section className={styles.referenceSection}>
         <div className={styles.referenceGrid}>
           <div>
-            <p className={styles.eyebrow}>Referenzen</p>
+            <p className={styles.eyebrow}>
+              <T de="Referenzen" />
+            </p>
             <h2 className={styles.sectionTitleS}>
-              Wo wir
+              <T de="Wo wir" />
               <br />
-              schon stehen
+              <T de="schon stehen" />
             </h2>
             <p className={styles.referenceLead}>
-              Zwölf Häuser in Wiesbaden und Mainz, wöchentlich betreut. Auf Wunsch nennen wir Ansprechpartner.
+              <T de="Zwölf Häuser in Wiesbaden und Mainz, wöchentlich betreut. Auf Wunsch nennen wir Ansprechpartner." />
             </p>
           </div>
           <div className={styles.referenceImages}>
@@ -120,13 +130,17 @@ export default function AnfragePage() {
         <div className={styles.formWrap}>
           <div>
             <h2 className={styles.sectionTitleL}>
-              Anfrage
+              <T de="Anfrage" />
               <br />
-              schreiben
+              <T de="schreiben" />
             </h2>
-            <p className={styles.formLead}>Ort, Datum und Budget genügen für den ersten Vorschlag. Fotos helfen, sind aber kein Muss.</p>
+            <p className={styles.formLead}>
+              <T de="Ort, Datum und Budget genügen für den ersten Vorschlag. Fotos helfen, sind aber kein Muss." />
+            </p>
             <div className={styles.directContact}>
-              <p className={styles.directLabel}>Direkt</p>
+              <p className={styles.directLabel}>
+                <T de="Direkt" />
+              </p>
               <p>
                 0611 000 000
                 <br />

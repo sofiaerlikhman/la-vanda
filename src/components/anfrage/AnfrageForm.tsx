@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./AnfrageForm.module.css";
 
 type FormValues = {
@@ -52,6 +53,7 @@ const EMPTY_FORM: FormValues = {
  * here is actually sent anywhere yet.
  */
 export default function AnfrageForm() {
+  const t = useT();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -63,11 +65,11 @@ export default function AnfrageForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!values.name.trim() || !values.email.trim() || !values.message.trim()) {
-      setError("Bitte Name, E-Mail und eine kurze Beschreibung ausfüllen.");
+      setError(t("Bitte Name, E-Mail und eine kurze Beschreibung ausfüllen."));
       return;
     }
     if (!values.consent) {
-      setError("Bitte der Verarbeitung deiner Angaben zustimmen.");
+      setError(t("Bitte der Verarbeitung deiner Angaben zustimmen."));
       return;
     }
     setError(null);
@@ -77,8 +79,8 @@ export default function AnfrageForm() {
   if (submitted) {
     return (
       <div className={styles.confirmation} role="status">
-        <p className={styles.confirmationTitle}>Danke, deine Anfrage ist da.</p>
-        <p className={styles.confirmationBody}>Antwort innerhalb von zwei Werktagen, meist am selben Tag.</p>
+        <p className={styles.confirmationTitle}>{t("Danke, deine Anfrage ist da.")}</p>
+        <p className={styles.confirmationBody}>{t("Antwort innerhalb von zwei Werktagen, meist am selben Tag.")}</p>
       </div>
     );
   }
@@ -86,7 +88,7 @@ export default function AnfrageForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <label className={styles.field}>
-        <span>Name</span>
+        <span>{t("Name")}</span>
         <input
           type="text"
           className={styles.input}
@@ -95,7 +97,7 @@ export default function AnfrageForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>Firma, wenn vorhanden</span>
+        <span>{t("Firma, wenn vorhanden")}</span>
         <input
           type="text"
           className={styles.input}
@@ -104,7 +106,7 @@ export default function AnfrageForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>E-Mail</span>
+        <span>{t("E-Mail")}</span>
         <input
           type="email"
           className={styles.input}
@@ -113,7 +115,7 @@ export default function AnfrageForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>Telefon</span>
+        <span>{t("Telefon")}</span>
         <input
           type="tel"
           className={styles.input}
@@ -122,19 +124,21 @@ export default function AnfrageForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>Art der Anfrage</span>
+        <span>{t("Art der Anfrage")}</span>
         <select
           className={styles.select}
           value={values.requestType}
           onChange={(e: ChangeEvent<HTMLSelectElement>) => updateField("requestType", e.target.value)}
         >
           {REQUEST_TYPES.map((type) => (
-            <option key={type}>{type}</option>
+            <option key={type} value={type}>
+              {t(type)}
+            </option>
           ))}
         </select>
       </label>
       <label className={styles.field}>
-        <span>Datum</span>
+        <span>{t("Datum")}</span>
         <input
           type="date"
           className={styles.input}
@@ -143,29 +147,31 @@ export default function AnfrageForm() {
         />
       </label>
       <label className={styles.field}>
-        <span>Ort</span>
+        <span>{t("Ort")}</span>
         <input
           type="text"
-          placeholder="Adresse oder Stadtteil"
+          placeholder={t("Adresse oder Stadtteil")}
           className={styles.input}
           value={values.location}
           onChange={(e: ChangeEvent<HTMLInputElement>) => updateField("location", e.target.value)}
         />
       </label>
       <label className={styles.field}>
-        <span>Budget</span>
+        <span>{t("Budget")}</span>
         <select
           className={styles.select}
           value={values.budget}
           onChange={(e: ChangeEvent<HTMLSelectElement>) => updateField("budget", e.target.value)}
         >
           {BUDGETS.map((budget) => (
-            <option key={budget}>{budget}</option>
+            <option key={budget} value={budget}>
+              {t(budget)}
+            </option>
           ))}
         </select>
       </label>
       <label className={`${styles.field} ${styles.fieldWide}`}>
-        <span>Was schwebt dir vor?</span>
+        <span>{t("Was schwebt dir vor?")}</span>
         <textarea
           rows={5}
           className={styles.textarea}
@@ -181,8 +187,8 @@ export default function AnfrageForm() {
           onChange={(e: ChangeEvent<HTMLInputElement>) => updateField("consent", e.target.checked)}
         />
         <span className={styles.consentText}>
-          Ich bin mit der Verarbeitung meiner Angaben zur Bearbeitung dieser Anfrage einverstanden.{" "}
-          <Link href="/datenschutz">Datenschutz</Link>
+          {t("Ich bin mit der Verarbeitung meiner Angaben zur Bearbeitung dieser Anfrage einverstanden.")}{" "}
+          <Link href="/datenschutz">{t("Datenschutz")}</Link>
         </span>
       </label>
       {error && (
@@ -192,9 +198,9 @@ export default function AnfrageForm() {
       )}
       <div className={styles.actions}>
         <Button type="submit" variant="primary" size={48}>
-          Anfrage senden
+          {t("Anfrage senden")}
         </Button>
-        <span className={styles.note}>Antwort innerhalb von zwei Werktagen, meist am selben Tag.</span>
+        <span className={styles.note}>{t("Antwort innerhalb von zwei Werktagen, meist am selben Tag.")}</span>
       </div>
     </form>
   );

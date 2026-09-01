@@ -405,7 +405,6 @@ export const uk: Record<string, string> = {
   "Code ungültig oder abgelaufen.": "Код недійсний або прострочений.",
   "eingelöst": "застосовано",
   "Bestellung prüfen": "Перевірити замовлення",
-  "Gutschein": "Подарунковий код",
   "Enthält 7 % USt. auf Blumen, 19 % auf Vasen und Zubehör.":
     "Включає 7% ПДВ на квіти, 19% на вази та аксесуари.",
   // Review step
@@ -672,4 +671,112 @@ export const uk: Record<string, string> = {
   "Termine werden geladen …": "Завантаження дат …",
   "Verfügbare Liefertermine": "Доступні дати доставки",
   "Kein Liefertag": "Не день доставки",
+
+  // ── Gutschein (gift voucher) page + forms + data ────────────────────
+  "Gutschein": "Подарунковий сертифікат",
+  "Ein Betrag, drei Jahre gültig, einlösbar im Laden und online. Als Karte im Umschlag oder als PDF in der Sekunde.":
+    "Одна сума, дійсна три роки, можна активувати в магазині та онлайн. Листівкою в конверті або у PDF за секунду.",
+  "Gutscheinkarte auf Werkbank, 4:3": "Подарункова листівка на робочому столі, 4:3",
+  "Zu den Anlässen": "До приводів",
+  "Weihnachten": "Різдво",
+  "Bestellschluss 22. Dezember, 12 Uhr": "Прийом до 22 грудня, 12:00",
+  "Muttertag": "День матері",
+  "Zusatzfenster am Sonntag, 9–13 Uhr": "Додаткове вікно в неділю, 9–13",
+  "Valentinstag": "День Святого Валентина",
+  "Vorbestellung ab 1. Februar": "Попереднє замовлення з 1 лютого",
+  "Gutschein einlösen": "Активувати сертифікат",
+  "Code im Checkout eingeben oder im Laden vorzeigen. Restbeträge bleiben stehen, Teileinlösung ist möglich.":
+    "Введіть код під час оформлення або покажіть у магазині. Залишок зберігається, часткова активація можлива.",
+  "Wie lange ist der Gutschein gültig?": "Скільки діє сертифікат?",
+  "Drei Jahre ab Ausstellung, gerechnet ab Ende des Kaufjahres.":
+    "Три роки з моменту видачі, рахуючи від кінця року покупки.",
+  "Gilt er auch für Workshops?": "Чи діє він на майстер-класи?",
+  "Ja, für Workshops, Abos und alles im Laden. Nicht für Installationen auf Anfrage.":
+    "Так, на майстер-класи, підписки й усе в магазині. Не на інсталяції за запитом.",
+  "Kann ich ihn zurückgeben?": "Чи можу я його повернути?",
+  "Innerhalb von 14 Tagen, solange er nicht eingelöst ist. Schreib uns kurz.":
+    "Упродовж 14 днів, поки він не активований. Напишіть нам коротко.",
+  // Purchase form
+  "Betrag": "Сума",
+  "Betrag wählen": "Оберіть суму",
+  "Eigener Betrag, {min} bis {max} €": "Власна сума, від {min} до {max} €",
+  "z. B. 65": "напр. 65",
+  "Bitte einen Betrag zwischen {min} und {max} € eingeben.": "Введіть суму від {min} до {max} €.",
+  "Zustellung": "Спосіб отримання",
+  "Zustellung wählen": "Оберіть спосіб отримання",
+  "Als PDF per E-Mail": "У PDF на ел. пошту",
+  "Sofort nach Zahlung, zum Ausdrucken": "Одразу після оплати, для друку",
+  "Karte im Umschlag": "Листівка в конверті",
+  "Von Hand beschrieben, per Post oder zum Abholen": "Підписана від руки, поштою або самовивіз",
+  "Mit einem Strauß geliefert": "З доставкою букета",
+  "Gutschein und Blumen in einem Termin": "Сертифікат і квіти за один раз",
+  "als PDF": "у PDF",
+  "als Karte im Umschlag": "листівкою в конверті",
+  "mit Strauß geliefert": "з доставкою букета",
+  "Grußtext, optional": "Текст вітання, за бажанням",
+  "Betrag eingeben": "Введіть суму",
+  " · mit Grußtext": " · з текстом вітання",
+  // Redeem form
+  "Gutscheincode": "Код сертифіката",
+  "Guthaben prüfen": "Перевірити баланс",
+  "Code nicht gefunden — bitte im Laden nachfragen.": "Код не знайдено — запитайте в магазині.",
+  "erkannt": "розпізнано",
+  // Voucher data (also used at checkout)
+  "10 % Rabatt": "Знижка 10%",
+  "Lieferung geschenkt": "Доставка в подарунок",
+
+  // ── Anfrage (custom request) page + form ────────────────────────────
+  "Floristik": "Флористика",
+  "nach Maß": "на замовлення",
+  "Installationen für Laden, Restaurant und Hotel. Hochzeit und Event. Trauerbinderei. Wir antworten innerhalb von zwei Werktagen mit Vorschlag und Preis.":
+    "Інсталяції для магазинів, ресторанів і готелів. Весілля та події. Траурна флористика. Відповідаємо протягом двох робочих днів із пропозицією та ціною.",
+  "Installationen & Deko": "Інсталяції та декор",
+  "Ladeninstallation, 4:5": "Інсталяція в магазині, 4:5",
+  "Wöchentlich oder saisonal, für Schaufenster, Empfang und Gastraum. Wir stellen Gefäße, wechseln Wasser und räumen ab.":
+    "Щотижня або сезонно, для вітрин, рецепції та залу. Надаємо вази, міняємо воду й прибираємо.",
+  "ab 180 € je Termin": "від 180 € за захід",
+  "Hochzeit & Event": "Весілля та події",
+  "Hochzeitsfloristik, 4:5": "Весільна флористика, 4:5",
+  "Brautstrauß, Anstecker, Tischläufer, Bogen. Aufbau vor Ort, Abbau am Folgetag. Ein Termin im Atelier gehört dazu.":
+    "Букет нареченої, бутоньєрки, доріжки на столи, арка. Монтаж на місці, демонтаж наступного дня. Зустріч в ательє включена.",
+  "ab 900 € Gesamtbudget": "від 900 € загальний бюджет",
+  "Trauerbinderei, 4:5": "Траурна флористика, 4:5",
+  "Kränze, Sargschmuck, Urnengebinde mit Schleifenband. Lieferung direkt zur Trauerhalle, pünktlich zur Aussegnung.":
+    "Вінки, оздоблення труни, композиції для урни зі стрічкою. Доставка прямо до траурної зали, точно до церемонії.",
+  "ab 140 €": "від 140 €",
+  "Zur Trauerstrecke": "До траурної добірки",
+  "Referenzen": "Референси",
+  "Wo wir": "Де ми",
+  "schon stehen": "вже присутні",
+  "Zwölf Häuser in Wiesbaden und Mainz, wöchentlich betreut. Auf Wunsch nennen wir Ansprechpartner.":
+    "Дванадцять закладів у Вісбадені та Майнці, обслуговуємо щотижня. За запитом назвемо контактних осіб.",
+  "Anfrage": "Запит",
+  "Ort, Datum und Budget genügen für den ersten Vorschlag. Fotos helfen, sind aber kein Muss.":
+    "Місце, дата й бюджет — цього досить для першої пропозиції. Фото допомагають, але не обов'язкові.",
+  "Direkt": "Напряму",
+  "Bitte Name, E-Mail und eine kurze Beschreibung ausfüllen.": "Будь ласка, заповніть ім'я, ел. пошту та короткий опис.",
+  "Bitte der Verarbeitung deiner Angaben zustimmen.": "Будь ласка, погодьтеся з обробкою ваших даних.",
+  "Danke, deine Anfrage ist da.": "Дякуємо, ваш запит отримано.",
+  "Antwort innerhalb von zwei Werktagen, meist am selben Tag.":
+    "Відповідь протягом двох робочих днів, зазвичай того ж дня.",
+  "Firma, wenn vorhanden": "Компанія, якщо є",
+  "Telefon": "Телефон",
+  "Art der Anfrage": "Тип запиту",
+  "Installation im Laden oder Restaurant": "Інсталяція в магазині чи ресторані",
+  "Hochzeit": "Весілля",
+  "Firmenevent": "Корпоративна подія",
+  "Trauerbinderei": "Траурна флористика",
+  "Etwas anderes": "Щось інше",
+  "Datum": "Дата",
+  "Adresse oder Stadtteil": "Адреса або район",
+  "Budget": "Бюджет",
+  "bis 300 €": "до 300 €",
+  "300 bis 900 €": "300–900 €",
+  "900 bis 2.500 €": "900–2 500 €",
+  "über 2.500 €": "понад 2 500 €",
+  "Noch offen": "Ще не визначено",
+  "Was schwebt dir vor?": "Що ви задумали?",
+  "Ich bin mit der Verarbeitung meiner Angaben zur Bearbeitung dieser Anfrage einverstanden.":
+    "Я погоджуюся з обробкою моїх даних для опрацювання цього запиту.",
+  "Anfrage senden": "Надіслати запит",
 };

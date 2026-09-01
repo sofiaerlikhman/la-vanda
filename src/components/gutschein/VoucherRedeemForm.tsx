@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
 import { redeemVoucher, type Voucher } from "@/data/vouchers";
+import { useT } from "@/i18n/LanguageProvider";
 import styles from "./VoucherRedeemForm.module.css";
 
 /**
@@ -16,6 +17,7 @@ import styles from "./VoucherRedeemForm.module.css";
  * exists.
  */
 export default function VoucherRedeemForm() {
+  const t = useT();
   const [code, setCode] = useState("");
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<Voucher | null | undefined>(undefined);
@@ -39,20 +41,20 @@ export default function VoucherRedeemForm() {
       <form className={styles.row} onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Gutscheincode"
+          placeholder={t("Gutscheincode")}
           value={code}
           onChange={handleChange}
           className={styles.input}
-          aria-label="Gutscheincode"
+          aria-label={t("Gutscheincode")}
         />
         <Button variant="secondary" type="submit" className={styles.submitButton} disabled={checking}>
-          Guthaben prüfen
+          {t("Guthaben prüfen")}
         </Button>
       </form>
-      {result === null && <p className={styles.error}>Code nicht gefunden — bitte im Laden nachfragen.</p>}
+      {result === null && <p className={styles.error}>{t("Code nicht gefunden — bitte im Laden nachfragen.")}</p>}
       {result && (
         <p className={styles.ok}>
-          „{result.code}“ erkannt — {result.description}.
+          „{result.code}“ {t("erkannt")} — {t(result.description)}.
         </p>
       )}
     </div>

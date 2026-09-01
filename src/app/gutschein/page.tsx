@@ -8,6 +8,7 @@ import FaqAccordion from "@/components/produkt/FaqAccordion";
 import VoucherPurchaseForm from "@/components/gutschein/VoucherPurchaseForm";
 import VoucherRedeemForm from "@/components/gutschein/VoucherRedeemForm";
 import type { ProductFaqEntry } from "@/data/products";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -55,10 +56,11 @@ export default function GutscheinPage() {
             <ImagePlaceholder label="Gutscheinkarte auf Werkbank, 4:3" />
           </div>
           <div>
-            <h1 className={styles.title}>Gutschein</h1>
+            <h1 className={styles.title}>
+              <T de="Gutschein" />
+            </h1>
             <p className={styles.lead}>
-              Ein Betrag, drei Jahre gültig, einlösbar im Laden und online. Als Karte im Umschlag oder als PDF in der
-              Sekunde.
+              <T de="Ein Betrag, drei Jahre gültig, einlösbar im Laden und online. Als Karte im Umschlag oder als PDF in der Sekunde." />
             </p>
             <div className={styles.formWrap}>
               <VoucherPurchaseForm />
@@ -69,7 +71,9 @@ export default function GutscheinPage() {
 
       <div className={styles.stripSection}>
         <div className={styles.stripInner}>
-          <h2 className={styles.stripTitle}>Zu den Anlässen</h2>
+          <h2 className={styles.stripTitle}>
+            <T de="Zu den Anlässen" />
+          </h2>
           <div className={styles.occasionGrid}>
             {OCCASIONS.map((o) => (
               <div key={o.title} className={styles.occasionCard}>
@@ -77,8 +81,12 @@ export default function GutscheinPage() {
                   <ImagePlaceholder label={o.image} />
                 </div>
                 <div className={styles.occasionBody}>
-                  <h3 className={styles.occasionTitle}>{o.title}</h3>
-                  <p className={styles.occasionNote}>{o.note}</p>
+                  <h3 className={styles.occasionTitle}>
+                    <T de={o.title} />
+                  </h3>
+                  <p className={styles.occasionNote}>
+                    <T de={o.note} />
+                  </p>
                 </div>
               </div>
             ))}
@@ -89,10 +97,11 @@ export default function GutscheinPage() {
       <div className={styles.page}>
         <div className={styles.redeemLayout}>
           <div>
-            <h2 className={styles.redeemTitle}>Gutschein einlösen</h2>
+            <h2 className={styles.redeemTitle}>
+              <T de="Gutschein einlösen" />
+            </h2>
             <p className={styles.redeemLead}>
-              Code im Checkout eingeben oder im Laden vorzeigen. Restbeträge bleiben stehen, Teileinlösung ist
-              möglich.
+              <T de="Code im Checkout eingeben oder im Laden vorzeigen. Restbeträge bleiben stehen, Teileinlösung ist möglich." />
             </p>
             <div className={styles.redeemForm}>
               <VoucherRedeemForm />
