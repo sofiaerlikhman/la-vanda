@@ -1,12 +1,19 @@
 "use client";
 
-import { useLang } from "@/i18n/LanguageProvider";
+import { Fragment } from "react";
+import { useLang, type Lang } from "@/i18n/LanguageProvider";
 import styles from "./LanguageToggle.module.css";
 
+const OPTIONS: { code: Lang; label: string }[] = [
+  { code: "de", label: "DE" },
+  { code: "uk", label: "UA" },
+  { code: "en", label: "EN" },
+];
+
 /**
- * Compact DE / UA language switch. Inherits `currentColor`, so it sits
+ * Compact DE / UA / EN language switch. Inherits `currentColor`, so it sits
  * correctly on both the dark header and the mobile menu overlay. The active
- * language is emphasised; the other is dimmed and clickable.
+ * language is emphasised; the others are dimmed and clickable.
  */
 export default function LanguageToggle({ className }: { className?: string }) {
   const { lang, setLang, t } = useLang();
@@ -17,27 +24,24 @@ export default function LanguageToggle({ className }: { className?: string }) {
       role="group"
       aria-label={t("Sprache wählen")}
     >
-      <button
-        type="button"
-        className={lang === "de" ? `${styles.option} ${styles.active}` : styles.option}
-        onClick={() => setLang("de")}
-        aria-pressed={lang === "de"}
-        lang="de"
-      >
-        DE
-      </button>
-      <span className={styles.divider} aria-hidden="true">
-        /
-      </span>
-      <button
-        type="button"
-        className={lang === "uk" ? `${styles.option} ${styles.active}` : styles.option}
-        onClick={() => setLang("uk")}
-        aria-pressed={lang === "uk"}
-        lang="uk"
-      >
-        UA
-      </button>
+      {OPTIONS.map((option, i) => (
+        <Fragment key={option.code}>
+          {i > 0 && (
+            <span className={styles.divider} aria-hidden="true">
+              /
+            </span>
+          )}
+          <button
+            type="button"
+            className={lang === option.code ? `${styles.option} ${styles.active}` : styles.option}
+            onClick={() => setLang(option.code)}
+            aria-pressed={lang === option.code}
+            lang={option.code}
+          >
+            {option.label}
+          </button>
+        </Fragment>
+      ))}
     </div>
   );
 }

@@ -2,14 +2,18 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { uk } from "./translations";
+import { en } from "./en";
 
-export type Lang = "de" | "uk";
+export type Lang = "de" | "uk" | "en";
+
+/** Per-language dictionaries. German is the source language, so it has none. */
+const DICTIONARIES: Record<Exclude<Lang, "de">, Record<string, string>> = { uk, en };
 
 type LanguageContextValue = {
   lang: Lang;
   setLang: (lang: Lang) => void;
   /** Translate a German source string; returns it unchanged in German mode
-   *  or when no Ukrainian entry exists. */
+   *  or when the active language has no entry for it. */
   t: (de: string) => string;
 };
 
@@ -37,7 +41,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === "uk" || stored === "de") setLangState(stored);
+      if (stored === "uk" || stored === "de" || stored === "en") setLangState(stored);
     } catch {
       /* localStorage unavailable (private mode etc.) — stay on default */
     }
@@ -57,7 +61,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const t = useCallback((de: string) => (lang === "uk" ? uk[de] ?? de : de), [lang]);
+  const t = useCallback((de: string) => (lang === "de" ? de : DICTIONARIES[lang][de] ?? de), [lang]);
 
   const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
 
