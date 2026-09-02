@@ -972,4 +972,184 @@ export const uk: Record<string, string> = {
   "Sieben Tage Frischegarantie": "Сім днів гарантії свіжості",
   "Eigene Fahrer, kein Paketdienst": "Власні водії, жодних поштових служб",
   "Von Hand gebunden am Bestelltag": "Зібрано вручну в день замовлення",
+
+  // ════════════════════════════════════════════════════════════════════
+  //  LEGAL PAGES (placeholder texts — need native/legal review)
+  // ════════════════════════════════════════════════════════════════════
+  // Shared shell
+  "Stand 31. August 2026": "Станом на 31 серпня 2026",
+  "Rechtlicher Hinweis:": "Правове застереження:",
+  "Diese Seite enthält Platzhalter und ersetzt keine anwaltliche Prüfung. Vor Veröffentlichung von einer Rechtsanwältin/einem Rechtsanwalt prüfen lassen.":
+    "Ця сторінка містить заповнювачі й не замінює юридичної перевірки. Перед публікацією надайте її на перевірку юристу.",
+  // Page titles
+  "Allgemeine Geschäftsbedingungen": "Загальні умови та положення",
+  "Datenschutzerklärung": "Політика конфіденційності",
+  "Widerrufsbelehrung": "Пам'ятка про право відмови",
+  "Erklärung zur Barrierefreiheit": "Декларація про доступність",
+
+  // ── Impressum ───────────────────────────────────────────────────────
+  "Angaben gemäß § 5 TMG": "Відомості згідно з § 5 TMG",
+  "la Vanda [Rechtsform, z. B. Inhaberin/GmbH — wird ergänzt]":
+    "la Vanda [правова форма, напр. власниця/ТОВ — буде додано]",
+  "Vertreten durch": "Представлено",
+  "[Name der verantwortlichen Person]": "[ім'я відповідальної особи]",
+  "Registereintrag": "Реєстраційний запис",
+  "Eintragung im Handelsregister: [Handelsregisternummer, falls zutreffend]":
+    "Запис у торговому реєстрі: [номер у торговому реєстрі, якщо застосовно]",
+  "Registergericht: [wird ergänzt]": "Реєстраційний суд: [буде додано]",
+  "Umsatzsteuer-ID": "Ідентифікаційний номер платника ПДВ",
+  "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: [USt-IdNr. wird ergänzt]":
+    "Ідентифікаційний номер платника ПДВ згідно з § 27a Закону про ПДВ: [ПДВ-номер буде додано]",
+  "Redaktionell verantwortlich": "Відповідальний за зміст",
+  "Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV: [Name der verantwortlichen Person], Anschrift wie oben.":
+    "Відповідальний за зміст згідно з § 18 ч. 2 MStV: [ім'я відповідальної особи], адреса як вище.",
+  "EU-Streitschlichtung": "Вирішення спорів в ЄС",
+  "Verbraucherstreitbeilegung": "Вирішення споживчих спорів",
+  ". Unsere E-Mail-Adresse findest du oben unter „Kontakt“.": ". Нашу адресу ел. пошти ви знайдете вище в розділі «Контакти».",
+  "Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir [wird ergänzt: bereit / nicht bereit und nicht verpflichtet].":
+    "До участі в процедурі вирішення спорів у споживчому арбітражі ми [буде додано: готові / не готові й не зобов'язані].",
+  "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:":
+    "Європейська комісія надає платформу для онлайн-вирішення спорів (OS):",
+
+  // ── Barrierefreiheit ────────────────────────────────────────────────
+  "Wir wollen, dass jede Person hier bestellen kann. Diese Seite sagt, wo wir stehen und was noch fehlt.":
+    "Ми хочемо, щоб замовити тут могла кожна людина. Ця сторінка розповідає, на якому ми етапі й чого ще бракує.",
+  "Stand der Umsetzung": "Стан реалізації",
+  "Wir arbeiten daran, den Shop an die WCAG 2.2 auf Stufe AA anzunähern. Bedienelemente sollen mit der Tastatur erreichbar sein, der Fokus sichtbar bleiben und Status nie ausschließlich über Farbe vermittelt werden. Eine vollständige, geprüfte Konformitätserklärung liegt noch nicht vor.":
+    "Ми працюємо над наближенням магазину до WCAG 2.2 рівня AA. Елементи керування мають бути доступні з клавіатури, фокус — видимим, а статус ніколи не передаватися лише кольором. Повної перевіреної декларації відповідності поки немає.",
+  "Bekannte Einschränkungen": "Відомі обмеження",
+  "Nicht alle Bereiche wurden bereits mit einem Screenreader vollständig getestet.":
+    "Не всі розділи вже повністю протестовані зі зчитувачем екрана.",
+  "Ältere Produktfotos haben teils knappe oder fehlende Alternativtexte.":
+    "Старіші фото товарів подекуди мають короткі або відсутні альтернативні тексти.",
+  "Diese Erklärung selbst ist ein Platzhalter und noch nicht durch eine externe Prüfstelle bestätigt.":
+    "Сама ця декларація є заповнювачем і ще не підтверджена зовнішнім органом перевірки.",
+  "Barriere melden": "Повідомити про бар'єр",
+  "Ist dir etwas aufgefallen, das dich behindert? Schreib an [E-Mail-Adresse wird ergänzt] oder ruf 0611 000 000 an. Wir melden uns zurück und sagen, wie es weitergeht.":
+    "Помітили щось, що вам заважає? Напишіть на [адресу ел. пошти буде додано] або зателефонуйте 0611 000 000. Ми відповімо й розкажемо, що далі.",
+  "Durchsetzungsverfahren": "Процедура забезпечення виконання",
+  "Bist du mit unserer Antwort nicht zufrieden, kannst du dich an die Durchsetzungs- und Überwachungsstelle des Landes Hessen wenden, die für die Barrierefreiheit von Websites zuständig ist.":
+    "Якщо ви не задоволені нашою відповіддю, можете звернутися до органу нагляду й забезпечення виконання землі Гессен, відповідального за доступність вебсайтів.",
+
+  // ── Widerruf ────────────────────────────────────────────────────────
+  "Widerrufsrecht": "Право на відмову",
+  "Du hast das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem du oder eine von dir benannte dritte Person, die nicht der Frachtführer ist, die Waren in Besitz genommen hat bzw. haben.":
+    "Ви маєте право протягом чотирнадцяти днів без пояснення причин відмовитися від цього договору. Строк відмови становить чотирнадцять днів від дня, коли ви або зазначена вами третя особа, яка не є перевізником, отримали товар у володіння.",
+  "Um dein Widerrufsrecht auszuüben, musst du uns — la Vanda, Marktstraße 12, 65183 Wiesbaden, Telefon 0611 000 000, E-Mail [E-Mail-Adresse wird ergänzt] — mittels einer eindeutigen Erklärung (z. B. per Post oder E-Mail) über deinen Entschluss informieren, diesen Vertrag zu widerrufen. Zur Wahrung der Widerrufsfrist reicht es, wenn du die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absendest.":
+    "Щоб скористатися правом на відмову, ви повинні повідомити нас — la Vanda, Marktstraße 12, 65183 Wiesbaden, телефон 0611 000 000, ел. пошта [адресу буде додано] — чіткою заявою (напр. поштою або ел. поштою) про своє рішення відмовитися від цього договору. Для дотримання строку достатньо надіслати повідомлення про відмову до його завершення.",
+  "Folgen des Widerrufs": "Наслідки відмови",
+  "Wenn du diesen Vertrag widerrufst, erstatten wir dir alle Zahlungen, die wir von dir erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass du eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt hast), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag, an dem die Mitteilung über deinen Widerruf bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das du bei der ursprünglichen Transaktion eingesetzt hast, es sei denn, mit dir wurde ausdrücklich etwas anderes vereinbart.":
+    "Якщо ви відмовляєтеся від цього договору, ми повертаємо всі отримані від вас платежі, включно з витратами на доставку (за винятком додаткових витрат, що виникли через обраний вами спосіб доставки, відмінний від запропонованої нами найдешевшої стандартної), невідкладно й не пізніше ніж протягом чотирнадцяти днів від дня отримання нами повідомлення про відмову. Для повернення ми використовуємо той самий платіжний засіб, який ви застосували в початковій операції, якщо з вами прямо не було домовлено інше.",
+  "Wichtige Ausnahme: frisch gebundene Ware": "Важливий виняток: щойно зібраний товар",
+  "Für Pflanzen, Vasen, Zubehör und nicht eingelöste Gutscheine gilt das Widerrufsrecht uneingeschränkt.":
+    "Для рослин, ваз, аксесуарів і неактивованих сертифікатів право на відмову діє без обмежень.",
+  "Muster-Widerrufsformular": "Зразок форми відмови",
+  "Wenn du den Vertrag widerrufen möchtest, kannst du dieses Formular ausfüllen und an uns zurücksenden — oder formlos per E-Mail:":
+    "Якщо ви хочете відмовитися від договору, можете заповнити цю форму й надіслати нам — або у вільній формі ел. поштою:",
+  "An: la Vanda, Marktstraße 12, 65183 Wiesbaden, E-Mail [E-Mail-Adresse wird ergänzt]":
+    "Кому: la Vanda, Marktstraße 12, 65183 Wiesbaden, ел. пошта [адресу буде додано]",
+  "Hiermit widerrufe(n) ich/wir den von mir/uns abgeschlossenen Vertrag über den Kauf der folgenden Waren":
+    "Цим я/ми відмовляюся/відмовляємося від укладеного мною/нами договору про купівлю таких товарів",
+  "Bestellt am / erhalten am": "Замовлено / отримано",
+  "Name der Verbraucherin/des Verbrauchers": "Ім'я споживача/споживачки",
+  "Anschrift der Verbraucherin/des Verbrauchers": "Адреса споживача/споживачки",
+  "Bestellnummer, falls bekannt": "Номер замовлення, якщо відомий",
+
+  // ── Datenschutz ─────────────────────────────────────────────────────
+  "Verantwortlicher": "Відповідальна особа",
+  "Daten aus deiner Bestellung": "Дані з вашого замовлення",
+  "Deine Telefonnummer nutzen wir ausschließlich im Zusammenhang mit der Lieferung, etwa für die kurze Ankündigung per SMS, bevor wir bei dir eintreffen.":
+    "Ваш номер телефону ми використовуємо виключно у зв'язку з доставкою, наприклад для короткого сповіщення по SMS перед прибуттям.",
+  "Anonymer Versand": "Анонімна відправка",
+  "Im Checkout kannst du eine Grußkarte anonym gestalten. In diesem Fall bleibt dein Name gegenüber der Empfängerin oder dem Empfänger verborgen; für Rückfragen, Zustellung und Buchhaltung bleibt er intern bei uns gespeichert.":
+    "Під час оформлення ви можете зробити листівку анонімною. У такому разі ваше ім'я приховане від отримувача; для запитань, доставки та бухгалтерії воно зберігається внутрішньо в нас.",
+  "Zahlungsdaten": "Платіжні дані",
+  "Je nach gewählter Zahlungsart (Rechnung, SEPA-Lastschrift, Kreditkarte, PayPal oder Zahlung bei Abholung) verarbeiten die jeweiligen Zahlungsdienstleister deine Zahlungsdaten. Wir selbst speichern keine Kreditkarten- oder Kontodaten.":
+    "Залежно від обраного способу оплати (рахунок, SEPA-переказ, кредитна картка, PayPal або оплата при самовивозі) відповідні платіжні провайдери обробляють ваші платіжні дані. Самі ми не зберігаємо даних карток чи рахунків.",
+  "Warenkorb und lokale Speicherung": "Кошик і локальне збереження",
+  "Dein Warenkorb wird technisch notwendig im lokalen Speicher deines Browsers (localStorage) abgelegt, damit er beim nächsten Besuch erhalten bleibt. Diese Daten verlassen deinen Browser nicht und werden nicht auf unseren Servern gespeichert. Tracking- oder Marketing-Cookies setzen wir nicht ein.":
+    "Ваш кошик з технічної необхідності зберігається в локальному сховищі браузера (localStorage), щоб зберігатися до наступного візиту. Ці дані не залишають ваш браузер і не зберігаються на наших серверах. Трекінгових чи маркетингових файлів cookie ми не використовуємо.",
+  "Anfragen und Kontakt": "Запити та контакт",
+  "Schreibst du uns über ein Kontakt- oder Anfrageformular oder per E-Mail, verarbeiten wir deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO).":
+    "Якщо ви пишете нам через контактну форму, форму запиту або ел. поштою, ми обробляємо ваші дані лише для відповіді на запит (ст. 6 ч. 1 п. b або п. f GDPR).",
+  "Weitergabe an Dritte": "Передача третім особам",
+  "Eine Weitergabe deiner Daten erfolgt nur an Dienstleister, die wir zur Vertragserfüllung benötigen (z. B. Zahlungsdienstleister, Zustellung), sowie soweit wir gesetzlich dazu verpflichtet sind. Ein Verkauf deiner Daten an Dritte findet nicht statt.":
+    "Передача ваших даних відбувається лише постачальникам послуг, потрібним для виконання договору (напр. платіжні провайдери, доставка), а також у межах законодавчих зобов'язань. Продаж ваших даних третім особам не здійснюється.",
+  "Speicherdauer": "Строк зберігання",
+  "Bestelldaten speichern wir so lange, wie es die handels- und steuerrechtlichen Aufbewahrungsfristen vorschreiben (in der Regel sechs bis zehn Jahre). Danach werden sie gelöscht, soweit keine gesetzliche Pflicht zur weiteren Aufbewahrung besteht.":
+    "Дані замовлень ми зберігаємо стільки, скільки вимагають торгові та податкові строки зберігання (зазвичай від шести до десяти років). Після цього вони видаляються, якщо немає законодавчого обов'язку зберігати їх далі.",
+  "Hosting": "Хостинг",
+  "Deine Rechte": "Ваші права",
+  "Du hast jederzeit das Recht auf:": "Ви будь-коли маєте право на:",
+  "Auskunft über die zu deiner Person gespeicherten Daten (Art. 15 DSGVO)":
+    "інформацію про збережені щодо вас дані (ст. 15 GDPR)",
+  "Berichtigung unrichtiger Daten (Art. 16 DSGVO)": "виправлення неточних даних (ст. 16 GDPR)",
+  "Löschung deiner Daten, soweit keine Aufbewahrungspflicht entgegensteht (Art. 17 DSGVO)":
+    "видалення ваших даних, якщо цьому не перешкоджає обов'язок зберігання (ст. 17 GDPR)",
+  "Einschränkung der Verarbeitung (Art. 18 DSGVO)": "обмеження обробки (ст. 18 GDPR)",
+  "Datenübertragbarkeit (Art. 20 DSGVO)": "перенесення даних (ст. 20 GDPR)",
+  "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)": "заперечення проти обробки (ст. 21 GDPR)",
+
+  // ── AGB ─────────────────────────────────────────────────────────────
+  "1. Geltungsbereich": "1. Сфера застосування",
+  "2. Vertragspartner": "2. Сторона договору",
+  "3. Vertragsschluss": "3. Укладення договору",
+  "4. Preise und Umsatzsteuer": "4. Ціни та ПДВ",
+  "5. Lieferung und Abholung": "5. Доставка та самовивіз",
+  "6. Zahlung": "6. Оплата",
+  "7. Gutscheine": "7. Подарункові сертифікати",
+  "8. Blumen-Abo": "8. Квіткова підписка",
+  "9. Frischegarantie und Reklamation": "9. Гарантія свіжості та рекламації",
+  "10. Widerrufsrecht": "10. Право на відмову",
+  "11. Haftung": "11. Відповідальність",
+  "12. Schlussbestimmungen": "12. Прикінцеві положення",
+  "Du kannst wählen zwischen:": "Ви можете обрати:",
+  "Zahlung bei Abholung im Laden": "Оплата при самовивозі в магазині",
+  "Zahlungsdaten verarbeiten unsere Zahlungsdienstleister; wir selbst speichern keine Zahlungsdaten.":
+    "Платіжні дані обробляють наші платіжні провайдери; самі ми платіжних даних не зберігаємо.",
+
+  // ── Legal prose paragraphs (long) ───────────────────────────────────
+  // Impressum
+  "Telefon: 0611 000 000": "Телефон: 0611 000 000",
+  "E-Mail: [E-Mail-Adresse wird ergänzt]": "Ел. пошта: [адресу буде додано]",
+  // AGB prose
+  "Diese Bedingungen gelten für alle Bestellungen, die über den Onlineshop von la Vanda abgeschlossen werden — Sträuße, Pflanzen, Vasen & Zubehör, Gutscheine sowie das Blumen-Abo.":
+    "Ці умови діють для всіх замовлень, оформлених через онлайн-магазин la Vanda — букети, рослини, вази та аксесуари, сертифікати, а також квіткова підписка.",
+  "Vertragspartner ist la Vanda [Rechtsform, z. B. Inhaberin/GmbH — wird ergänzt], Marktstraße 12, 65183 Wiesbaden. Kontaktdaten findest du im":
+    "Стороною договору є la Vanda [правова форма, напр. власниця/ТОВ — буде додано], Marktstraße 12, 65183 Wiesbaden. Контактні дані ви знайдете в розділі",
+  "Die Darstellung der Artikel im Shop ist kein bindendes Angebot, sondern eine Aufforderung zur Bestellung. Mit „Kostenpflichtig bestellen“ gibst du ein verbindliches Angebot ab. Der Vertrag kommt zustande, sobald wir die Bestellung per E-Mail an die im Checkout angegebene Adresse bestätigen. Jede Bestellung erhält eine Bestellnummer im Format LV-JJ-NNNN.":
+    "Показ товарів у магазині не є обов'язковою офертою, а лише запрошенням до замовлення. Натиснувши «Замовити з оплатою», ви робите обов'язкову оферту. Договір укладається, щойно ми підтвердимо замовлення ел. поштою на вказану під час оформлення адресу. Кожне замовлення отримує номер у форматі LV-РР-NNNN.",
+  "Alle Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer: 7 % auf Schnittblumen und Pflanzen, 19 % auf Vasen und Zubehör. Bei Lieferung kommt eine Lieferpauschale von 5,90 € hinzu; bei Abholung im Laden entfällt sie.":
+    "Усі ціни включають установлений законом ПДВ: 7% на зрізані квіти та рослини, 19% на вази й аксесуари. За доставку додається фіксована плата 5,90 €; при самовивозі в магазині вона не стягується.",
+  "Lieferungen erfolgen im Wiesbadener Liefergebiet innerhalb der im Checkout gewählten Zeitfenster (11–14 Uhr oder 17–20 Uhr, samstags nur vormittags), Bestellschluss ist täglich 14 Uhr. Bis 14 Uhr desselben Tages lässt sich eine laufende Bestellung noch ergänzen. Wahlweise kannst du deine Bestellung ohne Aufpreis im Laden in der Marktstraße abholen.":
+    "Доставка здійснюється в зоні доставки Вісбадена в межах обраних під час оформлення часових вікон (11–14 год або 17–20 год, у суботу лише зранку), прийом замовлень щодня до 14:00. До 14:00 того ж дня поточне замовлення ще можна доповнити. За бажанням ви можете забрати замовлення без доплати в магазині на Marktstraße.",
+  "Ist bei Zustellung niemand anzutreffen, verfahren wir nach der im Checkout hinterlegten Anweisung (z. B. Abgabe bei Nachbarn).":
+    "Якщо під час доставки нікого немає, ми діємо за вказівкою, збереженою під час оформлення (напр. залишити сусідам).",
+  "Gutscheine sind bis zum Ende des dritten Jahres nach dem Jahr des Kaufs einlösbar und können nicht bar ausgezahlt werden. Solange ein Gutschein nicht eingelöst ist, kannst du ihn zurückgeben.":
+    "Сертифікати можна активувати до кінця третього року після року покупки; готівкою вони не виплачуються. Поки сертифікат не активований, ви можете його повернути.",
+  "Für das Blumen-Abo gelten gesonderte Bedingungen zu Laufzeit, Kündigung und Rhythmus. [Wird ergänzt, sobald das Abo im Shop buchbar ist.]":
+    "Для квіткової підписки діють окремі умови щодо строку, скасування та ритму. [Буде додано, щойно підписку можна буде оформити в магазині.]",
+  "Auf Sträuße geben wir sieben Tage Frischegarantie. Meldet sich ein Strauß früher ab, ersetzen wir ihn. Reklamationen bitte mit Bestellnummer und, wenn möglich, einem Foto an uns richten — Kontaktdaten stehen im":
+    "На букети ми даємо сім днів гарантії свіжості. Якщо букет зів'яне раніше, ми його замінимо. Рекламації надсилайте з номером замовлення і, за можливості, фото — контактні дані в розділі",
+  "Als Verbraucherin oder Verbraucher steht dir grundsätzlich ein Widerrufsrecht zu. Bei frisch gebundener Ware entfällt es ab Bindebeginn. Die Einzelheiten stehen in unserer":
+    "Як споживач ви зазвичай маєте право на відмову. Для щойно зібраного товару воно зникає з початку збирання. Подробиці — у нашій",
+  "Wir haften unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie nach den Vorschriften des Produkthaftungsgesetzes. Für leichte Fahrlässigkeit haften wir nur bei Verletzung einer wesentlichen Vertragspflicht, begrenzt auf den vorhersehbaren, vertragstypischen Schaden.":
+    "Ми несемо необмежену відповідальність за умисел і грубу необережність, а також згідно з приписами Закону про відповідальність за продукцію. За легку необережність ми відповідаємо лише в разі порушення суттєвого договірного обов'язку, обмежуючись передбачуваною, типовою для договору шкодою.",
+  "Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Zwingende verbraucherschützende Bestimmungen deines gewöhnlichen Aufenthaltsorts bleiben unberührt. Gerichtsstand für Kaufleute: [wird ergänzt].":
+    "Застосовується право Федеративної Республіки Німеччина з виключенням Конвенції ООН про купівлю-продаж. Імперативні норми захисту прав споживачів місця вашого звичайного проживання залишаються незмінними. Підсудність для підприємців: [буде додано].",
+  // Datenschutz prose
+  "Verantwortlich für die Datenverarbeitung auf dieser Website ist la Vanda [Rechtsform — wird ergänzt], Marktstraße 12, 65183 Wiesbaden, Telefon 0611 000 000, E-Mail [E-Mail-Adresse wird ergänzt]. Weitere Angaben im":
+    "Відповідальною за обробку даних на цьому вебсайті є la Vanda [правова форма — буде додано], Marktstraße 12, 65183 Wiesbaden, телефон 0611 000 000, ел. пошта [адресу буде додано]. Докладніше в розділі",
+  "Beim Bestellen im Checkout verarbeiten wir Vorname, Nachname, Straße, Postleitzahl, Ort, E-Mail-Adresse und Telefonnummer sowie die gewählten Artikel, Liefer- oder Abholoption und die Zahlungsart. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO — die Verarbeitung ist zur Erfüllung des Kaufvertrags erforderlich. Die Bestellbestätigung mit Bestellnummer senden wir an die von dir angegebene E-Mail-Adresse.":
+    "Під час оформлення замовлення ми обробляємо ім'я, прізвище, вулицю, поштовий індекс, місто, адресу ел. пошти й номер телефону, а також обрані товари, спосіб доставки чи самовивозу та спосіб оплати. Правова підстава — ст. 6 ч. 1 п. b GDPR — обробка потрібна для виконання договору купівлі-продажу. Підтвердження замовлення з його номером ми надсилаємо на вказану вами адресу ел. пошти.",
+  "Diese Website wird gehostet bei: [Hosting-Anbieter wird ergänzt].":
+    "Цей вебсайт розміщено в: [провайдера хостингу буде додано].",
+  "Eine formlose E-Mail an [E-Mail-Adresse wird ergänzt] genügt. Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren, zuständig ist in Hessen: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit.":
+    "Достатньо листа у вільній формі на [адресу буде додано]. Крім того, ви можете подати скаргу до наглядового органу з захисту даних; у Гессені це: Уповноважений землі Гессен з питань захисту даних і свободи інформації.",
+  // Widerruf exception (wraps a <strong>)
+  "Das Widerrufsrecht besteht nicht bei Verträgen zur Lieferung von Waren, die schnell verderben oder deren Verfallsdatum schnell überschritten würde (§ 312g Abs. 2 Nr. 2 BGB). Das betrifft bei uns vor allem frisch gebundene Sträuße: Sobald wir mit dem Binden deiner Bestellung begonnen haben, handelt es sich um eine für dich individuell angefertigte, schnell verderbliche Ware —":
+    "Право на відмову не діє щодо договорів на постачання товарів, які швидко псуються або строк придатності яких швидко минає (§ 312g ч. 2 № 2 BGB). У нас це стосується насамперед щойно зібраних букетів: щойно ми почали збирати ваше замовлення, це вже індивідуально виготовлений для вас товар, що швидко псується —",
+  "das Widerrufsrecht entfällt ab diesem Zeitpunkt (Bindebeginn)": "право на відмову зникає з цього моменту (початку збирання)",
+  "Genau darauf weisen wir auch im Checkout hin, bevor du die Bestellung abschließt. Bis zum Bindebeginn kannst du wie oben beschrieben ganz normal widerrufen.":
+    "Саме на це ми звертаємо увагу під час оформлення, перш ніж ви завершите замовлення. До початку збирання ви можете відмовитися звичайним чином, як описано вище.",
 };

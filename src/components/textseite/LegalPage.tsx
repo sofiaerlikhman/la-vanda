@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
+import { T } from "@/i18n/T";
 import styles from "./LegalPage.module.css";
 
 type Props = {
@@ -23,14 +24,24 @@ export default function LegalPage({ title, lead, updatedLabel = "Stand 31. Augus
     <div className={styles.page}>
       <Breadcrumb items={[{ label: "Start", href: "/" }, { label: title }]} />
 
-      <p className={styles.meta}>{updatedLabel}</p>
-      <h1 className={styles.title}>{title}</h1>
-      {lead && <p className={styles.lead}>{lead}</p>}
+      <p className={styles.meta}>
+        <T de={updatedLabel} />
+      </p>
+      <h1 className={styles.title}>
+        <T de={title} />
+      </h1>
+      {lead && (
+        <p className={styles.lead}>
+          <T de={lead} />
+        </p>
+      )}
 
       <div className={styles.notice}>
         <p>
-          <strong>Rechtlicher Hinweis:</strong> Diese Seite enthält Platzhalter und ersetzt keine anwaltliche Prüfung.
-          Vor Veröffentlichung von einer Rechtsanwältin/einem Rechtsanwalt prüfen lassen.
+          <strong>
+            <T de="Rechtlicher Hinweis:" />
+          </strong>{" "}
+          <T de="Diese Seite enthält Platzhalter und ersetzt keine anwaltliche Prüfung. Vor Veröffentlichung von einer Rechtsanwältin/einem Rechtsanwalt prüfen lassen." />
         </p>
       </div>
 
