@@ -2,6 +2,7 @@
 
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { formatPriceEUR } from "@/data/products";
+import { useT } from "@/i18n/LanguageProvider";
 import { FLOWERS, FLOWER_GROUP_FILTERS, MAX_STEMS_PER_FLOWER, type FlowerGroup } from "@/data/konfigurator";
 import styles from "./FlowerPicker.module.css";
 
@@ -17,16 +18,17 @@ type FlowerPickerProps = {
 
 /** Step 1 — pick flowers by group, stem by stem, from "1 · Blumen wählen". */
 export default function FlowerPicker({ qty, group, stemCount, onGroupChange, onBump }: FlowerPickerProps) {
+  const t = useT();
   const visible = FLOWERS.filter((f) => group === "Alle" || f.group === (group as FlowerGroup));
 
   return (
     <section>
       <div className={styles.header}>
-        <h2 className={styles.title}>1 · Blumen wählen</h2>
-        <span className={styles.stemLabel}>{stemCount} Stiele gewählt</span>
+        <h2 className={styles.title}>{t("1 · Blumen wählen")}</h2>
+        <span className={styles.stemLabel}>{t("{n} Stiele gewählt").replace("{n}", String(stemCount))}</span>
       </div>
 
-      <div className={styles.chips} role="group" aria-label="Blumengruppe filtern">
+      <div className={styles.chips} role="group" aria-label={t("Blumengruppe filtern")}>
         {FLOWER_GROUP_FILTERS.map((g) => (
           <button
             key={g}
@@ -35,7 +37,7 @@ export default function FlowerPicker({ qty, group, stemCount, onGroupChange, onB
             onClick={() => onGroupChange(g)}
             aria-pressed={g === group}
           >
-            {g}
+            {t(g)}
           </button>
         ))}
       </div>
@@ -50,14 +52,14 @@ export default function FlowerPicker({ qty, group, stemCount, onGroupChange, onB
                 {q > 0 && <span className={styles.qtyBadge}>{q}</span>}
               </div>
               <div className={styles.body}>
-                <h3 className={styles.name}>{flower.name}</h3>
-                <p className={styles.note}>{flower.note}</p>
+                <h3 className={styles.name}>{t(flower.name)}</h3>
+                <p className={styles.note}>{t(flower.note)}</p>
                 <div className={styles.row}>
-                  <span className={styles.price}>{formatPriceEUR(flower.priceCents)} / Stiel</span>
-                  <div className={styles.stepper} role="group" aria-label={`Menge ${flower.name}`}>
+                  <span className={styles.price}>{formatPriceEUR(flower.priceCents)} {t("/ Stiel")}</span>
+                  <div className={styles.stepper} role="group" aria-label={`${t("Menge")} ${t(flower.name)}`}>
                     <button
                       type="button"
-                      aria-label={`${flower.name} weniger`}
+                      aria-label={`${t(flower.name)} ${t("weniger")}`}
                       className={styles.stepButton}
                       onClick={() => onBump(flower.id, -1)}
                       disabled={q <= 0}
@@ -67,7 +69,7 @@ export default function FlowerPicker({ qty, group, stemCount, onGroupChange, onB
                     <span className={styles.stepValue}>{q}</span>
                     <button
                       type="button"
-                      aria-label={`${flower.name} mehr`}
+                      aria-label={`${t(flower.name)} ${t("mehr")}`}
                       className={styles.stepButton}
                       onClick={() => onBump(flower.id, 1)}
                       disabled={q >= MAX_STEMS_PER_FLOWER}

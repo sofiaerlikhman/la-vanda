@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import BouquetConfigurator from "@/components/konfigurator/BouquetConfigurator";
+import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -56,11 +57,14 @@ export default function KonfiguratorPage() {
 
         <div className={styles.hero}>
           <div>
-            <span className={styles.badge}>Aus dem Kühlhaus, heute morgen</span>
-            <h1 className={styles.title}>Strauß selbst binden</h1>
+            <span className={styles.badge}>
+              <T de="Aus dem Kühlhaus, heute morgen" />
+            </span>
+            <h1 className={styles.title}>
+              <T de="Strauß selbst binden" />
+            </h1>
             <p className={styles.lead}>
-              Wähle Stiel für Stiel, entscheide über Menge und Verpackung. Der Preis rechnet mit — gebunden wird von
-              Hand am Bestelltag.
+              <T de="Wähle Stiel für Stiel, entscheide über Menge und Verpackung. Der Preis rechnet mit — gebunden wird von Hand am Bestelltag." />
             </p>
           </div>
           <div className={styles.heroImages}>
@@ -75,14 +79,16 @@ export default function KonfiguratorPage() {
         <div className={styles.infoStrip}>
           {INFO_ITEMS.map((item) => (
             <div key={item.title} className={styles.infoItem}>
-              <p className={styles.infoLabel}>{item.title}</p>
+              <p className={styles.infoLabel}>
+                <T de={item.title} />
+              </p>
               <p className={styles.infoBody}>
-                {item.body}
-                {item.linkHref && (
+                <T de={item.body} />
+                {item.linkHref && item.linkLabel && (
                   <>
                     {" "}
                     <Link href={item.linkHref} className={styles.infoLink}>
-                      {item.linkLabel}
+                      <T de={item.linkLabel} />
                     </Link>
                   </>
                 )}

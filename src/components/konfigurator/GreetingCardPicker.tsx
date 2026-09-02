@@ -2,6 +2,7 @@
 
 import type { ChangeEvent } from "react";
 import { formatPriceEUR } from "@/data/products";
+import { useT } from "@/i18n/LanguageProvider";
 import { GREETING_CARDS, MAX_CARD_MESSAGE_LENGTH } from "@/data/konfigurator";
 import styles from "./GreetingCardPicker.module.css";
 
@@ -14,15 +15,16 @@ type GreetingCardPickerProps = {
 
 /** Step 4 — greeting card + handwritten text, from "4 · Grußkarte". */
 export default function GreetingCardPicker({ cardId, message, onCardChange, onMessageChange }: GreetingCardPickerProps) {
+  const t = useT();
   function handleMessageChange(e: ChangeEvent<HTMLTextAreaElement>) {
     onMessageChange(e.target.value.slice(0, MAX_CARD_MESSAGE_LENGTH));
   }
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>4 · Grußkarte</h2>
+      <h2 className={styles.title}>{t("4 · Grußkarte")}</h2>
       <div className={styles.layout}>
-        <div className={styles.options} role="radiogroup" aria-label="Grußkarte wählen">
+        <div className={styles.options} role="radiogroup" aria-label={t("Grußkarte wählen")}>
           {GREETING_CARDS.map((card) => {
             const active = card.id === cardId;
             return (
@@ -34,20 +36,20 @@ export default function GreetingCardPicker({ cardId, message, onCardChange, onMe
                 className={active ? `${styles.option} ${styles.optionActive}` : styles.option}
                 onClick={() => onCardChange(card.id)}
               >
-                <span className={styles.name}>{card.name}</span>
-                <span className={styles.price}>{card.priceCents > 0 ? `+ ${formatPriceEUR(card.priceCents)}` : "inklusive"}</span>
+                <span className={styles.name}>{t(card.name)}</span>
+                <span className={styles.price}>{card.priceCents > 0 ? `+ ${formatPriceEUR(card.priceCents)}` : t("inklusive")}</span>
               </button>
             );
           })}
         </div>
         <div>
           <label htmlFor="lv-cfg-msg" className={styles.label}>
-            Text auf der Karte
+            {t("Text auf der Karte")}
           </label>
           <textarea
             id="lv-cfg-msg"
             rows={4}
-            placeholder={`Handgeschrieben von uns, max. ${MAX_CARD_MESSAGE_LENGTH} Zeichen`}
+            placeholder={t("Handgeschrieben von uns, max. {n} Zeichen").replace("{n}", String(MAX_CARD_MESSAGE_LENGTH))}
             className={styles.textarea}
             value={message}
             onChange={handleMessageChange}

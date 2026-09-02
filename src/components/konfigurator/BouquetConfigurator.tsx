@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { useT } from "@/i18n/LanguageProvider";
 import { formatPriceEUR } from "@/data/products";
 import {
   BIND_FEE_CENTS,
@@ -47,6 +48,7 @@ function hashConfig(input: string): string {
  */
 export default function BouquetConfigurator() {
   const { addItem } = useCart();
+  const t = useT();
   const [qty, setQty] = useState<Record<string, number>>({});
   const [group, setGroup] = useState<FlowerFilter>("Alle");
   const [greenId, setGreenId] = useState(GREENS[0].id);
@@ -77,16 +79,19 @@ export default function BouquetConfigurator() {
     const result: SummaryLine[] = [];
     for (const f of FLOWERS) {
       const q = qty[f.id] ?? 0;
-      if (q > 0) result.push({ label: `${q}× ${f.name}`, value: formatPriceEUR(f.priceCents * q) });
+      if (q > 0) result.push({ label: `${q}× ${t(f.name)}`, value: formatPriceEUR(f.priceCents * q) });
     }
-    result.push({ label: green.name, value: formatPriceEUR(green.priceCents) });
-    result.push({ label: wrap.name, value: wrap.priceCents > 0 ? formatPriceEUR(wrap.priceCents) : "inklusive" });
-    if (card.priceCents > 0) result.push({ label: card.name, value: formatPriceEUR(card.priceCents) });
-    if (bindFeeCents > 0) result.push({ label: "Binden von Hand", value: formatPriceEUR(bindFeeCents) });
+    result.push({ label: t(green.name), value: formatPriceEUR(green.priceCents) });
+    result.push({ label: t(wrap.name), value: wrap.priceCents > 0 ? formatPriceEUR(wrap.priceCents) : t("inklusive") });
+    if (card.priceCents > 0) result.push({ label: t(card.name), value: formatPriceEUR(card.priceCents) });
+    if (bindFeeCents > 0) result.push({ label: t("Binden von Hand"), value: formatPriceEUR(bindFeeCents) });
     return result;
-  }, [qty, green, wrap, card, bindFeeCents]);
+  }, [qty, green, wrap, card, bindFeeCents, t]);
 
-  const summaryLine = stemCount > 0 ? `${stemCount} Stiele · ${green.name} · ${wrap.name}` : "Wähle links deine Blumen";
+  const summaryLine =
+    stemCount > 0
+      ? `${stemCount} ${t("Stiele")} · ${t(green.name)} · ${t(wrap.name)}`
+      : t("Wähle links deine Blumen");
 
   function handleAddToCart() {
     if (stemCount === 0) return;
@@ -96,13 +101,13 @@ export default function BouquetConfigurator() {
       .join(",");
     const configKey = `${flowerParts}|green:${greenId}|wrap:${wrapId}|card:${cardId}|msg:${message.trim()}`;
 
-    const metaParts = [`${stemCount} Stiele`, green.name, wrap.name];
-    if (card.priceCents > 0) metaParts.push(card.name);
+    const metaParts = [`${stemCount} ${t("Stiele")}`, t(green.name), t(wrap.name)];
+    if (card.priceCents > 0) metaParts.push(t(card.name));
 
     addItem({
       id: `product:konfigurator:${hashConfig(configKey)}`,
       kind: "product",
-      name: "Strauß selbst binden",
+      name: t("Strauß selbst binden"),
       priceCents: totalCents,
       image: "Strauß selbst binden, Vorschau",
       meta: metaParts.join(" · "),

@@ -3,6 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { formatPriceEUR } from "@/data/products";
+import { useT } from "@/i18n/LanguageProvider";
 import { MIN_ORDER_CENTS } from "@/data/konfigurator";
 import styles from "./OrderSummary.module.css";
 
@@ -23,12 +24,13 @@ type OrderSummaryProps = {
 
 /** Sticky price/summary panel — "Dein Strauß" — with the real "In den Korb" CTA. */
 export default function OrderSummary({ stemCount, totalCents, summaryLine, lines, disabled, added, onAddToCart }: OrderSummaryProps) {
+  const t = useT();
   const totalLabel = formatPriceEUR(totalCents);
 
   return (
     <aside className={styles.aside}>
       <div className={styles.top}>
-        <p className={styles.eyebrow}>Dein Strauß</p>
+        <p className={styles.eyebrow}>{t("Dein Strauß")}</p>
         <p className={styles.total}>{totalLabel}</p>
         <p className={styles.summaryLine}>{summaryLine}</p>
       </div>
@@ -38,7 +40,7 @@ export default function OrderSummary({ stemCount, totalCents, summaryLine, lines
       </div>
 
       <div className={styles.lines}>
-        {stemCount === 0 && <p className={styles.empty}>Noch keine Blumen gewählt. Ab 9 Stielen wird der Strauß voll.</p>}
+        {stemCount === 0 && <p className={styles.empty}>{t("Noch keine Blumen gewählt. Ab 9 Stielen wird der Strauß voll.")}</p>}
         {lines.map((line) => (
           <div key={line.label} className={styles.line}>
             <span className={styles.lineLabel}>{line.label}</span>
@@ -48,21 +50,24 @@ export default function OrderSummary({ stemCount, totalCents, summaryLine, lines
       </div>
 
       <div className={styles.sumRow}>
-        <span className={styles.sumLabel}>Summe</span>
+        <span className={styles.sumLabel}>{t("Summe")}</span>
         <span className={styles.sumValue}>{totalLabel}</span>
       </div>
 
       <div className={styles.cta}>
         <Button variant="primary" size={48} className={styles.ctaButton} disabled={disabled} onClick={onAddToCart}>
-          {added ? "Hinzugefügt ✓" : "In den Korb"}
+          {added ? t("Hinzugefügt ✓") : t("In den Korb")}
         </Button>
         <p className={styles.hint}>
-          Mindestbestellwert {formatPriceEUR(MIN_ORDER_CENTS)}. Liefertag und Zeitfenster wählst du an der Kasse.
+          {t("Mindestbestellwert {p}. Liefertag und Zeitfenster wählst du an der Kasse.").replace(
+            "{p}",
+            formatPriceEUR(MIN_ORDER_CENTS),
+          )}
         </p>
         <div className={styles.trust}>
-          <span>Sieben Tage Frischegarantie</span>
-          <span>Eigene Fahrer, kein Paketdienst</span>
-          <span>Von Hand gebunden am Bestelltag</span>
+          <span>{t("Sieben Tage Frischegarantie")}</span>
+          <span>{t("Eigene Fahrer, kein Paketdienst")}</span>
+          <span>{t("Von Hand gebunden am Bestelltag")}</span>
         </div>
       </div>
     </aside>
