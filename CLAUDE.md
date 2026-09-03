@@ -8,12 +8,40 @@ don't silently pick one.
 
 ---
 
+## ⚠ You are on the `landing` branch
+
+This branch is **not the shop**. It is a single public page — the home page and
+the atelier page merged — that shows what la Vanda is, some of its work, and how
+to reach it, with **no way to order, reserve, book or subscribe**. The shop lives
+on `main`; nothing here should grow back toward it without that being the point.
+
+What differs from the rules below, and only what differs:
+
+- **Routes:** `/` plus `impressum`, `datenschutz`, `barrierefreiheit`. The build
+  emits **7** static pages, not 37 (§2). Every other route is deleted, so an
+  order flow cannot be reached even by typing a URL.
+- **No bottom tab bar.** With one page there is nothing to tab between, so
+  `--lv-tabbar-h` is gone and `body` reserves no space at the bottom (§1). The
+  mobile pair for the desktop section nav is the header's hamburger overlay.
+- **`--lv-header-h: 64px`** is new: the sticky header's height, used by every
+  anchor target's `scroll-margin-top`.
+- **No cart, no forms, no search.** `CartContext`, the mobile search overlay and
+  every form component are deleted rather than disabled.
+- **New rule — nothing may imply a transaction.** Anything that looks like it
+  takes an order, holds a seat or reserves a slot does not belong here, even
+  when it "works" client-side. If a control cannot do what it appears to do,
+  don't ship the control; say plainly that it isn't possible yet (§8).
+- **`BACKEND.md`** lists every element that would need a backend, and mirrors
+  the `BACKEND` comments in `src/`. Keep the two in sync.
+
+---
+
 ## 0. The short list
 
 Before calling any change done:
 
 1. It works from **320 px to ultrawide** — checked, not assumed.
-2. `npm run build` passes and still emits **all 37 static pages**.
+2. `npm run build` passes and still emits **all 7 static pages** (37 on `main`).
 3. **German output is unchanged** unless German was the point of the change.
 4. Every new user-facing string is in **`t()`/`<T>` and in both dictionaries**.
 5. No hardcoded colour, spacing, duration or easing that exists as a **token**.
@@ -36,9 +64,10 @@ first-class on every change.
   timelines) scrolls inside its own `overflow-x: auto` container — the body never does.
 - **Use tokens for space,** especially `--lv-margin` (48 px desktop → 24 px mobile). Don't
   hardcode side padding.
-- **Respect the mobile chrome.** A fixed bottom tab bar (`--lv-tabbar-h: 56px`) sits above
-  the page and `body` reserves that space. Never place interactive content underneath it,
-  and never let a new fixed/sticky element cover it.
+- **Respect the mobile chrome.** On `main` a fixed bottom tab bar (`--lv-tabbar-h: 56px`)
+  sits above the page and `body` reserves that space. **This branch has no tab bar** — the
+  only fixed chrome is the sticky header (`--lv-header-h: 64px`), which anchor targets
+  clear with `scroll-margin-top`. Never let a new fixed/sticky element cover content.
 - **Touch targets ≥ 44 × 44 px** on mobile.
 - **Don't ship one side of a pair.** If a feature has a desktop affordance (inline nav,
   hover state), give it a mobile equivalent (tab bar, overlay, tap state) — and vice versa.
@@ -54,9 +83,9 @@ Every addition must prove it didn't break what was already there.
   ```bash
   npm run build
   ```
-  It must compile **and** report `Generating static pages (37/37)`. A changed page count
-  means a route was added or lost — confirm that was intended, and update this number here
-  when it legitimately changes.
+  It must compile **and** report `Generating static pages (7/7)` on this branch (37/37 on
+  `main`). A changed page count means a route was added or lost — confirm that was
+  intended, and update this number here when it legitimately changes.
 - **Check a page you did *not* touch,** not just the one you did. Shared components
   (`SiteHeader`, `SiteFooter`, `ProductCard`, `ImagePlaceholder`, `LegalPage`) reach nearly
   every route — a change to one is a change to all of them.
@@ -231,7 +260,7 @@ Carried over from the handoff rules and `README.md` ("Echte Logik statt statisch
 ## Pre-flight checklist
 
 ```
-[ ] npm run build → passes, 37/37 static pages
+[ ] npm run build → passes, 7/7 static pages (37/37 on main)
 [ ] Narrow (≤375px) and wide (≥1280px) both checked, no horizontal scroll
 [ ] A page I didn't touch still renders correctly
 [ ] German output unchanged (unless German was the change)

@@ -1,5 +1,29 @@
 # la Vanda — Online-Shop
 
+> ## ⚠ Branch `landing` — einseitige Vorschauseite, kein Shop
+>
+> Dieser Branch enthält **eine einzige öffentliche Seite**: Startseite und
+> Atelierseite zu einer Landingpage zusammengefasst. Sie zeigt den Laden, eine
+> Auswahl an Sträußen, Öffnungszeiten, Team, Workshops und Kontakt — aber
+> **bestellen, reservieren, buchen und abonnieren ist nicht möglich**.
+>
+> Alle Shop-Routen (Sortiment, Produkt, Warenkorb, Checkout, Konto, Abo,
+> Gutschein, Konfigurator, Anfrageformulare) sind auf diesem Branch gelöscht,
+> nicht nur ausgeblendet — der Bestellweg ist also auch über die URL nicht
+> erreichbar. Erhalten bleiben `/impressum`, `/datenschutz` und
+> `/barrierefreiheit`; die ersten beiden sind für eine öffentlich erreichbare
+> Seite in Deutschland auch ohne Shop rechtlich erforderlich.
+>
+> **Der vollständige Shop liegt auf `main`.** Der Text unten beschreibt diesen
+> vollständigen Shop und gilt für `main` — für diesen Branch also nur dort,
+> wo es um gemeinsame Grundlagen geht (Design-Tokens, i18n, Build, Deployment).
+>
+> → **[`BACKEND.md`](BACKEND.md)** listet jedes Element auf, das ein Backend
+> bräuchte, was es stattdessen tut, und was vor einer Veröffentlichung noch
+> fehlt (Fotos, Karte, bestätigte Telefonnummer und E-Mail-Adresse).
+> Im Code sind dieselben Stellen mit `BACKEND` kommentiert:
+> `grep -rn "BACKEND" src/`.
+
 Next.js/TypeScript-Frontend für den la Vanda Blumenladen (Wiesbaden), aufgebaut auf dem `design_handoff_lavanda_shop`-Paket (Design-Tokens, Prototypen, Redaktionsregeln). Der komplette Sitemap ist jetzt gebaut, von den für einen funktionierenden Shop wichtigsten Seiten an — siehe "Was gebaut ist" für den Stand jeder einzelnen Seite und "Was noch fehlt" für die bewusst offen gelassenen Stellen (echte Fotos, echtes Backend, Rechtstexte vor dem Launch prüfen lassen).
 
 ## Voraussetzungen
