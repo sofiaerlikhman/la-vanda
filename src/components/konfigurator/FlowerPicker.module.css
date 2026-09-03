@@ -195,8 +195,19 @@
     font-size: var(--lv-text-h1);
   }
 
+  /* Two-column grid + 44px touch targets leave the card too narrow for
+     price and stepper side by side (row needs ~209px, card offers ~130px at
+     375px), which clipped the "+" button off-screen. Let the stepper wrap
+     onto its own full-width line instead of overflowing the card. */
+  .row {
+    flex-wrap: wrap;
+    gap: var(--lv-space-3);
+  }
+
   .stepper {
     height: 46px;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .stepButton {
