@@ -1,4 +1,9 @@
 .placeholder {
+  /* Keep this positioned. .caption below is absolutely positioned against
+     it — if a consumer's class overrides this to `static`, the caption
+     escapes to the initial containing block and paints over the whole
+     page. Consumers that need to un-absolute a placeholder should set
+     `position: relative`, never `static`. */
   position: relative;
   width: 100%;
   height: 100%;

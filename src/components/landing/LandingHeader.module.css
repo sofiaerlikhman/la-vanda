@@ -1,0 +1,151 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--lv-header-h);
+  background: var(--lv-ink);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--lv-margin);
+  gap: var(--lv-space-7);
+}
+
+/* Off-screen until focused, then pinned over the header. */
+.skipLink {
+  position: fixed;
+  top: var(--lv-space-2);
+  left: var(--lv-space-2);
+  z-index: 40;
+  transform: translateY(-200%);
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  background: var(--lv-cream-50);
+  color: var(--lv-ink);
+  padding: var(--lv-space-3) var(--lv-space-4);
+  font-size: var(--lv-text-body-s);
+  font-weight: 600;
+}
+.skipLink:focus-visible {
+  transform: none;
+}
+
+.wordmark {
+  flex: none;
+  /* Stretches to the full header height so the tap target clears 44px —
+     on mobile this is the only way back to the top of the page. */
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  color: var(--lv-cream-50);
+}
+.wordmark:hover {
+  color: var(--lv-cream-50);
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: var(--lv-space-6);
+  font-size: var(--lv-text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nav a {
+  color: var(--lv-cream-50);
+  transition: opacity var(--lv-dur-micro) var(--lv-ease);
+}
+.nav a:hover {
+  color: var(--lv-cream-50);
+  opacity: 0.75;
+}
+
+.actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--lv-space-5);
+}
+
+/* Language toggle sits on the dark header, so it must render in cream —
+   without this it inherits the default ink colour and vanishes. */
+.langToggle {
+  display: flex;
+  align-items: center;
+  color: var(--lv-cream-50);
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--lv-cream-50);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity var(--lv-dur-micro) var(--lv-ease);
+}
+.iconButton:hover {
+  opacity: 0.72;
+}
+
+/* Desktop carries the whole section list inline, so the hamburger is
+   mobile-only — see the 768px note in tokens.css / globals.css. */
+.hamburgerButton {
+  display: none;
+}
+
+/* Tablet band, 769–900px: the inline nav appears at 769px but the header's
+   desktop spacing doesn't fit yet. Wordmark (104px) + five nav labels +
+   language toggle (81px) need 851px in German and 875px in Ukrainian — the
+   widest of the three — against 48px side margins and 48/32px gaps, so the
+   row overflowed the page between 769px and ~875px.
+
+   This is the one place the site needs a breakpoint other than the 768px
+   mobile cutover: below 768px the hamburger takes over and the problem
+   disappears, so the mobile query can't fix it. Tighter margins and gaps
+   here bring the Ukrainian worst case down to 714px, clearing 769px with
+   room to spare. */
+@media (min-width: 769px) and (max-width: 900px) {
+  .header {
+    padding: 0 var(--lv-space-5);
+    gap: var(--lv-space-5);
+  }
+
+  .nav {
+    gap: var(--lv-space-4);
+  }
+
+  .actions {
+    gap: var(--lv-space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: var(--lv-space-4);
+    justify-content: space-between;
+  }
+
+  .nav,
+  .desktopOnly {
+    display: none;
+  }
+
+  .hamburgerButton {
+    display: flex;
+  }
+}

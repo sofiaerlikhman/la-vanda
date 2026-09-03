@@ -34,11 +34,18 @@
   user-select: none;
 }
 
-/* Larger, roomier target inside the full-screen mobile menu. */
+/* Larger, roomier target inside the full-screen mobile menu — the three
+   options are the only place a language gets switched on a phone, so each
+   one is a full 44px target rather than a 33px one. */
 .mobile {
   font-size: var(--lv-text-body-s);
   gap: var(--lv-space-2);
 }
 .mobile .option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   padding: var(--lv-space-2) var(--lv-space-1);
 }

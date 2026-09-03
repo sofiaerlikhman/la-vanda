@@ -1,0 +1,90 @@
+.section {
+  margin-top: var(--lv-space-9);
+}
+
+.wrap {
+  position: relative;
+  height: 520px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+}
+
+.panel {
+  position: absolute;
+  right: var(--lv-margin);
+  bottom: var(--lv-margin);
+  width: 560px;
+  max-width: calc(100% - var(--lv-margin) * 2);
+  background: var(--lv-cream-50);
+  padding: 40px 44px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-s);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: 20px 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.cta {
+  margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: var(--lv-space-6);
+  }
+
+  .wrap {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image {
+    /* Must stay positioned, not static: ImagePlaceholder's caption is
+       absolutely positioned against it, and a static parent lets the
+       caption escape to the viewport and cover the page. */
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .panel {
+    position: static;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: none;
+    padding: var(--lv-space-6) var(--lv-margin);
+  }
+
+  .cta {
+    width: 100%;
+  }
+}

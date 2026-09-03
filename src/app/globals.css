@@ -64,18 +64,30 @@ body {
 /* ── Mobile breakpoint ────────────────────────────────
    375px was the wireframe's design width (see "la Vanda Wireframes
    Mobile" reference, sketched at 300px); 768px is the cutover already
-   anticipated by --lv-margin's comment in tokens.css. Below it: tighter
-   side margins, and room reserved at the bottom for the fixed tab bar
-   (src/components/mobile/MobileTabBar) that replaces the desktop
-   header's nav/account/cart icons on small screens. */
+   anticipated by --lv-margin's comment in tokens.css. Below it, tighter
+   side margins. Nothing is reserved at the bottom of the page on this
+   branch: a one-page site has no bottom tab bar to sit clear of. */
 @media (max-width: 768px) {
   :root {
     --lv-margin: 24px;
   }
+}
 
-  body {
-    padding-bottom: var(--lv-tabbar-h);
+/* Anchor nav on a single page: jumping to a section should glide rather
+   than teleport — but only for visitors who haven't asked for less
+   motion. Every section sets its own scroll-margin-top so the sticky
+   header never covers the heading it just scrolled to. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
+}
+
+/* The header's skip link targets <main>; without this the jump lands with
+   the top of the content tucked under the sticky header. Sections set the
+   same offset in their own modules. */
+main {
+  scroll-margin-top: var(--lv-header-h);
 }
 
 a {

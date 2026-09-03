@@ -1,0 +1,70 @@
+.section {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-9) var(--lv-margin) 0;
+}
+
+.title {
+  margin: 0 0 var(--lv-space-6);
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-m);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--lv-line);
+}
+
+.card {
+  background: var(--lv-cream-50);
+}
+
+.imageWrap {
+  aspect-ratio: 3 / 4;
+}
+
+.body {
+  padding: var(--lv-space-5);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h3);
+  line-height: 1.25;
+  color: var(--lv-ink);
+}
+
+.role {
+  margin: 6px 0 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-lav-700);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--lv-space-6) var(--lv-margin) 0;
+  }
+
+  .title {
+    font-size: var(--lv-text-display-s);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .body {
+    padding: var(--lv-space-3);
+  }
+}

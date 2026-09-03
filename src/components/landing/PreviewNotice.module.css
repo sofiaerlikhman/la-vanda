@@ -1,0 +1,92 @@
+.section {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-7) var(--lv-margin) 0;
+}
+
+/* Inset panel on cream-100 with a lavender left edge: the page's one
+   piece of chrome that isn't shop content, so it reads as a notice
+   without shouting. Border + copy carry the meaning, not colour alone. */
+.panel {
+  background: var(--lv-cream-100);
+  border-left: 3px solid var(--lv-lav-500);
+  padding: var(--lv-space-6) var(--lv-space-7);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-warn-text);
+  font-weight: 600;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-4) 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+  max-width: 720px;
+}
+
+.contactLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lv-space-3);
+  margin: var(--lv-space-5) 0 0;
+  font-size: var(--lv-text-body);
+  color: var(--lv-ink);
+}
+
+.contactLine a {
+  color: var(--lv-lav-700);
+}
+.contactLine a:hover {
+  color: var(--lv-ink);
+}
+
+.separator {
+  color: var(--lv-line-str);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--lv-space-6) var(--lv-margin) 0;
+  }
+
+  .panel {
+    padding: var(--lv-space-5);
+  }
+
+  /* Phone and email are tap targets on mobile — stack them so each gets
+     its own full-height row rather than sharing one 16px line. */
+  .contactLine {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .contactLine a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .separator {
+    display: none;
+  }
+}

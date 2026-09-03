@@ -1,0 +1,117 @@
+.section {
+  margin-top: var(--lv-space-9);
+  background: var(--lv-cream-100);
+  border-top: 1px solid var(--lv-line);
+  border-bottom: 1px solid var(--lv-line);
+  scroll-margin-top: var(--lv-header-h);
+}
+
+.wrap {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: 80px var(--lv-margin);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--lv-space-8);
+  align-items: start;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-m);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-6) 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.note {
+  margin: var(--lv-space-6) 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  color: var(--lv-ink-muted);
+}
+
+.list {
+  border-top: 1px solid var(--lv-line-str);
+}
+
+/* Two columns, not four: the seat count and the booking button that
+   used to sit on the right are gone (see the component's comment). */
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--lv-space-5);
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--lv-line-str);
+}
+
+.date {
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.name {
+  font-family: var(--lv-font-display);
+  font-size: var(--lv-text-h2);
+  line-height: 1.15;
+  color: var(--lv-ink);
+}
+
+.status {
+  margin: var(--lv-space-5) 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  color: var(--lv-warn-text);
+}
+
+.placeholder {
+  margin: var(--lv-space-2) 0 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-caption);
+  line-height: 1.45;
+  color: var(--lv-ink-subtle);
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    grid-template-columns: 1fr;
+    padding: var(--lv-space-7) var(--lv-margin);
+  }
+
+  .title {
+    font-size: var(--lv-text-display-s);
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    row-gap: var(--lv-space-2);
+    padding: var(--lv-space-4) 0;
+  }
+
+  .name {
+    font-size: var(--lv-text-h3);
+  }
+}

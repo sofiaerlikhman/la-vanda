@@ -73,11 +73,13 @@
      number literally. Keep them in sync if this ever changes. */
   --lv-bp-mobile: 768px;
 
-  /* ── Mobile chrome ─────────────────────────────────
-     Fixed bottom tab bar (Start/Blumen/Suche/Konto/Korb), see
-     src/components/mobile/MobileTabBar. Body reserves this much space
-     below 768px so content never sits underneath it. */
-  --lv-tabbar-h: 56px;
+  /* ── Site chrome ──────────────────────────────
+     Height of the sticky header (LandingHeader). Sections use it as
+     scroll-margin-top so an anchored heading never lands underneath
+     the header. The landing branch has no bottom tab bar — with a
+     single page there is nothing to tab between, so the header's
+     hamburger menu is the whole mobile navigation. */
+  --lv-header-h: 64px;
 
   /* ── Radius — Atelier is square by default ─────── */
   --lv-radius-0:  0px;       /* cards, images, sections, banners */

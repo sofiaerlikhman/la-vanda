@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import CutoffBanner from "@/components/CutoffBanner";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+import LandingBanner from "@/components/landing/LandingBanner";
+import LandingHeader from "@/components/landing/LandingHeader";
+import LandingFooter from "@/components/landing/LandingFooter";
 import LegalPage from "@/components/textseite/LegalPage";
 import { T } from "@/i18n/T";
 
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 export default function DatenschutzPage() {
   return (
     <div>
-      <CutoffBanner />
-      <SiteHeader />
+      <LandingBanner />
+      <LandingHeader />
 
       <LegalPage title="Datenschutzerklärung">
         <h2>
@@ -29,56 +29,39 @@ export default function DatenschutzPage() {
           .
         </p>
 
+        {/* Landing branch: the shop's sections on order data, anonymous
+            shipping, payment providers and retention of order data are
+            removed rather than kept — none of that processing can happen
+            on a page with no cart, no checkout and no forms, and a privacy
+            policy that describes processing which does not occur is worse
+            than one that is merely short. Restore them together with the
+            shop (see BACKEND.md). */}
         <h2>
-          <T de="Daten aus deiner Bestellung" />
+          <T de="Keine Bestellung, keine Bestelldaten" />
         </h2>
         <p>
-          <T de="Beim Bestellen im Checkout verarbeiten wir Vorname, Nachname, Straße, Postleitzahl, Ort, E-Mail-Adresse und Telefonnummer sowie die gewählten Artikel, Liefer- oder Abholoption und die Zahlungsart. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO — die Verarbeitung ist zur Erfüllung des Kaufvertrags erforderlich. Die Bestellbestätigung mit Bestellnummer senden wir an die von dir angegebene E-Mail-Adresse." />
-        </p>
-        <p>
-          <T de="Deine Telefonnummer nutzen wir ausschließlich im Zusammenhang mit der Lieferung, etwa für die kurze Ankündigung per SMS, bevor wir bei dir eintreffen." />
-        </p>
-
-        <h2>
-          <T de="Anonymer Versand" />
-        </h2>
-        <p>
-          <T de="Im Checkout kannst du eine Grußkarte anonym gestalten. In diesem Fall bleibt dein Name gegenüber der Empfängerin oder dem Empfänger verborgen; für Rückfragen, Zustellung und Buchhaltung bleibt er intern bei uns gespeichert." />
+          <T de="Diese Website ist eine reine Informationsseite. Es gibt hier weder Warenkorb noch Bestell-, Buchungs- oder Reservierungsfunktion und keine Formulare. Wir erheben über diese Seite deshalb keine Bestell-, Liefer- oder Zahlungsdaten." />
         </p>
 
         <h2>
-          <T de="Zahlungsdaten" />
+          <T de="Lokale Speicherung" />
         </h2>
         <p>
-          <T de="Je nach gewählter Zahlungsart (Rechnung, SEPA-Lastschrift, Kreditkarte, PayPal oder Zahlung bei Abholung) verarbeiten die jeweiligen Zahlungsdienstleister deine Zahlungsdaten. Wir selbst speichern keine Kreditkarten- oder Kontodaten." />
-        </p>
-
-        <h2>
-          <T de="Warenkorb und lokale Speicherung" />
-        </h2>
-        <p>
-          <T de="Dein Warenkorb wird technisch notwendig im lokalen Speicher deines Browsers (localStorage) abgelegt, damit er beim nächsten Besuch erhalten bleibt. Diese Daten verlassen deinen Browser nicht und werden nicht auf unseren Servern gespeichert. Tracking- oder Marketing-Cookies setzen wir nicht ein." />
+          <T de="Im lokalen Speicher deines Browsers (localStorage) merken wir uns ausschließlich die von dir gewählte Sprache (Deutsch, Ukrainisch oder Englisch), damit sie beim nächsten Besuch erhalten bleibt. Diese Angabe verlässt dein Gerät nicht. Cookies setzen wir nicht ein, und es sind keine Analyse-, Tracking- oder Marketing-Dienste eingebunden." />
         </p>
 
         <h2>
           <T de="Anfragen und Kontakt" />
         </h2>
         <p>
-          <T de="Schreibst du uns über ein Kontakt- oder Anfrageformular oder per E-Mail, verarbeiten wir deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO)." />
+          <T de="Schreibst du uns per E-Mail oder rufst du uns an, verarbeiten wir deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO). Die Telefon- und E-Mail-Links auf dieser Seite öffnen dein eigenes Telefon- oder E-Mail-Programm; es werden dabei keine Daten an uns übertragen." />
         </p>
 
         <h2>
           <T de="Weitergabe an Dritte" />
         </h2>
         <p>
-          <T de="Eine Weitergabe deiner Daten erfolgt nur an Dienstleister, die wir zur Vertragserfüllung benötigen (z. B. Zahlungsdienstleister, Zustellung), sowie soweit wir gesetzlich dazu verpflichtet sind. Ein Verkauf deiner Daten an Dritte findet nicht statt." />
-        </p>
-
-        <h2>
-          <T de="Speicherdauer" />
-        </h2>
-        <p>
-          <T de="Bestelldaten speichern wir so lange, wie es die handels- und steuerrechtlichen Aufbewahrungsfristen vorschreiben (in der Regel sechs bis zehn Jahre). Danach werden sie gelöscht, soweit keine gesetzliche Pflicht zur weiteren Aufbewahrung besteht." />
+          <T de="Wir geben deine Daten nicht an Dritte weiter, abgesehen vom Hosting-Anbieter, der die Seite ausliefert, und soweit wir gesetzlich dazu verpflichtet sind. Ein Verkauf deiner Daten an Dritte findet nicht statt." />
         </p>
 
         <h2>
@@ -119,7 +102,7 @@ export default function DatenschutzPage() {
         </p>
       </LegalPage>
 
-      <SiteFooter />
+      <LandingFooter />
     </div>
   );
 }

@@ -1,0 +1,90 @@
+.section {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-9) var(--lv-margin) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--lv-space-8);
+  align-items: start;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-s);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-6) 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.list {
+  margin: 0;
+  border-top: 1px solid var(--lv-line);
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--lv-space-5);
+  padding: var(--lv-space-5) 0;
+  border-bottom: 1px solid var(--lv-line);
+}
+
+.name {
+  margin: 0;
+  flex: 1;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-h1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.price {
+  margin: 0;
+  font-size: var(--lv-text-body-s);
+  color: var(--lv-ink-muted);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--lv-space-6) var(--lv-margin) 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--lv-space-6);
+  }
+
+  .row {
+    flex-wrap: wrap;
+    row-gap: var(--lv-space-2);
+  }
+
+  .name {
+    flex: 1 1 100%;
+    font-size: var(--lv-text-h2);
+  }
+}

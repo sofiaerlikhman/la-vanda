@@ -1111,4 +1111,54 @@ export const en: Record<string, string> = {
   "das Widerrufsrecht entfällt ab diesem Zeitpunkt (Bindebeginn)": "the right of withdrawal ends from this point (the start of arranging)",
   "Genau darauf weisen wir auch im Checkout hin, bevor du die Bestellung abschließt. Bis zum Bindebeginn kannst du wie oben beschrieben ganz normal widerrufen.":
     "We point this out at checkout too, before you complete the order. Until arranging begins you can withdraw entirely normally, as described above.",
+
+  // ═════════════════════════════════════════════════════════════════════
+  //  LANDING PAGE (this branch only — the one-page preview site)
+  // ═════════════════════════════════════════════════════════════════════
+  // Preview status (LandingBanner, PreviewNotice, LandingFooter)
+  "Vorschau": "Preview",
+  "Bestellung und Reservierung noch nicht möglich": "Ordering and reservation not possible yet",
+  "Noch kein Online-Shop": "No online shop yet",
+  "Diese Seite zeigt, was wir machen und wo du uns findest. Bestellen und reservieren kannst du hier noch nicht — im Laden an der Marktstraße 12 sind wir zu den Öffnungszeiten da.":
+    "This page shows what we make and where to find us. You can't order or reserve here yet — we're in the shop at Marktstraße 12 during opening hours.",
+
+  // Landing chrome (LandingHeader, LandingFooter, LandingMenuOverlay)
+  "Zum Inhalt springen": "Skip to content",
+  "Auf dieser Seite": "On this page",
+
+  // Landing sections
+  "Blumen ansehen": "See the flowers",
+  "Was wir binden": "What we make",
+  "Eine Auswahl aus dem Laden": "A selection from the shop",
+  "Preise als Orientierung. Was im Laden steht, wechselt mit der Saison und dem Einkauf.":
+    "Prices are a guide. What is in the shop changes with the season and what we buy.",
+  "Wie wir arbeiten": "How we work",
+  "Anmeldung online noch nicht möglich.": "Signing up online is not possible yet.",
+  "[Termine und freie Plätze werden vor Veröffentlichung bestätigt]":
+    "[Dates and available places to be confirmed before publication]",
+  "Wie wir liefern": "How we deliver",
+  // Bare price: identical in all three languages (comma decimal, non-breaking
+  // space before the €, matching formatPriceEUR). Listed so the key audit
+  // stays clean rather than relying on the German fallback.
+  "4,90 €": "4,90 €",
+  "Liefergebühr": "Delivery fee",
+  "11–14 Uhr oder 17–20 Uhr": "11am–2pm or 5–8pm",
+  "Im Laden zu den Öffnungszeiten": "In the shop during opening hours",
+  "So erreichst du uns": "How to reach us",
+  "Adresse": "Address",
+  "Ein Kontaktformular gibt es auf dieser Seite noch nicht.": "There is no contact form on this page yet.",
+  "[Telefon und E-Mail vor Veröffentlichung bestätigen]":
+    "[Confirm phone and email before publication]",
+
+  // Datenschutz — landing-branch wording (no cart, no forms, no payments)
+  "Keine Bestellung, keine Bestelldaten": "No orders, no order data",
+  "Diese Website ist eine reine Informationsseite. Es gibt hier weder Warenkorb noch Bestell-, Buchungs- oder Reservierungsfunktion und keine Formulare. Wir erheben über diese Seite deshalb keine Bestell-, Liefer- oder Zahlungsdaten.":
+    "This website is purely an information page. There is no cart, no ordering, booking or reservation function and no forms. We therefore collect no order, delivery or payment data through this page.",
+  "Lokale Speicherung": "Local storage",
+  "Im lokalen Speicher deines Browsers (localStorage) merken wir uns ausschließlich die von dir gewählte Sprache (Deutsch, Ukrainisch oder Englisch), damit sie beim nächsten Besuch erhalten bleibt. Diese Angabe verlässt dein Gerät nicht. Cookies setzen wir nicht ein, und es sind keine Analyse-, Tracking- oder Marketing-Dienste eingebunden.":
+    "In your browser's local storage (localStorage) we remember only the language you chose (German, Ukrainian or English), so it is kept for your next visit. This never leaves your device. We do not use cookies, and no analytics, tracking or marketing services are embedded.",
+  "Schreibst du uns per E-Mail oder rufst du uns an, verarbeiten wir deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO). Die Telefon- und E-Mail-Links auf dieser Seite öffnen dein eigenes Telefon- oder E-Mail-Programm; es werden dabei keine Daten an uns übertragen.":
+    "If you email or call us, we process your details only in order to answer your enquiry (Art. 6 (1) (b) or (f) GDPR). The phone and email links on this page open your own phone or email program; no data is transmitted to us in the process.",
+  "Wir geben deine Daten nicht an Dritte weiter, abgesehen vom Hosting-Anbieter, der die Seite ausliefert, und soweit wir gesetzlich dazu verpflichtet sind. Ein Verkauf deiner Daten an Dritte findet nicht statt.":
+    "We do not pass your data to third parties, apart from the hosting provider that serves the page, and where we are legally obliged to. Your data is never sold to third parties.",
 };

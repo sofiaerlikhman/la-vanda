@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import CutoffBanner from "@/components/CutoffBanner";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+import LandingBanner from "@/components/landing/LandingBanner";
+import LandingHeader from "@/components/landing/LandingHeader";
+import LandingFooter from "@/components/landing/LandingFooter";
 import LegalPage from "@/components/textseite/LegalPage";
 import { T } from "@/i18n/T";
 
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function BarrierefreiheitPage() {
   return (
     <div>
-      <CutoffBanner />
-      <SiteHeader />
+      <LandingBanner />
+      <LandingHeader />
 
       <LegalPage
         title="Erklärung zur Barrierefreiheit"
@@ -57,7 +57,7 @@ export default function BarrierefreiheitPage() {
         </p>
       </LegalPage>
 
-      <SiteFooter />
+      <LandingFooter />
     </div>
   );
 }

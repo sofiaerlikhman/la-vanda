@@ -1,3 +1,13 @@
+/**
+ * Product catalog.
+ *
+ * Kept whole on the landing branch even though the page only shows a
+ * handful of these and never renders a detail view — the catalog is the
+ * shop's own content, and trimming it would lose authored copy that the
+ * full site needs back. `sizes`, `gallery`, `faq` and `description` are
+ * therefore carried but unused here.
+ */
+
 export type ProductSize = {
   label: string;
   priceCents: number;
@@ -255,32 +265,35 @@ const CATALOG_PRODUCTS: Product[] = [
 ];
 
 /**
- * Home page teaser — a fixed curated pick, not the full catalog.
- * Kept as its own function (rather than `getCatalog().slice(0, 4)`) since
- * "today's picks" is meant to be a merchandising choice, not just "the
- * first four in the list" — the backend will eventually drive this from
- * real availability data.
+ * The four fields the showcase actually renders.
+ *
+ * Narrowing the return type is not cosmetic: this page is a Server
+ * Component, so whatever the accessor returns is serialised into the RSC
+ * payload every visitor downloads. Returning whole Products shipped
+ * descriptions, size tables, galleries, FAQs and per-product delivery
+ * labels that nothing renders — including exactly the order-flow strings
+ * this branch takes off the page.
  */
-export async function getTodaysProducts(): Promise<Product[]> {
-  const bySlug = (slug: string) => CATALOG_PRODUCTS.find((p) => p.slug === slug)!;
-  return [bySlug("feldrand"), bySlug("spaetsommer"), bySlug("zimmerlinde"), bySlug("weiss-gruen")];
-}
+export type ShowcaseBouquet = Pick<Product, "id" | "name" | "priceCents" | "image">;
 
-export async function getCatalog(category: Product["category"] = "straeusse"): Promise<Product[]> {
-  return CATALOG_PRODUCTS.filter((p) => p.category === category);
-}
-
-export async function getProductBySlug(slug: string): Promise<Product | undefined> {
-  return CATALOG_PRODUCTS.find((p) => p.slug === slug);
-}
-
-/** Every product slug — used to pre-render all /produkt/[slug] pages for static export. */
-export function getAllProductSlugs(): string[] {
-  return CATALOG_PRODUCTS.map((p) => p.slug);
-}
-
-export async function getRelatedProducts(product: Product, limit = 4): Promise<Product[]> {
-  return CATALOG_PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, limit);
+/**
+ * The bouquets shown on the landing page — a fixed, curated pick, not the
+ * full catalog. Six rather than four, since this is the only place on the
+ * branch where the shop's work is visible at all.
+ *
+ * BACKEND — this is a merchandising choice frozen at build time.
+ * A real product backend drives which bouquets are shown (and whether
+ * they are available at all) from live availability. Sold-out state and
+ * the per-product delivery window that the shop branch rendered on each
+ * card are deliberately not shown here: both are order-flow state, and
+ * neither can be kept truthful without that backend.
+ */
+export async function getShowcaseBouquets(): Promise<ShowcaseBouquet[]> {
+  const slugs = ["feldrand", "spaetsommer", "zimmerlinde", "weiss-gruen", "dahlienbund", "rose-eukalyptus"];
+  return slugs.map((slug) => {
+    const { id, name, priceCents, image } = CATALOG_PRODUCTS.find((p) => p.slug === slug)!;
+    return { id, name, priceCents, image };
+  });
 }
 
 /** `48,00 €` — comma decimal separator, non-breaking space before the €, per DESIGN-SYSTEM-RULES. */

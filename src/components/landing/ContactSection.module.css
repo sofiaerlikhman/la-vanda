@@ -1,0 +1,108 @@
+.section {
+  max-width: var(--lv-container);
+  margin: 0 auto;
+  padding: var(--lv-space-9) var(--lv-margin);
+  scroll-margin-top: var(--lv-header-h);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--lv-space-8);
+  align-items: start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-s);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--lv-ink);
+}
+
+.lead {
+  margin: var(--lv-space-5) 0 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+}
+
+.details {
+  margin: 0;
+  border-top: 1px solid var(--lv-line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--lv-space-5);
+  padding: var(--lv-space-4) 0;
+  border-bottom: 1px solid var(--lv-line);
+}
+
+.label {
+  margin: 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+  /* The mono label sits on the same optical line as 16px body text. */
+  padding-top: 4px;
+}
+
+.value {
+  margin: 0;
+  font-size: var(--lv-text-body);
+  line-height: 1.6;
+  color: var(--lv-ink);
+}
+
+.value a {
+  color: var(--lv-lav-700);
+}
+.value a:hover {
+  color: var(--lv-ink);
+}
+
+.hoursLine {
+  display: block;
+}
+
+.placeholder {
+  margin: var(--lv-space-6) 0 0;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-caption);
+  line-height: 1.45;
+  color: var(--lv-ink-subtle);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--lv-space-6) var(--lv-margin);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--lv-space-6);
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--lv-space-1);
+  }
+
+  .label {
+    padding-top: 0;
+  }
+
+  /* tel: and mailto: are the two things a visitor actually taps here. */
+  .value a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

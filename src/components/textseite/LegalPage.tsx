@@ -21,7 +21,9 @@ type Props = {
  */
 export default function LegalPage({ title, lead, updatedLabel = "Stand 31. August 2026", children }: Props) {
   return (
-    <div className={styles.page}>
+    // <main id="inhalt"> is the landmark the header's skip link targets;
+    // every page needs one for that link to have somewhere to go.
+    <main id="inhalt" className={styles.page}>
       <Breadcrumb items={[{ label: "Start", href: "/" }, { label: title }]} />
 
       <p className={styles.meta}>
@@ -46,6 +48,6 @@ export default function LegalPage({ title, lead, updatedLabel = "Stand 31. Augus
       </div>
 
       <article className={styles.content}>{children}</article>
-    </div>
+    </main>
   );
 }

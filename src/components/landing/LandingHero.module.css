@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  height: 640px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+}
+
+.panel {
+  position: absolute;
+  left: var(--lv-margin);
+  bottom: var(--lv-margin);
+  width: 800px;
+  max-width: calc(100% - var(--lv-margin) * 2);
+  background: var(--lv-cream-50);
+  padding: 40px 44px 44px;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  font-family: var(--lv-font-mono);
+  font-size: var(--lv-text-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lv-ink-subtle);
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--lv-font-display);
+  font-weight: 400;
+  font-size: var(--lv-text-display-xl);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--lv-ink);
+  text-wrap: pretty;
+}
+
+.lead {
+  margin: 24px 0 0;
+  font-size: var(--lv-text-body-l);
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--lv-ink-muted);
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image {
+    /* Must stay positioned, not static: ImagePlaceholder's caption is
+       absolutely positioned against it, and a static parent lets the
+       caption escape to the viewport and cover the page. */
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .panel {
+    position: static;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: none;
+    padding: var(--lv-space-6) var(--lv-margin);
+  }
+
+  .headline {
+    /* "Marktstraße" is one unbreakable 11-character word: 368px wide at
+       display-l against a 327px line box at the 375px design width, so
+       display-l and display-xl both force a mid-word break. display-m
+       (281px) fits on one line from 375px up.
+
+       Below ~350px it still breaks. `hyphens: auto` was tried first and
+       does nothing here — Chrome only hyphenates when it has a
+       dictionary for the active `lang`, and this word keeps its German
+       spelling in all three languages. break-word therefore stays: at
+       the 320px floor the word splits rather than overflowing, which is
+       cosmetic, where a horizontal scrollbar would not be. */
+    font-size: var(--lv-text-display-m);
+    overflow-wrap: break-word;
+  }
+
+  .lead {
+    max-width: none;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions > a {
+    width: 100%;
+  }
+}

@@ -1152,4 +1152,54 @@ export const uk: Record<string, string> = {
   "das Widerrufsrecht entfällt ab diesem Zeitpunkt (Bindebeginn)": "право на відмову зникає з цього моменту (початку збирання)",
   "Genau darauf weisen wir auch im Checkout hin, bevor du die Bestellung abschließt. Bis zum Bindebeginn kannst du wie oben beschrieben ganz normal widerrufen.":
     "Саме на це ми звертаємо увагу під час оформлення, перш ніж ви завершите замовлення. До початку збирання ви можете відмовитися звичайним чином, як описано вище.",
+
+  // ═════════════════════════════════════════════════════════════════════
+  //  LANDING PAGE (this branch only — the one-page preview site)
+  // ═════════════════════════════════════════════════════════════════════
+  // Preview status (LandingBanner, PreviewNotice, LandingFooter)
+  "Vorschau": "Попередній перегляд",
+  "Bestellung und Reservierung noch nicht möglich": "Замовлення та бронювання поки неможливі",
+  "Noch kein Online-Shop": "Онлайн-магазину ще немає",
+  "Diese Seite zeigt, was wir machen und wo du uns findest. Bestellen und reservieren kannst du hier noch nicht — im Laden an der Marktstraße 12 sind wir zu den Öffnungszeiten da.":
+    "Ця сторінка показує, що ми робимо і де нас знайти. Замовити чи забронювати тут ще не можна — у магазині на Marktstraße 12 ми на місці в робочі години.",
+
+  // Landing chrome (LandingHeader, LandingFooter, LandingMenuOverlay)
+  "Zum Inhalt springen": "Перейти до вмісту",
+  "Auf dieser Seite": "На цій сторінці",
+
+  // Landing sections
+  "Blumen ansehen": "Подивитися квіти",
+  "Was wir binden": "Що ми збираємо",
+  "Eine Auswahl aus dem Laden": "Добірка з магазину",
+  "Preise als Orientierung. Was im Laden steht, wechselt mit der Saison und dem Einkauf.":
+    "Ціни орієнтовні. Те, що стоїть у магазині, змінюється з сезоном і закупівлею.",
+  "Wie wir arbeiten": "Як ми працюємо",
+  "Anmeldung online noch nicht möglich.": "Онлайн-реєстрація поки неможлива.",
+  "[Termine und freie Plätze werden vor Veröffentlichung bestätigt]":
+    "[Дати та вільні місця буде підтверджено перед публікацією]",
+  "Wie wir liefern": "Як ми доставляємо",
+  // Bare price: identical in all three languages (comma decimal, non-breaking
+  // space before the €, matching formatPriceEUR). Listed so the key audit
+  // stays clean rather than relying on the German fallback.
+  "4,90 €": "4,90 €",
+  "Liefergebühr": "Вартість доставки",
+  "11–14 Uhr oder 17–20 Uhr": "11–14 або 17–20",
+  "Im Laden zu den Öffnungszeiten": "У магазині в робочі години",
+  "So erreichst du uns": "Як з нами звʼязатися",
+  "Adresse": "Адреса",
+  "Ein Kontaktformular gibt es auf dieser Seite noch nicht.": "Контактної форми на цій сторінці поки немає.",
+  "[Telefon und E-Mail vor Veröffentlichung bestätigen]":
+    "[Телефон та ел. пошту підтвердити перед публікацією]",
+
+  // Datenschutz — landing-branch wording (no cart, no forms, no payments)
+  "Keine Bestellung, keine Bestelldaten": "Немає замовлень — немає даних про замовлення",
+  "Diese Website ist eine reine Informationsseite. Es gibt hier weder Warenkorb noch Bestell-, Buchungs- oder Reservierungsfunktion und keine Formulare. Wir erheben über diese Seite deshalb keine Bestell-, Liefer- oder Zahlungsdaten.":
+    "Цей сайт — суто інформаційна сторінка. Тут немає ні кошика, ні функції замовлення, бронювання чи резервування, ні форм. Тому ми не збираємо через цю сторінку жодних даних про замовлення, доставку чи оплату.",
+  "Lokale Speicherung": "Локальне зберігання",
+  "Im lokalen Speicher deines Browsers (localStorage) merken wir uns ausschließlich die von dir gewählte Sprache (Deutsch, Ukrainisch oder Englisch), damit sie beim nächsten Besuch erhalten bleibt. Diese Angabe verlässt dein Gerät nicht. Cookies setzen wir nicht ein, und es sind keine Analyse-, Tracking- oder Marketing-Dienste eingebunden.":
+    "У локальному сховищі вашого браузера (localStorage) ми зберігаємо лише обрану вами мову (німецьку, українську або англійську), щоб вона збереглася до наступного візиту. Ця інформація не покидає вашого пристрою. Файлів cookie ми не використовуємо, аналітичних, трекінгових чи маркетингових сервісів не підключено.",
+  "Schreibst du uns per E-Mail oder rufst du uns an, verarbeiten wir deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO). Die Telefon- und E-Mail-Links auf dieser Seite öffnen dein eigenes Telefon- oder E-Mail-Programm; es werden dabei keine Daten an uns übertragen.":
+    "Якщо ви пишете нам електронною поштою або телефонуєте, ми обробляємо ваші дані лише для відповіді на ваш запит (ст. 6 ч. 1 п. b або п. f GDPR). Посилання на телефон та ел. пошту на цій сторінці відкривають вашу власну програму — жодні дані при цьому нам не передаються.",
+  "Wir geben deine Daten nicht an Dritte weiter, abgesehen vom Hosting-Anbieter, der die Seite ausliefert, und soweit wir gesetzlich dazu verpflichtet sind. Ein Verkauf deiner Daten an Dritte findet nicht statt.":
+    "Ми не передаємо ваші дані третім сторонам, крім хостинг-провайдера, який обслуговує сторінку, та випадків, коли це вимагається законом. Продажу ваших даних третім сторонам не відбувається.",
 };
