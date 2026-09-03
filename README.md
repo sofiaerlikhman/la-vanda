@@ -18,6 +18,42 @@
 > vollständigen Shop und gilt für `main` — für diesen Branch also nur dort,
 > wo es um gemeinsame Grundlagen geht (Design-Tokens, i18n, Build, Deployment).
 >
+> ### Was ist gerade live?
+>
+> Veröffentlicht wird **immer der Branch, der in
+> [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) unter
+> `LIVE_BRANCH` steht** — nicht der Branch, den du zuletzt gepusht hast. Ein
+> Push auf `main` verändert die Live-Seite also nicht versehentlich.
+>
+> Aktuell: **`LIVE_BRANCH: landing`** — live ist die einseitige Vorschauseite.
+>
+> **Zurück zum vollständigen Shop:** In `deploy.yml` `LIVE_BRANCH` auf `main`
+> setzen — auf **beiden** Branches, damit die zwei Kopien der Datei
+> übereinstimmen — und pushen:
+>
+> ```bash
+> git checkout main
+> sed -i 's/^  LIVE_BRANCH: .*/  LIVE_BRANCH: main/' .github/workflows/deploy.yml
+> git commit -am "Publish the full shop again"
+> git push
+>
+> git checkout landing
+> sed -i 's/^  LIVE_BRANCH: .*/  LIVE_BRANCH: main/' .github/workflows/deploy.yml
+> git commit -am "Publish the full shop again"
+> git push
+> ```
+>
+> Der erste Push startet den Deploy; der zweite hält die Datei nur synchron.
+> Umgekehrt (zurück auf die Landingpage) genauso, mit `landing` statt `main`.
+>
+> **Einmalig veröffentlichen, ohne etwas zu ändern:** Actions-Tab → „Deploy to
+> GitHub Pages“ → „Run workflow“ → Branchnamen ins Feld „branch“ eintragen.
+> Gilt nur für diesen Lauf; der nächste Push veröffentlicht wieder
+> `LIVE_BRANCH`.
+>
+> Nichts geht dabei verloren: `main` bleibt unverändert mit allen Seiten und
+> Funktionen bestehen, egal was live ist.
+>
 > → **[`BACKEND.md`](BACKEND.md)** listet jedes Element auf, das ein Backend
 > bräuchte, was es stattdessen tut, und was vor einer Veröffentlichung noch
 > fehlt (Fotos, Karte, bestätigte Telefonnummer und E-Mail-Adresse).
