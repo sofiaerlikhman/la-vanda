@@ -13,6 +13,7 @@
   --lv-lav-100:   #E4DFEC;  /* tint fill, selection, chips */
   --lv-lav-200:   #C9C1D8;  /* borders on lavender fields */
   --lv-lav-300:   #A9A0BC;  /* disabled brand, decorative */
+  --lv-lav-50:    #F2EEF6;  /* text on disabled primary buttons */
   --lv-lav-500:   #7D7197;  /* PRIMARY — fields, CTA, links */
   --lv-lav-700:   #5C5273;  /* hover on primary, meta text */
   --lv-lav-900:   #423A54;  /* pressed, text on cream buttons */
@@ -95,6 +96,8 @@
   --lv-dur-reveal:  600ms;   /* scroll-into-view fade + rise */
   --lv-dur-hover:   240ms;   /* image zoom, card lift — slower than micro, reads as calm */
   --lv-reveal-rise: 16px;    /* how far elements travel up as they appear */
+  --lv-stagger:     70ms;    /* delay step between cascading group children */
+  --lv-stagger-max: 320ms;   /* cap, so a large grid never feels slow */
   --lv-hover-lift:  2px;     /* how far cards/buttons rise on hover */
   --lv-hover-zoom:  1.04;    /* image zoom factor on hover */
 

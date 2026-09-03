@@ -57,7 +57,7 @@
 }
 .primary:disabled {
   background: var(--lv-lav-300);
-  color: #f2eef6;
+  color: var(--lv-lav-50);
   cursor: not-allowed;
 }
 
