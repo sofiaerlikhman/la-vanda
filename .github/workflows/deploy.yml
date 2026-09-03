@@ -1,11 +1,39 @@
 name: Deploy to GitHub Pages
 
-# Build the Next.js static export and publish it to GitHub Pages on every push
-# to main (and on demand via the Actions tab).
+# ══════════════════════════════════════════════════════════════════════
+#  WHICH BRANCH IS PUBLISHED
+#
+#  This workflow always builds and publishes the branch named in
+#  LIVE_BRANCH below — never "whichever branch you happened to push".
+#  Pushing any watched branch just asks it to redeploy LIVE_BRANCH, so
+#  the live site cannot change by accident.
+#
+#      landing → the one-page preview, no ordering (see BACKEND.md)
+#      main    → the full shop, all routes and functions
+#
+#  To switch, change LIVE_BRANCH and push — on BOTH branches, so the two
+#  copies of this file agree. See "Was ist gerade live?" in README.md for
+#  the exact commands.
+#
+#  For a one-off publish without editing anything, use the Actions tab →
+#  "Deploy to GitHub Pages" → "Run workflow" and type a branch name in
+#  the "branch" box. That overrides LIVE_BRANCH for that run only; the
+#  next push publishes LIVE_BRANCH again.
+# ══════════════════════════════════════════════════════════════════════
+env:
+  LIVE_BRANCH: landing
+
 on:
+  # Both branches are watched so either one can trigger a redeploy — but
+  # what gets published is LIVE_BRANCH, not the branch that was pushed.
   push:
-    branches: [main]
+    branches: [main, landing]
   workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to publish for this run only (blank = LIVE_BRANCH)"
+        required: false
+        type: string
 
 # Grant the workflow the tokens the Pages deployment needs.
 permissions:
@@ -22,8 +50,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout the branch being published
         uses: actions/checkout@v4
+        with:
+          # A blank dispatch input is falsy here, so a normal push falls
+          # through to LIVE_BRANCH.
+          ref: ${{ github.event.inputs.branch || env.LIVE_BRANCH }}
+
+      - name: Report what is being published
+        # Written to the run summary so the Actions list says plainly which
+        # branch went live, rather than only which push triggered the run.
+        run: |
+          PUBLISHED="${{ github.event.inputs.branch || env.LIVE_BRANCH }}"
+          echo "### Publishing \`$PUBLISHED\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: \`$(git rev-parse --short HEAD)\` — $(git log -1 --pretty=%s)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Triggered by: push/dispatch on \`${{ github.ref_name }}\`" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

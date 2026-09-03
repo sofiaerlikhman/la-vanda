@@ -142,6 +142,43 @@ git push -u origin main
 
 `.gitignore` schließt bereits `node_modules`, `.next` und lokale Env-Dateien aus.
 
+## Was ist gerade live?
+
+> **Aktuell live: der Branch `landing`** — eine einseitige Vorschauseite ohne
+> Bestell-, Reservierungs- und Buchungsfunktion. Dieser Branch (`main`) mit dem
+> vollständigen Shop bleibt unverändert bestehen und kann jederzeit wieder
+> veröffentlicht werden.
+
+Veröffentlicht wird **immer der Branch, der in
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) unter
+`LIVE_BRANCH` steht** — nicht der Branch, den du zuletzt gepusht hast. Ein Push
+auf `main` verändert die Live-Seite also nicht versehentlich.
+
+**Zurück zum vollständigen Shop:** `LIVE_BRANCH` auf `main` setzen — auf
+**beiden** Branches, damit die zwei Kopien der Datei übereinstimmen — und pushen:
+
+```bash
+git checkout main
+sed -i 's/^  LIVE_BRANCH: .*/  LIVE_BRANCH: main/' .github/workflows/deploy.yml
+git commit -am "Publish the full shop again"
+git push
+
+git checkout landing
+sed -i 's/^  LIVE_BRANCH: .*/  LIVE_BRANCH: main/' .github/workflows/deploy.yml
+git commit -am "Publish the full shop again"
+git push
+```
+
+Der erste Push startet den Deploy; der zweite hält die Datei nur synchron.
+Umgekehrt (zurück auf die Landingpage) genauso, mit `landing` statt `main`.
+
+**Einmalig veröffentlichen, ohne etwas zu ändern:** Actions-Tab → „Deploy to
+GitHub Pages“ → „Run workflow“ → Branchnamen ins Feld „branch“ eintragen. Gilt
+nur für diesen Lauf; der nächste Push veröffentlicht wieder `LIVE_BRANCH`.
+
+Was die Landingpage zeigt und was ihr noch fehlt, steht in `BACKEND.md` auf dem
+Branch `landing`.
+
 ## Hosting
 
 Als Next.js-Projekt lässt sich das am einfachsten auf **[Vercel](https://vercel.com)** deployen (Zero-Config: Repo verbinden, fertig) — funktioniert genauso auf jedem Node-fähigen Host (Railway, Render, eigener Server mit `npm run build && npm run start`). Sobald ein Backend/eine Datenbank dazukommt, kommen die Verbindungsdaten als Umgebungsvariablen dazu (`.env.local` lokal, im Hosting-Dashboard in Produktion) — `.env*` ist in `.gitignore` bereits ausgeschlossen, damit keine Zugangsdaten versehentlich commitet werden.
