@@ -2,7 +2,7 @@
 
 import { formatPriceEUR } from "@/data/products";
 import { useT } from "@/i18n/LanguageProvider";
-import { GREENS } from "@/data/konfigurator";
+import { GREENS } from "@/data/configurator";
 import styles from "./GreenPicker.module.css";
 
 type GreenPickerProps = {

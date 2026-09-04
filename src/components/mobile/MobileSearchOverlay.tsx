@@ -9,7 +9,7 @@ import styles from "./MobileSearchOverlay.module.css";
 /**
  * Full-screen mobile search view — per "la Vanda Wireframes Mobile":
  * search is its own view rather than a header dropdown. Submitting
- * routes to /sortiment?q=… where SortimentBrowser does a real
+ * routes to /sortiment?q=… where CatalogueBrowser does a real
  * (client-side, name/description substring) filter — the same honesty
  * rule as everywhere else in this project: no fabricated results, and
  * this also turns the desktop header's search icon from a no-op into a

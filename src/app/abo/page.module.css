@@ -45,7 +45,7 @@
 }
 
 /* "So läuft das Abo" — full-bleed band, same pattern as the home page's
-   AboSection: a top-level <section> outside .page so its background can run
+   SubscriptionSection: a top-level <section> outside .page so its background can run
    edge to edge, with its own centered inner container. */
 .stepsBand {
   margin-top: var(--lv-space-9);

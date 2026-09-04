@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./AnfrageForm.module.css";
+import styles from "./InquiryForm.module.css";
 
 type FormValues = {
   name: string;
@@ -52,7 +52,7 @@ const EMPTY_FORM: FormValues = {
  * emailing the shop or forwarding to a CRM) once a backend exists — nothing
  * here is actually sent anywhere yet.
  */
-export default function AnfrageForm() {
+export default function InquiryForm() {
   const t = useT();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);

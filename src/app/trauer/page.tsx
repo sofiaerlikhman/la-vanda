@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
-import FaqAccordion from "@/components/produkt/FaqAccordion";
+import FaqAccordion from "@/components/product/FaqAccordion";
 import type { ProductFaqEntry } from "@/data/products";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";

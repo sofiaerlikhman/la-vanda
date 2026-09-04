@@ -12,7 +12,7 @@ import {
   GREETING_CARDS,
   MAX_STEMS_PER_FLOWER,
   WRAPS,
-} from "@/data/konfigurator";
+} from "@/data/configurator";
 import FlowerPicker from "./FlowerPicker";
 import GreenPicker from "./GreenPicker";
 import WrapPicker from "./WrapPicker";

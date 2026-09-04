@@ -3,7 +3,7 @@ import CutoffBanner from "@/components/CutoffBanner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
-import KontoView from "@/components/konto/KontoView";
+import AccountView from "@/components/account/AccountView";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function KontoPage() {
 
       <div className={styles.page}>
         <Breadcrumb items={[{ label: "Start", href: "/" }, { label: "Konto" }]} />
-        <KontoView />
+        <AccountView />
       </div>
 
       <SiteFooter />

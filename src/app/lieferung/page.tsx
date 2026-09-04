@@ -4,9 +4,9 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import FaqAccordion from "@/components/produkt/FaqAccordion";
-import DeliveryZoneCheck from "@/components/lieferung/DeliveryZoneCheck";
-import LiveDeliveryWindows from "@/components/lieferung/LiveDeliveryWindows";
+import FaqAccordion from "@/components/product/FaqAccordion";
+import DeliveryZoneCheck from "@/components/delivery/DeliveryZoneCheck";
+import LiveDeliveryWindows from "@/components/delivery/LiveDeliveryWindows";
 import type { ProductFaqEntry } from "@/data/products";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";
@@ -72,7 +72,7 @@ const FAQ: ProductFaqEntry[] = [
 
 /**
  * Full delivery-info page. The home page keeps its own short teaser
- * (src/components/home/LieferungSection.tsx) — this is the richer,
+ * (src/components/home/DeliverySection.tsx) — this is the richer,
  * dedicated version linked from the header nav and footer.
  */
 export default function LieferungPage() {

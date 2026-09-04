@@ -3,7 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { formatPriceEUR } from "@/data/products";
 import { useT } from "@/i18n/LanguageProvider";
-import { WRAPS } from "@/data/konfigurator";
+import { WRAPS } from "@/data/configurator";
 import styles from "./WrapPicker.module.css";
 
 type WrapPickerProps = {

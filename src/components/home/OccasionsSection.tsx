@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useT } from "@/i18n/LanguageProvider";
 import { OCCASIONS } from "@/data/occasions";
-import styles from "./AnlaesseSection.module.css";
+import styles from "./OccasionsSection.module.css";
 
-export default function AnlaesseSection() {
+export default function OccasionsSection() {
   const t = useT();
 
   return (

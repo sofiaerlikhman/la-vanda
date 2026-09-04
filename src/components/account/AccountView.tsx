@@ -3,7 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./KontoView.module.css";
+import styles from "./AccountView.module.css";
 
 /**
  * BACKEND GAP — no real authentication or account backend exists yet
@@ -69,7 +69,7 @@ function validateRegister(fields: RegisterFields): Partial<Record<keyof Register
 const NOT_CONNECTED_NOTICE =
   "Konten sind in dieser Version noch nicht angebunden — hier entsteht später die echte Anmeldung.";
 
-export default function KontoView() {
+export default function AccountView() {
   const t = useT();
   const [view, setView] = useState<ViewMode>("auth");
   const [authMode, setAuthMode] = useState<AuthMode>("login");
@@ -89,7 +89,7 @@ export default function KontoView() {
   const [registerSubmitted, setRegisterSubmitted] = useState(false);
 
   const [activeTab, setActiveTab] = useState<Tab>("bestellungen");
-  // Mobile only (see KontoView.module.css): "la Vanda Wireframes Mobile" is
+  // Mobile only (see AccountView.module.css): "la Vanda Wireframes Mobile" is
   // explicit here — "Auf mobil wird aus den Konto-Tabs eine Liste; jeder
   // Punkt ist eine eigene Ansicht" (the tabs become a list; each item is
   // its own view). Both the list and the selected panel stay in the DOM

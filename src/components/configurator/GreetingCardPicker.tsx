@@ -3,7 +3,7 @@
 import type { ChangeEvent } from "react";
 import { formatPriceEUR } from "@/data/products";
 import { useT } from "@/i18n/LanguageProvider";
-import { GREETING_CARDS, MAX_CARD_MESSAGE_LENGTH } from "@/data/konfigurator";
+import { GREETING_CARDS, MAX_CARD_MESSAGE_LENGTH } from "@/data/configurator";
 import styles from "./GreetingCardPicker.module.css";
 
 type GreetingCardPickerProps = {

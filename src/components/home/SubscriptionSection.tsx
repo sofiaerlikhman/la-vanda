@@ -3,7 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./AboSection.module.css";
+import styles from "./SubscriptionSection.module.css";
 
 /**
  * This is the home page's Abo *teaser* — it shows the rhythm/size options
@@ -11,7 +11,7 @@ import styles from "./AboSection.module.css";
  * up here). The real, interactive configurator belongs on the future
  * /abo page.
  */
-export default function AboSection() {
+export default function SubscriptionSection() {
   const t = useT();
 
   return (

@@ -3,9 +3,9 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./AnfrageBand.module.css";
+import styles from "./InquiryBand.module.css";
 
-export default function AnfrageBand() {
+export default function InquiryBand() {
   const t = useT();
 
   return (

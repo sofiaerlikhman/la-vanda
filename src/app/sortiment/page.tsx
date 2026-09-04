@@ -5,8 +5,8 @@ import CutoffBanner from "@/components/CutoffBanner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
-import OrderCountdown from "@/components/sortiment/OrderCountdown";
-import SortimentBrowser from "@/components/sortiment/SortimentBrowser";
+import OrderCountdown from "@/components/catalogue/OrderCountdown";
+import CatalogueBrowser from "@/components/catalogue/CatalogueBrowser";
 import { T } from "@/i18n/T";
 import { getCatalog } from "@/data/products";
 import styles from "./page.module.css";
@@ -61,7 +61,7 @@ export default async function SortimentPage() {
             Suspense boundary so this stays server-rendered rather than
             forcing the whole route to opt out of static optimization. */}
         <Suspense fallback={null}>
-          <SortimentBrowser products={products} />
+          <CatalogueBrowser products={products} />
         </Suspense>
 
         <div className={styles.serviceStrip}>

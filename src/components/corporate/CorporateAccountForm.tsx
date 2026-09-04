@@ -3,7 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./FirmenkontoForm.module.css";
+import styles from "./CorporateAccountForm.module.css";
 
 type FormValues = {
   company: string;
@@ -40,7 +40,7 @@ const EMPTY_FORM: FormValues = {
  * POST to a Next.js Route Handler (e.g. src/app/api/firmenkonto/route.ts,
  * emailing the shop or creating a lead in a CRM) once a backend exists.
  */
-export default function FirmenkontoForm() {
+export default function CorporateAccountForm() {
   const t = useT();
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);

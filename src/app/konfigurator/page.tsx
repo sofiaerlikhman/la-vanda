@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import BouquetConfigurator from "@/components/konfigurator/BouquetConfigurator";
+import BouquetConfigurator from "@/components/configurator/BouquetConfigurator";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 

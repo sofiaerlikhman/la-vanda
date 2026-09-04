@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 import { useCart } from "@/context/CartContext";
 import { useT } from "@/i18n/LanguageProvider";
 import { formatPriceEUR } from "@/data/products";
-import styles from "./AboConfigurator.module.css";
+import styles from "./SubscriptionConfigurator.module.css";
 
 type RhythmId = "weekly" | "biweekly" | "monthly";
 type SizeId = "s" | "m" | "l";
@@ -83,7 +83,7 @@ function formatDeliveryDate(date: Date): string {
  * represents the signup / first delivery; the chosen rhythm is carried as
  * `meta` text so it at least survives through checkout for now.
  */
-export default function AboConfigurator() {
+export default function SubscriptionConfigurator() {
   const { addItem } = useCart();
   const t = useT();
   const [rhythm, setRhythm] = useState<RhythmId>("weekly");

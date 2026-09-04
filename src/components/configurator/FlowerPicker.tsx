@@ -3,7 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { formatPriceEUR } from "@/data/products";
 import { useT } from "@/i18n/LanguageProvider";
-import { FLOWERS, FLOWER_GROUP_FILTERS, MAX_STEMS_PER_FLOWER, type FlowerGroup } from "@/data/konfigurator";
+import { FLOWERS, FLOWER_GROUP_FILTERS, MAX_STEMS_PER_FLOWER, type FlowerGroup } from "@/data/configurator";
 import styles from "./FlowerPicker.module.css";
 
 type FlowerFilter = (typeof FLOWER_GROUP_FILTERS)[number];

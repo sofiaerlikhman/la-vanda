@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import AnfrageForm from "@/components/anfrage/AnfrageForm";
+import InquiryForm from "@/components/inquiry/InquiryForm";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
@@ -43,7 +43,7 @@ const REFERENCE_IMAGES = ["Referenz Hotel", "Referenz Restaurant", "Referenz Lad
 /**
  * Full port of `la Vanda Anfrage.dc.html` — the custom-request page for
  * installations/deco, weddings & events, and Trauerbinderei, i.e. bespoke
- * work that doesn't go through the normal cart. The form (AnfrageForm) only
+ * work that doesn't go through the normal cart. The form (InquiryForm) only
  * confirms locally; see its file for the backend note.
  */
 export default function AnfragePage() {
@@ -148,7 +148,7 @@ export default function AnfragePage() {
               </p>
             </div>
           </div>
-          <AnfrageForm />
+          <InquiryForm />
         </div>
       </section>
 

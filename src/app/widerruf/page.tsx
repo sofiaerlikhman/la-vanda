@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CutoffBanner from "@/components/CutoffBanner";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import LegalPage from "@/components/textseite/LegalPage";
+import LegalPage from "@/components/legal/LegalPage";
 import { T } from "@/i18n/T";
 
 export const metadata: Metadata = {

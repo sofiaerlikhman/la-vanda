@@ -5,9 +5,9 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import Button from "@/components/Button";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import FaqAccordion from "@/components/produkt/FaqAccordion";
+import FaqAccordion from "@/components/product/FaqAccordion";
 import type { ProductFaqEntry } from "@/data/products";
-import AboConfigurator from "@/components/abo/AboConfigurator";
+import SubscriptionConfigurator from "@/components/subscription/SubscriptionConfigurator";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
@@ -91,7 +91,7 @@ export default function AboPage() {
               <T de="Du wählst Rhythmus, Größe und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis 18 Uhr am Vortag, kündigen jederzeit." />
             </p>
 
-            <AboConfigurator />
+            <SubscriptionConfigurator />
           </div>
         </section>
       </div>

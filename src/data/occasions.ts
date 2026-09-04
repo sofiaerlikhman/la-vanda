@@ -1,5 +1,5 @@
 /**
- * Occasions ("Anlässe") — used by the home page teaser (AnlaesseSection),
+ * Occasions ("Anlässe") — used by the home page teaser (OccasionsSection),
  * the full overview page (/anlaesse) and, for the three occasions that get
  * their own template page (/anlass/[slug]), the per-occasion detail content.
  *

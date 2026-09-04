@@ -6,7 +6,7 @@ import ProductGrid from "@/components/ProductGrid";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
 import type { Product } from "@/data/products";
-import styles from "./SortimentBrowser.module.css";
+import styles from "./CatalogueBrowser.module.css";
 
 type SortKey = "empfehlung" | "preis-auf" | "preis-ab";
 type PriceCap = 3000 | 5000 | 8000 | null;
@@ -33,7 +33,7 @@ const PRICE_LABELS: { value: PriceCap; label: string }[] = [
  * thing to swap for a real backend query once the catalog grows or needs
  * to reflect live stock across many categories.
  */
-export default function SortimentBrowser({ products }: { products: Product[] }) {
+export default function CatalogueBrowser({ products }: { products: Product[] }) {
   const t = useT();
   const searchParams = useSearchParams();
   const [drawerOpen, setDrawerOpen] = useState(false);

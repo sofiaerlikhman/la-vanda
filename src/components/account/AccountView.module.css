@@ -338,7 +338,7 @@
 
   /* "Auf mobil wird aus den Konto-Tabs eine Liste; jeder Punkt ist eine
      eigene Ansicht" — show either the tab list or the selected panel,
-     never both, per data-mobile-view (set in KontoView.tsx). */
+     never both, per data-mobile-view (set in AccountView.tsx). */
   .dashboardGrid[data-mobile-view="list"] .contentPane {
     display: none;
   }

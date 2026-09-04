@@ -5,7 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import Button from "@/components/Button";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
-import FirmenkontoForm from "@/components/firmenkunden/FirmenkontoForm";
+import CorporateAccountForm from "@/components/corporate/CorporateAccountForm";
 import { T } from "@/i18n/T";
 import styles from "./page.module.css";
 
@@ -46,7 +46,7 @@ const CAPABILITIES = [
 /**
  * Full port of `la Vanda Firmenkunden.dc.html` — B2B info (Büro-Abo,
  * Sammelbestellung, Deko & Event) plus the account-application form
- * (FirmenkontoForm), a distinct form from the general custom-request one at
+ * (CorporateAccountForm), a distinct form from the general custom-request one at
  * /anfrage since this is about opening a billing relationship rather than
  * requesting a one-off job. "Installation anfragen" links out to /anfrage
  * instead of duplicating that form here, matching the source's own link.
@@ -150,7 +150,7 @@ export default function FirmenkundenPage() {
               <T de="Wir melden uns mit den Zahlungsbedingungen und einem Vorschlag für den Wochenplan." />
             </p>
           </div>
-          <FirmenkontoForm />
+          <CorporateAccountForm />
         </div>
       </section>
 

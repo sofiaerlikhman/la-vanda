@@ -98,7 +98,7 @@ export const uk: Record<string, string> = {
   "Atelier ansehen": "Переглянути ательє",
   "Werkstatt, Hände, 4:3": "Майстерня, руки, 4:3",
 
-  // ── Home · Abo section (AboSection) ─────────────────────────────────
+  // ── Home · Abo section (SubscriptionSection) ─────────────────────────────────
   "Jede Woche frisch": "Щотижня свіжі квіти",
   "Du wählst Größe, Rhythmus und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis 18 Uhr am Vortag.":
     "Ви обираєте розмір, ритм і день тижня. Ми збираємо вранці й доставляємо ввечері. Призупинити можна до 18:00 напередодні.",
@@ -111,7 +111,7 @@ export const uk: Record<string, string> = {
   "je Lieferung, Versand inklusive": "за доставку, пересилання включено",
   "Abo-Strauß, Hochformat 3:4": "Букет за підпискою, вертикально 3:4",
 
-  // ── Home · Anlässe section (AnlaesseSection) ────────────────────────
+  // ── Home · Anlässe section (OccasionsSection) ────────────────────────
   "Wofür sind": "Для чого",
   "die Blumen?": "ці квіти?",
   "Zu jedem Anlass eine kuratierte Auswahl, drei Preisstufen, dasselbe Zeitfenster.":
@@ -128,14 +128,14 @@ export const uk: Record<string, string> = {
   "auf Anfrage": "за запитом",
   "auf Rechnung": "за рахунком",
 
-  // ── Home · Anfrage band (AnfrageBand) ───────────────────────────────
+  // ── Home · Anfrage band (InquiryBand) ───────────────────────────────
   "Floristik nach Maß": "Флористика на замовлення",
   "Installationen für Laden und Restaurant, Hochzeiten, Trauerbinderei. Schreib uns Ort, Datum und Budget — wir antworten innerhalb von zwei Werktagen.":
     "Оформлення для магазинів і ресторанів, весілля, траурна флористика. Напишіть нам місце, дату й бюджет — відповімо протягом двох робочих днів.",
   "Anfrage schreiben": "Надіслати запит",
   "Installation, Vollbreite": "Інсталяція, на всю ширину",
 
-  // ── Home · Lieferung section (LieferungSection) ─────────────────────
+  // ── Home · Lieferung section (DeliverySection) ─────────────────────
   "Liefern wir zu dir?": "Чи доставляємо ми до вас?",
   "Eigene Fahrer, kein Paketdienst. Zwei Zeitfenster am Tag, samstags eines.":
     "Власні водії, жодних поштових служб. Два часові вікна на день, у суботу — одне.",

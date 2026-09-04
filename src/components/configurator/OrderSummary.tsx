@@ -4,7 +4,7 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { formatPriceEUR } from "@/data/products";
 import { useT } from "@/i18n/LanguageProvider";
-import { MIN_ORDER_CENTS } from "@/data/konfigurator";
+import { MIN_ORDER_CENTS } from "@/data/configurator";
 import styles from "./OrderSummary.module.css";
 
 export type SummaryLine = {

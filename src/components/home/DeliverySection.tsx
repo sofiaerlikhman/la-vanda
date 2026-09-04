@@ -3,9 +3,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { checkDeliveryZone, type DeliveryCheckResult } from "@/data/delivery";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./LieferungSection.module.css";
+import styles from "./DeliverySection.module.css";
 
-export default function LieferungSection() {
+export default function DeliverySection() {
   const t = useT();
   const [plz, setPlz] = useState("");
   const [result, setResult] = useState<DeliveryCheckResult | null>(null);

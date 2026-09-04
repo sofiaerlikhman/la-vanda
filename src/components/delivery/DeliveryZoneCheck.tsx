@@ -8,7 +8,7 @@ import styles from "./DeliveryZoneCheck.module.css";
 /**
  * Hero postcode check for the dedicated Lieferung page. Uses the same
  * checkDeliveryZone() as the home-page teaser
- * (src/components/home/LieferungSection.tsx) — just laid out as a bordered
+ * (src/components/home/DeliverySection.tsx) — just laid out as a bordered
  * side panel instead of a full-width section. See checkDeliveryZone's own
  * doc comment for the placeholder-zone caveat.
  */

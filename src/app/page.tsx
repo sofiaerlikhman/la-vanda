@@ -4,10 +4,10 @@ import SiteFooter from "@/components/SiteFooter";
 import Hero from "@/components/home/Hero";
 import TodaysPicksSection from "@/components/home/TodaysPicksSection";
 import AtelierSection from "@/components/home/AtelierSection";
-import AboSection from "@/components/home/AboSection";
-import AnlaesseSection from "@/components/home/AnlaesseSection";
-import AnfrageBand from "@/components/home/AnfrageBand";
-import LieferungSection from "@/components/home/LieferungSection";
+import SubscriptionSection from "@/components/home/SubscriptionSection";
+import OccasionsSection from "@/components/home/OccasionsSection";
+import InquiryBand from "@/components/home/InquiryBand";
+import DeliverySection from "@/components/home/DeliverySection";
 import { getTodaysProducts } from "@/data/products";
 
 export default async function HomePage() {
@@ -20,10 +20,10 @@ export default async function HomePage() {
       <Hero />
       <TodaysPicksSection products={products} />
       <AtelierSection />
-      <AboSection />
-      <AnlaesseSection />
-      <AnfrageBand />
-      <LieferungSection />
+      <SubscriptionSection />
+      <OccasionsSection />
+      <InquiryBand />
+      <DeliverySection />
       <SiteFooter />
     </div>
   );
