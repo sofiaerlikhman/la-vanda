@@ -8,8 +8,8 @@ import AtelierIntro from "@/components/landing/AtelierIntro";
 import HoursSection from "@/components/landing/HoursSection";
 import TeamSection from "@/components/landing/TeamSection";
 import WorkshopSection from "@/components/landing/WorkshopSection";
-import AboSection from "@/components/landing/AboSection";
-import AnfrageBand from "@/components/landing/AnfrageBand";
+import SubscriptionSection from "@/components/landing/SubscriptionSection";
+import InquiryBand from "@/components/landing/InquiryBand";
 import DeliverySection from "@/components/landing/DeliverySection";
 import ContactSection from "@/components/landing/ContactSection";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -64,8 +64,8 @@ export default async function LandingPage() {
         <WorkshopSection workshops={workshops} />
 
         {/* What else we do */}
-        <AboSection />
-        <AnfrageBand />
+        <SubscriptionSection />
+        <InquiryBand />
 
         {/* How to reach us */}
         <DeliverySection facts={deliveryFacts} />

@@ -98,7 +98,7 @@ export const uk: Record<string, string> = {
   "Atelier ansehen": "Переглянути ательє",
   "Werkstatt, Hände, 4:3": "Майстерня, руки, 4:3",
 
-  // ── Home · Abo section (AboSection) ─────────────────────────────────
+  // ── Home · Subscription section (SubscriptionSection) ───────────────
   "Jede Woche frisch": "Щотижня свіжі квіти",
   "Du wählst Größe, Rhythmus und Wochentag. Wir binden am Morgen und liefern am Abend. Pausieren geht bis 18 Uhr am Vortag.":
     "Ви обираєте розмір, ритм і день тижня. Ми збираємо вранці й доставляємо ввечері. Призупинити можна до 18:00 напередодні.",
@@ -128,7 +128,7 @@ export const uk: Record<string, string> = {
   "auf Anfrage": "за запитом",
   "auf Rechnung": "за рахунком",
 
-  // ── Home · Anfrage band (AnfrageBand) ───────────────────────────────
+  // ── Home · Inquiry band (InquiryBand) ───────────────────────────────
   "Floristik nach Maß": "Флористика на замовлення",
   "Installationen für Laden und Restaurant, Hochzeiten, Trauerbinderei. Schreib uns Ort, Datum und Budget — wir antworten innerhalb von zwei Werktagen.":
     "Оформлення для магазинів і ресторанів, весілля, траурна флористика. Напишіть нам місце, дату й бюджет — відповімо протягом двох робочих днів.",

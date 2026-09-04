@@ -50,7 +50,7 @@ and redeploys.
 | --- | --- | --- |
 | Bouquet tiles (which six, names, prices) | `src/data/products.ts` → `getShowcaseBouquets()`, rendered by `BouquetShowcase` | Live selection, live prices, real availability. Sold-out state and per-product delivery windows are deliberately **not** rendered — both are order-flow state that cannot be kept truthful here. |
 | Occasion price labels ("ab 28,00 €") | `src/data/occasions.ts`, `OccasionsSection` | Catalog-driven pricing |
-| Subscription rhythms and prices | `src/data/abo.ts`, `AboSection` | Product service |
+| Subscription rhythms and prices | `src/data/subscription.ts`, `SubscriptionSection` | Product service |
 | Opening hours | `src/data/atelier.ts` → `OPENING_HOURS`, `HoursSection` + `ContactSection` | Holiday closures and one-off changes ("heute ab 15 Uhr geschlossen") — impossible on a static export |
 | Workshop dates | `src/data/atelier.ts` → `WORKSHOPS`, `WorkshopSection` | A workshop calendar. The list goes stale as soon as a date passes; seat counts are left off entirely, since a stale seat count reads as live availability. Marked in the UI as unconfirmed. |
 | Team members | `src/data/atelier.ts` → `TEAM`, `TeamSection` | A CMS, if the team changes often |

@@ -3,7 +3,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Button from "@/components/Button";
 import { useT } from "@/i18n/LanguageProvider";
-import styles from "./AnfrageBand.module.css";
+import styles from "./InquiryBand.module.css";
 
 /**
  * Custom work — installations, weddings, funeral flowers.
@@ -14,7 +14,7 @@ import styles from "./AnfrageBand.module.css";
  * number and email address further down rather than at a form that
  * would silently drop what someone typed into it.
  */
-export default function AnfrageBand() {
+export default function InquiryBand() {
   const t = useT();
 
   return (

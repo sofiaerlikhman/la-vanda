@@ -3,7 +3,7 @@ import Link from "next/link";
 import LandingBanner from "@/components/landing/LandingBanner";
 import LandingHeader from "@/components/landing/LandingHeader";
 import LandingFooter from "@/components/landing/LandingFooter";
-import LegalPage from "@/components/textseite/LegalPage";
+import LegalPage from "@/components/legal/LegalPage";
 import { T } from "@/i18n/T";
 
 export const metadata: Metadata = {

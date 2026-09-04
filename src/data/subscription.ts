@@ -8,7 +8,7 @@
  */
 
 /** BACKEND — real rhythms/prices come from the product backend, not this array. */
-export const ABO_RHYTHMS: string[] = ["Wöchentlich", "14-tägig", "Monatlich"];
+export const SUBSCRIPTION_RHYTHMS: string[] = ["Wöchentlich", "14-tägig", "Monatlich"];
 
 /** Prices in cents, matching the three sizes shown in the handoff. */
-export const ABO_SIZE_PRICES_CENTS: number[] = [2800, 4400, 7200];
+export const SUBSCRIPTION_SIZE_PRICES_CENTS: number[] = [2800, 4400, 7200];

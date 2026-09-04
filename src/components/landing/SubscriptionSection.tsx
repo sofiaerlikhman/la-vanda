@@ -2,9 +2,9 @@
 
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { useT } from "@/i18n/LanguageProvider";
-import { ABO_RHYTHMS, ABO_SIZE_PRICES_CENTS } from "@/data/abo";
+import { SUBSCRIPTION_RHYTHMS, SUBSCRIPTION_SIZE_PRICES_CENTS } from "@/data/subscription";
 import { formatPriceEUR } from "@/data/products";
-import styles from "./AboSection.module.css";
+import styles from "./SubscriptionSection.module.css";
 
 /**
  * The subscription, described rather than offered.
@@ -20,10 +20,10 @@ import styles from "./AboSection.module.css";
  * and the delivery-day choice all need the shop backend; there is no
  * "Abo starten" button here because there is nothing to start.
  */
-export default function AboSection() {
+export default function SubscriptionSection() {
   const t = useT();
 
-  const prices = ABO_SIZE_PRICES_CENTS.map(formatPriceEUR);
+  const prices = SUBSCRIPTION_SIZE_PRICES_CENTS.map(formatPriceEUR);
   const priceRange = `${prices[0]} – ${prices[prices.length - 1]}`;
 
   return (
@@ -44,7 +44,7 @@ export default function AboSection() {
           <dl className={styles.facts}>
             <div className={styles.fact}>
               <dt className={styles.factLabel}>{t("Rhythmus")}</dt>
-              <dd className={styles.factValue}>{ABO_RHYTHMS.map((r) => t(r)).join(" · ")}</dd>
+              <dd className={styles.factValue}>{SUBSCRIPTION_RHYTHMS.map((r) => t(r)).join(" · ")}</dd>
             </div>
             <div className={styles.fact}>
               <dt className={styles.factLabel}>{t("Größe")}</dt>
