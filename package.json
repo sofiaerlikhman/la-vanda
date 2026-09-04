@@ -2,7 +2,7 @@
   "name": "la-vanda-shop",
   "version": "0.1.0",
   "private": true,
-  "description": "la Vanda — Blumenatelier Wiesbaden. Online-Shop-Frontend (Next.js).",
+  "description": "la Vanda — flower atelier in Wiesbaden. Online shop frontend (Next.js).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
